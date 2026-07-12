@@ -600,6 +600,9 @@ img { max-width: 100%; display: block; }
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .policy-card {
@@ -773,6 +776,12 @@ img { max-width: 100%; display: block; }
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.community-grid > li {
+  display: contents;
 }
 
 .community-card {
