@@ -691,6 +691,18 @@ img { max-width: 100%; display: block; }
   background: linear-gradient(180deg, var(--color-bg) 0%, var(--color-surface) 100%);
 }
 
+.vision-group-label {
+  max-width: 800px;
+  margin: 0 auto 16px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--color-accent-2);
+  letter-spacing: 0.08em;
+}
+.vision-group-label:not(:first-child) {
+  margin-top: 56px;
+}
+
 .vision-timeline {
   display: flex;
   flex-direction: column;
