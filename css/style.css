@@ -649,16 +649,25 @@ img { max-width: 100%; display: block; }
   display: block;
 }
 
+.policy-card-title-bar {
+  width: 32px;
+  height: 4px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--color-accent), var(--color-gold));
+  margin-bottom: 12px;
+}
+
 .policy-card-title {
-  font-size: 1.4rem;
+  font-size: 1.65rem;
   font-weight: 900;
   color: var(--color-text);
-  margin-bottom: 6px;
-  letter-spacing: 0.04em;
+  margin-bottom: 8px;
+  letter-spacing: 0.02em;
+  line-height: 1.25;
 }
 
 .policy-card-sub {
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   color: var(--color-gold);
   margin-bottom: 20px;
   font-weight: 600;
@@ -852,41 +861,6 @@ img { max-width: 100%; display: block; }
   margin-top: 16px;
 }
 
-.join-groups {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-  margin-bottom: 48px;
-}
-
-.join-group-card {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  padding: 28px;
-  transition: var(--transition);
-}
-.join-group-card:hover {
-  background: rgba(79, 142, 247, 0.07);
-  border-color: rgba(79, 142, 247, 0.35);
-  transform: translateY(-4px);
-}
-.join-group-icon {
-  font-size: 2rem;
-  margin-bottom: 12px;
-}
-.join-group-card h3 {
-  font-size: 1rem;
-  font-weight: 800;
-  color: var(--color-text);
-  margin-bottom: 8px;
-}
-.join-group-card p {
-  font-size: 0.82rem;
-  color: var(--color-text-dim);
-  line-height: 1.7;
-}
-
 .join-cta {
   text-align: center;
   padding: 48px;
@@ -903,6 +877,29 @@ img { max-width: 100%; display: block; }
   font-size: 0.92rem;
   color: var(--color-text-dim);
   margin-bottom: 28px;
+}
+
+.join-cta-solo {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 64px 48px;
+  background: radial-gradient(circle at 50% 0%, rgba(245, 200, 66, 0.1) 0%, rgba(79, 142, 247, 0.06) 55%, transparent 100%),
+    rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(245, 200, 66, 0.25);
+}
+.join-cta-icon {
+  font-size: 1.6rem;
+  color: var(--color-gold);
+  margin-bottom: 18px;
+}
+.join-cta-solo h3 {
+  font-size: 1.7rem;
+}
+.join-cta-solo p {
+  max-width: 440px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 32px;
 }
 
 /* ============================================================
@@ -1113,6 +1110,7 @@ img { max-width: 100%; display: block; }
   .about-visual   { flex-direction: row; align-items: flex-start; }
   .about-photo-frame { max-width: 220px; }
   .policy-grid    { grid-template-columns: 1fr; }
+  .join-cta-solo  { padding: 48px 28px; }
   .community-grid { grid-template-columns: 1fr; }
   .footer-grid    { grid-template-columns: 1fr 1fr; }
   .contact-grid   { grid-template-columns: 1fr; }
@@ -1147,6 +1145,61 @@ img { max-width: 100%; display: block; }
   .vision-item { grid-template-columns: 64px 1fr; gap: 20px; }
   .vision-icon { width: 44px; height: 44px; font-size: 1.3rem; margin-left: 10px; }
   .scroll-top { bottom: 20px; right: 20px; }
+
+  /* --- 六大政見：手機版橫向滑動卡片（Apple 風格） --- */
+  .policy-grid {
+    display: flex;
+    grid-template-columns: none;
+    overflow-x: auto;
+    overflow-y: visible;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: 12vw;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    gap: 16px;
+    padding: 8px 12vw 12px;
+    margin: 0 -24px;
+    scrollbar-width: none;
+  }
+  .policy-grid::-webkit-scrollbar { display: none; }
+
+  .policy-card {
+    flex: 0 0 76vw;
+    max-width: 340px;
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+    transform: scale(0.92);
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.5s ease, border-color 0.5s ease;
+  }
+  .policy-card.in-view {
+    transform: scale(1);
+    box-shadow: var(--shadow-card), var(--shadow-glow);
+    border-color: rgba(79, 142, 247, 0.35);
+  }
+
+  .policy-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 8px;
+  }
+  .policy-dots span {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--color-border);
+    transition: width 0.35s cubic-bezier(0.22, 1, 0.36, 1), background 0.35s ease;
+  }
+  .policy-dots span.active {
+    width: 22px;
+    border-radius: 3px;
+    background: linear-gradient(90deg, var(--color-accent), var(--color-gold));
+  }
+}
+
+@media (min-width: 769px) {
+  .policy-dots { display: none; }
 }
 
 @media (max-width: 480px) {
@@ -1154,4 +1207,6 @@ img { max-width: 100%; display: block; }
   .section-title { font-size: 1.6rem; }
   .hero-name { font-size: 3rem; }
   .about-stats { flex-direction: column; }
+  .policy-grid { margin: 0 -16px; padding-left: 16vw; padding-right: 16vw; }
+  .policy-card { flex-basis: 78vw; }
 }

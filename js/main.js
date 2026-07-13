@@ -149,7 +149,7 @@ const revealObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
 // 為同組元素自動加上 stagger delay
-document.querySelectorAll('.policy-grid .policy-card, .join-groups .join-group-card, .community-grid .community-card').forEach((el, i) => {
+document.querySelectorAll('.policy-grid .policy-card, .community-grid .community-card').forEach((el, i) => {
   el.dataset.delay = i * 120;
 });
 
@@ -221,6 +221,42 @@ document.querySelectorAll('.policy-card').forEach(card => {
     card.style.transform = '';
   });
 });
+
+// ─── 政見卡片：手機版橫向滑動置中強調 + 分頁指示點 ──────────
+(function initPolicyCarousel() {
+  const grid = document.querySelector('.policy-grid');
+  if (!grid) return;
+  const cards = Array.from(grid.querySelectorAll('.policy-card'));
+
+  const dots = document.createElement('div');
+  dots.className = 'policy-dots';
+  cards.forEach((_, i) => {
+    const dot = document.createElement('span');
+    if (i === 0) dot.classList.add('active');
+    dots.appendChild(dot);
+  });
+  grid.insertAdjacentElement('afterend', dots);
+  const dotEls = Array.from(dots.children);
+
+  const setActiveDot = (idx) => {
+    dotEls.forEach((d, i) => d.classList.toggle('active', i === idx));
+  };
+
+  const carouselObserver = new IntersectionObserver((entries) => {
+    let bestRatio = 0;
+    let bestIdx = -1;
+    entries.forEach((entry) => {
+      entry.target.classList.toggle('in-view', entry.intersectionRatio > 0.6);
+      if (entry.intersectionRatio > bestRatio) {
+        bestRatio = entry.intersectionRatio;
+        bestIdx = cards.indexOf(entry.target);
+      }
+    });
+    if (bestIdx > -1) setActiveDot(bestIdx);
+  }, { root: grid, threshold: [0, 0.25, 0.5, 0.6, 0.75, 1] });
+
+  cards.forEach((card) => carouselObserver.observe(card));
+})();
 
 // ─── 平滑滾動（補強瀏覽器相容性）────────────────────────────
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
