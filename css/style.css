@@ -1151,66 +1151,10 @@ img { max-width: 100%; display: block; }
     font-size: 0.78rem;
   }
 
-  /* --- 六大政見：手機版橫向滑動卡片（Apple 風格） --- */
-  .policy-grid {
-    display: flex;
-    grid-template-columns: none;
-    overflow-x: auto;
-    overflow-y: visible;
-    scroll-snap-type: x mandatory;
-    scroll-padding-inline: 12vw;
-    -webkit-overflow-scrolling: touch;
-    overscroll-behavior-x: contain;
-    gap: 16px;
-    padding: 8px 12vw 12px;
-    margin: 0 -24px;
-    scrollbar-width: none;
-  }
-  .policy-grid::-webkit-scrollbar { display: none; }
-
-  .policy-card {
-    flex: 0 0 76vw;
-    max-width: 340px;
-    scroll-snap-align: center;
-    scroll-snap-stop: always;
-    transform: scale(0.92);
-    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.5s ease, border-color 0.5s ease;
-  }
-  .policy-card.in-view {
-    transform: scale(1);
-    box-shadow: var(--shadow-card), var(--shadow-glow);
-    border-color: rgba(79, 142, 247, 0.35);
-  }
-
-  .policy-dots {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    margin-top: 8px;
-  }
-  .policy-dots span {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--color-border);
-    transition: width 0.35s cubic-bezier(0.22, 1, 0.36, 1), background 0.35s ease;
-  }
-  .policy-dots span.active {
-    width: 22px;
-    border-radius: 3px;
-    background: linear-gradient(90deg, var(--color-accent), var(--color-gold));
-  }
-}
-
-@media (min-width: 769px) {
-  .policy-dots { display: none; }
 }
 
 @media (max-width: 480px) {
   .container { padding: 0 16px; }
   .section-title { font-size: 1.6rem; }
   .hero-name { font-size: 3rem; }
-  .policy-grid { margin: 0 -16px; padding-left: 10vw; padding-right: 10vw; }
-  .policy-card { flex-basis: 72vw; }
 }
