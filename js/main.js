@@ -149,7 +149,7 @@ const revealObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
 // 為同組元素自動加上 stagger delay
-document.querySelectorAll('.policy-grid .policy-card, .community-grid .community-card').forEach((el, i) => {
+document.querySelectorAll('.community-grid .community-card').forEach((el, i) => {
   el.dataset.delay = i * 120;
 });
 
@@ -205,9 +205,10 @@ if (scrollTopBtn) {
   });
 }
 
-// ─── 政見卡片 3D Tilt 效果 ──────────────────────────────────
+// ─── 政見卡片 3D Tilt 效果（僅桌面寬螢幕，避免手機滑動版裁切）──
 document.querySelectorAll('.policy-card').forEach(card => {
   card.addEventListener('mousemove', (e) => {
+    if (!window.matchMedia('(min-width: 769px)').matches) return;
     const rect = card.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;

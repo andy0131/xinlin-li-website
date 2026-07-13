@@ -1164,7 +1164,6 @@ img { max-width: 100%; display: block; }
     display: flex;
     grid-template-columns: none;
     overflow-x: auto;
-    overflow-y: visible;
     scroll-snap-type: x mandatory;
     scroll-padding-inline: 12vw;
     -webkit-overflow-scrolling: touch;
