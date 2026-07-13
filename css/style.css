@@ -1211,6 +1211,6 @@ img { max-width: 100%; display: block; }
   .container { padding: 0 16px; }
   .section-title { font-size: 1.6rem; }
   .hero-name { font-size: 3rem; }
-  .policy-grid { margin: 0 -16px; padding-left: 16vw; padding-right: 16vw; }
-  .policy-card { flex-basis: 78vw; }
+  .policy-grid { margin: 0 -16px; padding-left: 10vw; padding-right: 10vw; }
+  .policy-card { flex-basis: 72vw; }
 }
