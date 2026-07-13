@@ -627,8 +627,7 @@ img { max-width: 100%; display: block; }
   transition: opacity var(--transition);
 }
 .policy-card:hover {
-  transform: translateY(-8px);
-  box-shadow: var(--shadow-card), var(--shadow-glow);
+  box-shadow: var(--shadow-glow);
   border-color: rgba(79, 142, 247, 0.4);
 }
 .policy-card:hover::before { opacity: 1; }
