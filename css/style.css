@@ -560,6 +560,7 @@ img { max-width: 100%; display: block; }
   color: var(--color-text-dim);
   margin-bottom: 16px;
   line-height: 1.9;
+  text-align: justify;
 }
 .about-text strong { color: var(--color-accent-2); font-weight: 700; }
 
