@@ -911,9 +911,9 @@ img { max-width: 100%; display: block; }
 
 .contact-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 48px;
-  align-items: start;
+  grid-template-columns: 1fr;
+  max-width: 640px;
+  margin: 0 auto;
 }
 
 .contact-info h3 {
@@ -973,23 +973,6 @@ img { max-width: 100%; display: block; }
   transition: color var(--transition);
 }
 .contact-item-value a:hover { color: var(--color-gold); }
-
-.contact-map {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  height: 320px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.contact-map iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-  filter: invert(90%) hue-rotate(180deg) brightness(0.85);
-}
 
 /* ============================================================
    FOOTER
@@ -1113,7 +1096,6 @@ img { max-width: 100%; display: block; }
   .join-cta-solo  { padding: 48px 28px; }
   .community-grid { grid-template-columns: 1fr; }
   .footer-grid    { grid-template-columns: 1fr 1fr; }
-  .contact-grid   { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 768px) {
@@ -1145,6 +1127,29 @@ img { max-width: 100%; display: block; }
   .vision-item { grid-template-columns: 64px 1fr; gap: 20px; }
   .vision-icon { width: 44px; height: 44px; font-size: 1.3rem; margin-left: 10px; }
   .scroll-top { bottom: 20px; right: 20px; }
+
+  .community-card {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    column-gap: 14px;
+    padding: 14px 18px;
+  }
+  .community-card-icon {
+    grid-row: span 2;
+    font-size: 1.5rem;
+    margin-bottom: 0;
+  }
+  .community-card h3 {
+    font-size: 0.92rem;
+    margin-bottom: 2px;
+  }
+  .community-card p {
+    display: none;
+  }
+  .community-card-cta {
+    font-size: 0.78rem;
+  }
 
   /* --- 六大政見：手機版橫向滑動卡片（Apple 風格） --- */
   .policy-grid {
