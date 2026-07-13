@@ -1151,10 +1151,35 @@ img { max-width: 100%; display: block; }
     font-size: 0.78rem;
   }
 
+  /* --- 六大政見：手機版橫向滑動卡片（純 CSS scroll-snap，不依賴 JS） --- */
+  .policy-grid {
+    display: flex;
+    grid-template-columns: none;
+    overflow-x: auto;
+    overflow-y: visible;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: 12vw;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    gap: 16px;
+    padding: 8px 12vw 12px;
+    margin: 0 -24px;
+    scrollbar-width: none;
+  }
+  .policy-grid::-webkit-scrollbar { display: none; }
+
+  .policy-card {
+    flex: 0 0 76vw;
+    max-width: 340px;
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+  }
 }
 
 @media (max-width: 480px) {
   .container { padding: 0 16px; }
   .section-title { font-size: 1.6rem; }
   .hero-name { font-size: 3rem; }
+  .policy-grid { margin: 0 -16px; padding-left: 10vw; padding-right: 10vw; }
+  .policy-card { flex-basis: 72vw; }
 }
