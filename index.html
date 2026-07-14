@@ -5,6 +5,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <!-- 日夜主題：盡早套用已儲存/系統偏好設定，避免切換閃爍 -->
+  <script>
+    (function () {
+      var saved = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (saved === 'dark' || (!saved && prefersDark)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
+
   <!-- 測試階段：暫時禁止搜尋引擎索引，正式上線前記得移除這行 -->
   <meta name="robots" content="noindex, nofollow" />
 
@@ -81,17 +92,22 @@
           <span class="nav-logo-sub">新林里里長候選人</span>
         </span>
       </a>
-      <button class="nav-toggle" id="navToggle" aria-label="開啟選單" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-      <ul class="nav-links" id="navLinks" role="list">
-        <li><a href="#about" class="nav-link">關於誌謙</a></li>
-        <li><a href="#policy" class="nav-link">核心政見</a></li>
-        <li><a href="#foundation" class="nav-link">第一件事</a></li>
-        <li><a href="#community" class="nav-link">追蹤社群</a></li>
-        <li><a href="#join" class="nav-link">加入志工</a></li>
-        <li><a href="#contact" class="nav-link">聯絡我們</a></li>
-      </ul>
+      <div class="nav-right">
+        <ul class="nav-links" id="navLinks" role="list">
+          <li><a href="#about" class="nav-link">關於誌謙</a></li>
+          <li><a href="#policy" class="nav-link">核心政見</a></li>
+          <li><a href="#foundation" class="nav-link">第一件事</a></li>
+          <li><a href="#community" class="nav-link">追蹤社群</a></li>
+          <li><a href="#join" class="nav-link">加入志工</a></li>
+          <li><a href="#contact" class="nav-link">聯絡我們</a></li>
+        </ul>
+        <button class="theme-toggle" id="themeToggle" aria-label="切換深色／淺色模式" aria-pressed="false">
+          <span class="theme-toggle-icon" id="themeToggleIcon" aria-hidden="true">🌙</span>
+        </button>
+        <button class="nav-toggle" id="navToggle" aria-label="開啟選單" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
   </nav>
 
@@ -178,13 +194,25 @@
           <h2 class="section-title">
             需要的不只是服務<br /><em>還需要設計思維</em>
           </h2>
-          <p class="about-text">
-            我是謝誌謙，多年設計製作實務經驗，並且與跨國藝術家長期合作。現居住並擔任麗江清久管委會<strong>主任委員</strong>，親身參與社區公設維護、區權會決議等管委會日常治理，深知大樓型社區與里政溝通的實際痛點。
-          </p>
-          <p class="about-text">
-            2024 年起投入公共事務，2025年組織社團創立協會；參選登記前為<strong>新北市議員李宇翔公費助理</strong>，銜職設計總監，實際參與林口在地選民服務、工程會勘等公共事務，累積第一線的基層實務經驗。
-          </p>
-          <p class="about-text">
+          <div class="about-facts-heading">學歷</div>
+          <ul class="about-facts" role="list" aria-label="學歷">
+            <li class="about-fact">
+              <span class="about-fact-text">台北實踐大學 媒體傳達設計學系學士</span>
+            </li>
+          </ul>
+          <div class="about-facts-heading">經歷</div>
+          <ul class="about-facts" role="list" aria-label="經歷">
+            <li class="about-fact">
+              <span class="about-fact-text">新北市議員李宇翔辦公室．設計總監</span>
+            </li>
+            <li class="about-fact">
+              <span class="about-fact-text">麗江清久社區管理委員會 <strong>主任委員</strong>（現任）</span>
+            </li>
+            <li class="about-fact">
+              <span class="about-fact-text">新北市台灣北海民主韌性協會 理事</span>
+            </li>
+          </ul>
+          <p class="about-text about-commitment">
             新林里里長對我來說不會只是副業，當選後我更將擔任一位<strong>全職里長</strong>，把所有時間與心力投入新林里的公共事務——這是我能給新林里的，最基本也最重要的承諾。
           </p>
           <div class="about-tags" role="list" aria-label="核心理念">
@@ -474,7 +502,7 @@
           rel="noopener noreferrer">
           ✦ 立即加入志工團隊
         </a>
-        <p style="margin-top:16px;font-size:0.78rem;color:var(--color-text-dim);">
+        <p style="margin-top:16px;font-size:0.78rem;color:rgba(232,238,255,0.6);">
           * 表單連結即將開放，敬請追蹤社群帳號掌握最新消息
         </p>
       </div>

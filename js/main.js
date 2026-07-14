@@ -33,6 +33,31 @@ navLinkItems.forEach(link => {
   });
 });
 
+// ─── 日夜主題切換 ────────────────────────────────────────────
+const themeToggle = document.getElementById('themeToggle');
+const themeToggleIcon = document.getElementById('themeToggleIcon');
+const htmlEl = document.documentElement;
+
+function applyThemeToggleUI() {
+  const isDark = htmlEl.getAttribute('data-theme') === 'dark';
+  themeToggleIcon.textContent = isDark ? '☀️' : '🌙';
+  themeToggle.setAttribute('aria-pressed', String(isDark));
+  themeToggle.setAttribute('aria-label', isDark ? '切換至淺色模式' : '切換至深色模式');
+}
+applyThemeToggleUI();
+
+themeToggle.addEventListener('click', () => {
+  const isDark = htmlEl.getAttribute('data-theme') === 'dark';
+  if (isDark) {
+    htmlEl.removeAttribute('data-theme');
+    localStorage.setItem('theme', 'light');
+  } else {
+    htmlEl.setAttribute('data-theme', 'dark');
+    localStorage.setItem('theme', 'dark');
+  }
+  applyThemeToggleUI();
+});
+
 // ─── 高亮當前 Section 導覽連結 ───────────────────────────────
 function updateActiveNav() {
   const sections = document.querySelectorAll('section[id]');
