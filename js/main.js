@@ -35,12 +35,10 @@ navLinkItems.forEach(link => {
 
 // ─── 日夜主題切換 ────────────────────────────────────────────
 const themeToggle = document.getElementById('themeToggle');
-const themeToggleIcon = document.getElementById('themeToggleIcon');
 const htmlEl = document.documentElement;
 
 function applyThemeToggleUI() {
   const isDark = htmlEl.getAttribute('data-theme') === 'dark';
-  themeToggleIcon.textContent = isDark ? '☀️' : '🌙';
   themeToggle.setAttribute('aria-pressed', String(isDark));
   themeToggle.setAttribute('aria-label', isDark ? '切換至淺色模式' : '切換至深色模式');
 }

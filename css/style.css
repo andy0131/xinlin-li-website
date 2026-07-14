@@ -80,6 +80,13 @@ body {
 a { color: inherit; text-decoration: none; }
 img { max-width: 100%; display: block; }
 
+/* --- 統一線性圖示系統（取代原本的 Emoji）--- */
+.icon {
+  width: 1em;
+  height: 1em;
+  display: block;
+}
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -161,6 +168,16 @@ img { max-width: 100%; display: block; }
 .navbar.scrolled .theme-toggle:hover {
   background: color-mix(in srgb, var(--color-accent) 12%, var(--color-surface-2));
 }
+.theme-toggle-icon {
+  color: rgba(255, 255, 255, 0.9);
+}
+.navbar.scrolled .theme-toggle-icon {
+  color: var(--color-text-dim);
+}
+.theme-toggle .icon-sun { display: none; }
+.theme-toggle .icon-moon { display: block; }
+:root[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+:root[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
 
 .nav-logo {
   display: flex;
@@ -616,6 +633,7 @@ img { max-width: 100%; display: block; }
 
 .stat {
   flex: 1;
+  min-width: 0;
   text-align: center;
   background: var(--color-surface-2);
   border: 1px solid var(--color-border);
@@ -626,7 +644,8 @@ img { max-width: 100%; display: block; }
   display: block;
   font-size: 1.7rem;
   line-height: 1;
-  margin-bottom: 8px;
+  margin: 0 auto 8px;
+  color: var(--color-gold-ink);
 }
 .stat-label {
   font-size: 0.7rem;
@@ -773,6 +792,7 @@ img { max-width: 100%; display: block; }
   font-size: 2.5rem;
   margin-bottom: 16px;
   display: block;
+  color: var(--color-accent);
 }
 
 .policy-card-title-bar {
@@ -884,6 +904,7 @@ img { max-width: 100%; display: block; }
   align-items: center;
   justify-content: center;
   font-size: 1.8rem;
+  color: var(--color-accent);
   box-shadow: var(--shadow-card), var(--shadow-glow);
   flex-shrink: 0;
   margin-left: 20px;
@@ -946,6 +967,8 @@ img { max-width: 100%; display: block; }
 .community-card-icon {
   font-size: 2.2rem;
   margin-bottom: 14px;
+  display: block;
+  color: var(--color-accent);
 }
 .community-card h3 {
   font-size: 1.05rem;
@@ -1100,8 +1123,8 @@ img { max-width: 100%; display: block; }
 }
 .contact-item-icon.line   { background: rgba(6, 199, 85, 0.15); }
 .contact-item-icon.fb     { background: rgba(24, 119, 242, 0.15); }
-.contact-item-icon.email  { background: color-mix(in srgb, var(--color-accent) 15%, transparent); }
-.contact-item-icon.phone  { background: color-mix(in srgb, var(--color-gold) 15%, transparent); }
+.contact-item-icon.email  { background: color-mix(in srgb, var(--color-accent) 15%, transparent); color: var(--color-accent); }
+.contact-item-icon.phone  { background: color-mix(in srgb, var(--color-gold) 15%, transparent); color: var(--color-gold-ink); }
 .contact-item-label {
   font-size: 0.7rem;
   font-weight: 700;
