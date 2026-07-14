@@ -622,24 +622,17 @@ img { max-width: 100%; display: block; }
   border-radius: var(--radius-md);
   padding: 16px 8px;
 }
-.stat-num {
+.stat-icon {
   display: block;
-  font-size: 1.8rem;
-  font-weight: 900;
-  color: var(--color-gold-ink);
-  font-family: var(--font-en);
+  font-size: 1.7rem;
   line-height: 1;
-  margin-bottom: 6px;
-}
-.stat-suffix {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--color-gold-ink);
+  margin-bottom: 8px;
 }
 .stat-label {
   font-size: 0.7rem;
   color: var(--color-text-dim);
   letter-spacing: 0.05em;
+  line-height: 1.4;
 }
 
 .about-content .section-label { margin-bottom: 20px; }

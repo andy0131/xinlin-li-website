@@ -180,38 +180,6 @@ document.querySelectorAll('.community-grid .community-card').forEach((el, i) => 
 
 revealEls.forEach(el => revealObserver.observe(el));
 
-// ─── 數字滾動計數 ─────────────────────────────────────────────
-function animateCounter(el) {
-  const target = parseInt(el.dataset.target);
-  const suffix = el.dataset.suffix || '';
-  const duration = 1800;
-  const start = performance.now();
-
-  function update(now) {
-    const elapsed = now - start;
-    const progress = Math.min(elapsed / duration, 1);
-    // Ease-out cubic
-    const eased = 1 - Math.pow(1 - progress, 3);
-    el.textContent = Math.floor(eased * target) + suffix;
-    if (progress < 1) requestAnimationFrame(update);
-    else el.textContent = target + suffix;
-  }
-  requestAnimationFrame(update);
-}
-
-const counterObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      animateCounter(entry.target);
-      counterObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.5 });
-
-document.querySelectorAll('.stat-num[data-target]').forEach(el => {
-  counterObserver.observe(el);
-});
-
 // ─── 回到頂端按鈕 ────────────────────────────────────────────
 const scrollTopBtn = document.getElementById('scrollTopBtn');
 
