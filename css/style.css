@@ -298,6 +298,9 @@ img { max-width: 100%; display: block; }
   .hero-bg-slide {
     transition: none;
   }
+  .hero-badge::before {
+    animation: none;
+  }
 }
 
 .hero-overlay {
@@ -345,17 +348,34 @@ img { max-width: 100%; display: block; }
 }
 
 .hero-badge {
-  display: inline-block;
-  padding: 6px 18px;
-  background: color-mix(in srgb, var(--color-gold) 15%, transparent);
-  border: 1px solid color-mix(in srgb, var(--color-gold) 40%, transparent);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 24px;
+  background: linear-gradient(135deg, color-mix(in srgb, var(--color-gold) 28%, transparent), color-mix(in srgb, var(--color-gold) 12%, transparent));
+  border: 1.5px solid color-mix(in srgb, var(--color-gold) 55%, transparent);
   border-radius: var(--radius-xl);
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.15em;
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
   color: var(--color-gold);
-  margin-bottom: 24px;
+  box-shadow: 0 4px 20px color-mix(in srgb, var(--color-gold) 25%, transparent);
+  margin-bottom: 28px;
   animation: heroFadeIn 1s 0.2s both;
+}
+.hero-badge::before {
+  content: '';
+  flex-shrink: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-gold);
+  animation: heroBadgePulse 2s infinite;
+}
+@keyframes heroBadgePulse {
+  0%   { box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-gold) 55%, transparent); }
+  70%  { box-shadow: 0 0 0 8px color-mix(in srgb, var(--color-gold) 0%, transparent); }
+  100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-gold) 0%, transparent); }
 }
 
 .hero-name {
@@ -1305,6 +1325,14 @@ img { max-width: 100%; display: block; }
   .nav-toggle { display: flex; }
 
   .hero-actions { flex-direction: column; align-items: center; }
+  .hero-badge {
+    max-width: calc(100% - 32px);
+    padding: 8px 16px;
+    font-size: 0.72rem;
+    white-space: normal;
+    text-align: left;
+    letter-spacing: 0.02em;
+  }
   .about-visual { flex-direction: column; align-items: center; }
   .join-groups  { grid-template-columns: 1fr; }
   .footer-grid  { grid-template-columns: 1fr; gap: 32px; }
