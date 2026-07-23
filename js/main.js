@@ -78,9 +78,9 @@ function updateActiveNav() {
 const typewriterEl = document.getElementById('typewriter');
 const cursorEl     = document.getElementById('typewriterCursor');
 const phrases = [
-  '走在林口之前',
+  '堅持不懈‧勇往直前',
   '設計新林里的未來',
-  '讓改變從「之前」開始',
+  '讓改變從堅持開始',
   '務實服務 × 在地創新',
 ];
 let phraseIdx = 0;
