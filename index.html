@@ -56,12 +56,16 @@
   }
   </script>
 
-  <!-- Google Fonts -->
+  <!-- Google Fonts：僅請求實際使用的字重，並以非阻塞方式載入 -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Inter:wght@300;400;600;700;900&display=swap"
-    rel="stylesheet" />
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Inter:wght@900&display=optional"
+    media="print" onload="this.media='all'" />
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Inter:wght@900&display=optional" />
+  </noscript>
 
   <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
 
@@ -126,14 +130,15 @@
   ══════════════════════════════════════ -->
   <section id="hero" class="hero" aria-label="首頁英雄區">
     <div class="hero-bg" role="presentation">
-      <!-- 輪播圖 1：三井 Outlet Park 林口夜景 -->
-      <div class="hero-bg-slide active" style="background-image:url('assets/images/001.jpg')"></div>
+      <!-- 輪播圖 1：三井 Outlet Park 林口夜景（首屏立即載入） -->
+      <div class="hero-bg-slide active" style="background-image:url('assets/images/001.webp')"></div>
+      <!-- 輪播圖 2-4：延後載入，避免與首屏渲染搶頻寬 -->
       <!-- 輪播圖 2：林口重劃區空拍日景 -->
-      <div class="hero-bg-slide" style="background-image:url('assets/images/002.jpg')"></div>
+      <div class="hero-bg-slide" data-bg="assets/images/002.webp"></div>
       <!-- 輪播圖 3：社區街景夜櫻 -->
-      <div class="hero-bg-slide" style="background-image:url('assets/images/003.jpg')"></div>
+      <div class="hero-bg-slide" data-bg="assets/images/003.webp"></div>
       <!-- 輪播圖 4：新林國民小學 -->
-      <div class="hero-bg-slide" style="background-image:url('assets/images/004.jpg')"></div>
+      <div class="hero-bg-slide" data-bg="assets/images/004.webp"></div>
     </div>
     <div class="hero-overlay" role="presentation"></div>
     <div class="hero-particles" id="heroParticles" role="presentation"></div>
@@ -190,7 +195,7 @@
         <!-- 視覺欄 -->
         <div class="about-visual reveal">
           <div class="about-photo-frame">
-            <img src="assets/images/about-portrait.jpg" alt="謝誌謙" class="about-photo" loading="lazy" />
+            <img src="assets/images/about-portrait.webp" alt="謝誌謙" class="about-photo" loading="lazy" />
           </div>
           <div class="about-stats" role="list" aria-label="候選人信任感標章">
             <div class="stat" role="listitem">

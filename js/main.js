@@ -121,6 +121,24 @@ setTimeout(typeEffect, 800);
 const heroSlides = document.querySelectorAll('.hero-bg-slide');
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+// 第 2-4 張輪播圖等主執行緒閒置後才抓取，避免搶佔首屏頻寬
+// （用 window.load 太晚：字型等資源在節流環境下可能 10 秒才觸發，
+//   輪播間隔卻只有 6 秒，會先跳出空白再補圖）
+function loadDeferredSlides() {
+  heroSlides.forEach((slide) => {
+    const bg = slide.dataset.bg;
+    if (bg) {
+      slide.style.backgroundImage = `url('${bg}')`;
+      delete slide.dataset.bg;
+    }
+  });
+}
+if ('requestIdleCallback' in window) {
+  requestIdleCallback(loadDeferredSlides, { timeout: 2000 });
+} else {
+  setTimeout(loadDeferredSlides, 1200);
+}
+
 if (heroSlides.length > 1 && !reduceMotion) {
   let slideIdx = 0;
   setInterval(() => {
