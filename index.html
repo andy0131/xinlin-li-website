@@ -51,7 +51,8 @@
       "addressCountry": "TW"
     },
     "sameAs": [
-      "https://lin.ee/y5JDDvi"
+      "https://www.facebook.com/profile.php?id=61592284322183",
+      "https://lin.ee/Yxr8Nk2"
     ]
   }
   </script>
@@ -95,6 +96,7 @@
       </a>
       <div class="nav-right">
         <ul class="nav-links" id="navLinks" role="list">
+          <li><a href="#lookup" class="nav-link">地址查詢</a></li>
           <li><a href="#about" class="nav-link">關於誌謙</a></li>
           <li><a href="#policy" class="nav-link">核心政見</a></li>
           <li><a href="#foundation" class="nav-link">第一件事</a></li>
@@ -160,7 +162,7 @@
 
         <div class="hero-actions">
           <a href="#about" class="btn btn-primary" id="hero-cta-about">了解未來里長</a>
-          <a href="#join" class="btn btn-outline" id="hero-cta-join">加入志工團隊</a>
+          <a href="#lookup" class="btn btn-outline" id="hero-cta-lookup">地址快速查詢</a>
         </div>
 
         <div class="hero-scroll-hint" aria-hidden="true">
@@ -181,6 +183,57 @@
           fetchpriority="high"
           decoding="async"
         />
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       LOOKUP（地址快速查詢）
+  ══════════════════════════════════════ -->
+  <section id="lookup" class="section lookup" aria-label="新林里地址快速查詢">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">地址快速查詢</div>
+        <h2 class="section-title">
+          你家在新林里嗎？<br /><em>輸入地址馬上知道</em>
+        </h2>
+        <p class="lookup-intro">
+          新林里是最近才從南勢里分出的新里，鄰界也重新調整過。
+          輸入完整門牌地址，馬上確認你家是否在新林里的範圍內。
+        </p>
+      </div>
+
+      <form class="lookup-form reveal" id="lookupForm" role="search" aria-label="新林里地址查詢表單">
+        <label for="lookupInput" class="lookup-label">請輸入完整門牌地址</label>
+        <div class="lookup-form-row">
+          <input
+            type="text"
+            id="lookupInput"
+            name="lookupInput"
+            class="lookup-input"
+            placeholder="例如：文化三路一段225巷10號"
+            autocomplete="off"
+            inputmode="text"
+          />
+          <button type="submit" class="btn btn-primary lookup-submit">查詢</button>
+        </div>
+      </form>
+
+      <div class="lookup-result is-hidden" id="lookupResult" aria-live="polite"></div>
+
+      <p class="lookup-disclaimer">
+        * 本查詢僅供初步參考，正式門牌歸屬請以新北市政府公告或林口區戶政事務所資料為準。
+      </p>
+
+      <div class="lookup-images">
+        <figure class="lookup-image-card reveal">
+          <img src="assets/images/xinlin-boundary-map.png" alt="林口區南勢里分出新林里、力行里調整後里界圖" loading="lazy" />
+          <figcaption>南勢里分出新林里、力行里 里界圖</figcaption>
+        </figure>
+        <figure class="lookup-image-card reveal reveal-delay-1">
+          <img src="assets/images/xinlin-neighborhood-guide.png" alt="新林里新鄰別社區對照表" loading="lazy" />
+          <figcaption>新林里新鄰別社區對照表</figcaption>
+        </figure>
       </div>
     </div>
   </section>
@@ -250,7 +303,7 @@
               <span class="about-fact-text">新北市議員李宇翔辦公室．設計總監</span>
             </li>
             <li class="about-fact">
-              <span class="about-fact-text">新北市台灣北海民主韌性協會．理事</span>
+              <span class="about-fact-text">新北市小飛俠之友會．設計總監</span>
             </li>
           </ul>
           <p class="about-text about-commitment">
@@ -561,8 +614,8 @@
 
       <ul class="community-grid" aria-label="社群管道">
 
-        <li><a href="#" class="community-card reveal" target="_blank" rel="noopener noreferrer"
-          aria-label="Facebook 粉絲專頁（連結即將開放）">
+        <li><a href="https://www.facebook.com/profile.php?id=61592284322183" class="community-card reveal" target="_blank" rel="noopener noreferrer"
+          aria-label="謝誌謙 Facebook 粉絲專頁">
           <svg class="icon community-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M15 18h-5" />
             <path d="M18 14h-8" />
@@ -570,11 +623,11 @@
             <rect width="8" height="4" x="10" y="6" rx="1" />
           </svg>
           <h3>Facebook 粉絲專頁</h3>
-          <p>服務相關圖文與各項動態，連結即將開放，敬請追蹤其他管道掌握最新消息</p>
-          <span class="community-card-cta">敬請期待</span>
+          <p>服務相關圖文與各項動態，隨時掌握第一手消息</p>
+          <span class="community-card-cta">前往按讚 →</span>
         </a></li>
 
-        <li><a href="https://lin.ee/y5JDDvi" class="community-card reveal" target="_blank"
+        <li><a href="https://lin.ee/Yxr8Nk2" class="community-card reveal" target="_blank"
           rel="noopener noreferrer" aria-label="加入謝誌謙 LINE 官方帳號">
           <svg class="icon community-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" />
@@ -704,6 +757,7 @@
         <div class="footer-col">
           <h4>快速導覽</h4>
           <ul>
+            <li><a href="#lookup">地址查詢</a></li>
             <li><a href="#about">關於誌謙</a></li>
             <li><a href="#policy">核心政見</a></li>
             <li><a href="#foundation">第一件事</a></li>
@@ -716,10 +770,10 @@
         <div class="footer-col">
           <h4>關注我們</h4>
           <ul>
-            <li><a href="#" id="footer-fb">Facebook 粉絲專頁</a></li>
+            <li><a href="https://www.facebook.com/profile.php?id=61592284322183" id="footer-fb" target="_blank" rel="noopener noreferrer">Facebook 粉絲專頁</a></li>
             <li><a href="#" id="footer-ig">Instagram</a></li>
             <li><a href="#" id="footer-threads">Threads</a></li>
-            <li><a href="https://lin.ee/y5JDDvi" id="footer-line" target="_blank" rel="noopener noreferrer">LINE 官方帳號</a></li>
+            <li><a href="https://lin.ee/Yxr8Nk2" id="footer-line" target="_blank" rel="noopener noreferrer">LINE 官方帳號</a></li>
           </ul>
         </div>
 
@@ -744,6 +798,8 @@
     </svg>
   </button>
 
+  <script src="js/address-lookup-data.js"></script>
+  <script src="js/address-lookup.js"></script>
   <script src="js/main.js"></script>
 </body>
 

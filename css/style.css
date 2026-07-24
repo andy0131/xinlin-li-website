@@ -61,6 +61,9 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+  /* 查詢結果區塊會依查詢內容動態改變高度，且插入文字可能晚於字型載入完成再重排；
+     停用瀏覽器捲動錨定 (scroll anchoring)，避免使用者查詢時畫面無預警跳動 */
+  overflow-anchor: none;
 }
 
 body {
@@ -488,12 +491,12 @@ img { max-width: 100%; display: block; }
   box-shadow: var(--shadow-gold);
 }
 /* 疊在相片輪播上的按鈕，透明底會被照片內容干擾，需要暗底加強可讀性 */
-#hero-cta-join {
+#hero-cta-lookup {
   background: rgba(13, 17, 23, 0.55);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
 }
-#hero-cta-join:hover {
+#hero-cta-lookup:hover {
   background: rgba(13, 17, 23, 0.7);
 }
 .btn-gold {
@@ -624,6 +627,157 @@ img { max-width: 100%; display: block; }
   margin-bottom: 64px;
 }
 .section-header .section-title { margin-bottom: 0; }
+
+/* ============================================================
+   LOOKUP（地址快速查詢）
+   ============================================================ */
+.lookup {
+  background: var(--color-surface-2);
+}
+
+.lookup-intro {
+  max-width: 560px;
+  margin: 0 auto;
+  color: var(--color-text-dim);
+  text-align: center;
+}
+
+.lookup-form {
+  max-width: 640px;
+  margin: 0 auto 32px;
+}
+
+.lookup-label {
+  display: block;
+  text-align: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-text-dim);
+  margin-bottom: 12px;
+}
+
+.lookup-form-row {
+  display: flex;
+  gap: 12px;
+}
+
+.lookup-input {
+  flex: 1;
+  min-width: 0;
+  padding: 14px 20px;
+  border-radius: var(--radius-md);
+  border: 2px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-family: var(--font-tc);
+  font-size: 0.95rem;
+  transition: var(--transition);
+}
+.lookup-input::placeholder { color: var(--color-text-dim); }
+.lookup-input:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 4px var(--color-glow);
+}
+
+.lookup-submit {
+  white-space: nowrap;
+}
+
+.lookup-result {
+  max-width: 640px;
+  margin: 0 auto 8px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 24px 28px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-card);
+  overflow-anchor: none; /* 換一次查詢結果高度改變時，避免瀏覽器捲動錨定造成頁面跳動 */
+}
+.lookup-result.is-hidden { display: none; }
+
+.lookup-result-icon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 1.1rem;
+}
+
+.lookup-result-body h3 {
+  font-size: 1.1rem;
+  margin-bottom: 6px;
+  color: var(--color-text);
+}
+.lookup-result-body p {
+  color: var(--color-text-dim);
+  font-size: 0.92rem;
+  line-height: 1.7;
+}
+.lookup-result-body a { text-decoration: underline; }
+.lookup-result-communities {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--color-border);
+  font-size: 0.85rem !important;
+}
+
+.lookup-result-success .lookup-result-icon {
+  background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-gold-dim) 100%);
+  color: #1a1f2e;
+}
+.lookup-result-notfound .lookup-result-icon {
+  background: var(--color-surface-2);
+  color: var(--color-text-dim);
+  border: 1px solid var(--color-border);
+}
+.lookup-result-invalid .lookup-result-icon {
+  background: color-mix(in srgb, var(--color-accent) 18%, transparent);
+  color: var(--color-accent);
+}
+
+.lookup-disclaimer {
+  max-width: 640px;
+  margin: 0 auto 40px;
+  text-align: center;
+  font-size: 0.78rem;
+  color: var(--color-text-dim);
+}
+
+.lookup-images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+.lookup-image-card {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-card);
+}
+.lookup-image-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: var(--color-surface-2);
+}
+.lookup-image-card figcaption {
+  padding: 12px 16px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--color-text-dim);
+  border-top: 1px solid var(--color-border);
+}
 
 /* ============================================================
    ABOUT
@@ -1308,6 +1462,7 @@ img { max-width: 100%; display: block; }
   .about-fact     { text-align: left; }
   .about-tags     { justify-content: center; }
   .policy-grid    { grid-template-columns: 1fr; }
+  .lookup-images  { grid-template-columns: 1fr; }
   .join-cta-solo  { padding: 48px 28px; }
   .community-grid { grid-template-columns: 1fr; }
   .footer-grid    { grid-template-columns: 1fr 1fr; }
@@ -1361,6 +1516,8 @@ img { max-width: 100%; display: block; }
   .nav-toggle { display: flex; }
 
   .hero-actions { flex-direction: column; align-items: center; }
+  .lookup-form-row { flex-direction: column; }
+  .lookup-result   { flex-direction: column; }
   .hero-badge {
     max-width: calc(100% - 32px);
     padding: 8px 16px;
