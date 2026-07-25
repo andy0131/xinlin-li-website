@@ -1268,29 +1268,25 @@ img { max-width: 100%; display: block; }
 }
 
 /* ============================================================
-   CONTACT
+   CONTACT（併入 COMMUNITY 區塊內的次要區塊）
    ============================================================ */
-.contact {
-  background: var(--color-bg);
-}
-
-.contact-grid {
-  display: grid;
-  grid-template-columns: 1fr;
+.contact-info {
   max-width: 640px;
-  margin: 0 auto;
+  margin: 56px auto 0;
+  text-align: center;
 }
 
-.contact-info h3 {
-  font-size: 1.15rem;
+.contact-info-title {
+  font-size: 1.05rem;
   font-weight: 800;
   color: var(--color-text);
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
 .contact-items {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 16px;
 }
 
@@ -1303,6 +1299,9 @@ img { max-width: 100%; display: block; }
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   transition: var(--transition);
+  flex: 1 1 260px;
+  max-width: 320px;
+  text-align: left;
 }
 .contact-item:hover {
   border-color: color-mix(in srgb, var(--color-accent) 35%, transparent);

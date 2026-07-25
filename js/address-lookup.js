@@ -93,7 +93,7 @@ function renderResult(state, payload) {
       <div class="lookup-result-icon" aria-hidden="true">?</div>
       <div class="lookup-result-body">
         <h3>查無符合資料</h3>
-        <p>這個地址目前查不到落在新林里的鄰別內，可能屬於南勢里或力行里，也可能是資料尚未涵蓋。建議對照下方地圖，或<a href="#contact">聯絡我們</a>協助確認。</p>
+        <p>這個地址目前查不到落在新林里的鄰別內，可能屬於南勢里或力行里，也可能是資料尚未涵蓋。建議對照下方地圖，或<a href="#community">聯絡我們</a>協助確認。</p>
       </div>
     `;
   } else {
