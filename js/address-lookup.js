@@ -115,7 +115,16 @@ if (lookupForm) {
     const parsed = parseAddress(value);
 
     if (!parsed) {
-      renderResult('invalid');
+      // 檢查是否輸入了像正常地址的格式（有「路/街/大道」且有數字），只是該路段不屬於新林里
+      const normalized = normalizeAddress(value);
+      const hasRoadSuffix = /.+[路街大道]/.test(normalized);
+      const hasHouseNumber = /\d+/.test(normalized);
+
+      if (hasRoadSuffix && hasHouseNumber) {
+        renderResult('notfound'); // 看起來是正常地址，只是不在新林里內
+      } else {
+        renderResult('invalid');  // 格式真的不對
+      }
       return;
     }
 
