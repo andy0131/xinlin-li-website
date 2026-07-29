@@ -249,3 +249,109 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // ─── 年份自動更新 ────────────────────────────────────────────
 const yearEl = document.getElementById('currentYear');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+// ─── 圖片燈箱（地址查詢區塊的里界圖與鄰別對照表）────────────
+const lightbox        = document.getElementById('lightbox');
+const lightboxStage   = document.getElementById('lightboxStage');
+const lightboxImg     = document.getElementById('lightboxImg');
+const lightboxCaption = document.getElementById('lightboxCaption');
+const lightboxClose   = document.getElementById('lightboxClose');
+
+if (lightbox) {
+  let lastFocused = null;
+
+  function setZoom(on, originX, originY) {
+    lightbox.classList.toggle('is-zoomed', on);
+    if (!on) return;
+    // 以點擊位置為中心捲動，讓使用者點哪就看哪
+    requestAnimationFrame(() => {
+      const ratioX = originX != null ? originX : 0.5;
+      const ratioY = originY != null ? originY : 0.5;
+      lightboxStage.scrollLeft =
+        ratioX * lightboxImg.offsetWidth  - lightboxStage.clientWidth  / 2;
+      lightboxStage.scrollTop  =
+        ratioY * lightboxImg.offsetHeight - lightboxStage.clientHeight / 2;
+    });
+  }
+
+  function openLightbox(trigger) {
+    const img = trigger.querySelector('img');
+    const caption = trigger.closest('figure').querySelector('figcaption');
+    if (!img) return;
+
+    lastFocused = trigger;
+    lightboxImg.src = img.currentSrc || img.src;
+    lightboxImg.alt = img.alt || '';
+    lightboxCaption.textContent = caption ? caption.textContent.trim() : '';
+
+    setZoom(false);
+    lightbox.hidden = false;
+    document.body.classList.add('lightbox-open');
+    requestAnimationFrame(() => lightbox.classList.add('is-open'));
+    lightboxClose.focus();
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('is-open');
+    document.body.classList.remove('lightbox-open');
+    const finish = () => {
+      lightbox.hidden = true;
+      lightboxImg.src = '';
+      setZoom(false);
+      if (lastFocused) lastFocused.focus();
+    };
+    if (reduceMotion) finish();
+    else setTimeout(finish, 250);
+  }
+
+  document.querySelectorAll('[data-lightbox]').forEach(trigger => {
+    trigger.addEventListener('click', () => openLightbox(trigger));
+  });
+
+  lightboxClose.addEventListener('click', closeLightbox);
+
+  // 點圖片切換放大／縮回；點圖片以外的背景則關閉
+  lightboxImg.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const zoomed = lightbox.classList.contains('is-zoomed');
+    const rect = lightboxImg.getBoundingClientRect();
+    setZoom(!zoomed, (e.clientX - rect.left) / rect.width, (e.clientY - rect.top) / rect.height);
+  });
+  lightboxStage.addEventListener('click', (e) => {
+    if (e.target === lightboxStage) closeLightbox();
+  });
+
+  // 放大後可用滑鼠拖曳平移
+  let panning = false, panX = 0, panY = 0, panLeft = 0, panTop = 0;
+  lightboxStage.addEventListener('pointerdown', (e) => {
+    if (!lightbox.classList.contains('is-zoomed') || e.pointerType === 'touch') return;
+    panning = true;
+    panX = e.clientX; panY = e.clientY;
+    panLeft = lightboxStage.scrollLeft; panTop = lightboxStage.scrollTop;
+    lightboxStage.classList.add('is-panning');
+    lightboxStage.setPointerCapture(e.pointerId);
+  });
+  lightboxStage.addEventListener('pointermove', (e) => {
+    if (!panning) return;
+    lightboxStage.scrollLeft = panLeft - (e.clientX - panX);
+    lightboxStage.scrollTop  = panTop  - (e.clientY - panY);
+  });
+  ['pointerup', 'pointercancel'].forEach(evt => {
+    lightboxStage.addEventListener(evt, () => {
+      panning = false;
+      lightboxStage.classList.remove('is-panning');
+    });
+  });
+
+  // Esc 關閉；Tab 鎖在燈箱內（唯一可聚焦控制項為關閉鈕）
+  document.addEventListener('keydown', (e) => {
+    if (lightbox.hidden) return;
+    if (e.key === 'Escape') {
+      e.preventDefault();
+      closeLightbox();
+    } else if (e.key === 'Tab') {
+      e.preventDefault();
+      lightboxClose.focus();
+    }
+  });
+}

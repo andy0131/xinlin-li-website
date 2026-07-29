@@ -353,11 +353,31 @@
 
       <div class="lookup-images">
         <figure class="lookup-image-card reveal">
-          <img src="assets/images/xinlin-boundary-map.png" alt="林口區南勢里分出新林里、力行里調整後里界圖" loading="lazy" />
+          <button type="button" class="lookup-image-trigger" data-lightbox aria-label="放大檢視：南勢里分出新林里、力行里 里界圖">
+            <img src="assets/images/xinlin-boundary-map.png" alt="林口區南勢里分出新林里、力行里調整後里界圖" loading="lazy" />
+            <span class="lookup-image-zoom" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8" />
+                <path d="m21 21-4.3-4.3" />
+                <path d="M11 8v6" />
+                <path d="M8 11h6" />
+              </svg>
+            </span>
+          </button>
           <figcaption>南勢里分出新林里、力行里 里界圖</figcaption>
         </figure>
         <figure class="lookup-image-card reveal reveal-delay-1">
-          <img src="assets/images/xinlin-neighborhood-guide.png" alt="新林里新鄰別社區對照表" loading="lazy" />
+          <button type="button" class="lookup-image-trigger" data-lightbox aria-label="放大檢視：新林里新鄰別社區對照表">
+            <img src="assets/images/xinlin-neighborhood-guide.png" alt="新林里新鄰別社區對照表" loading="lazy" />
+            <span class="lookup-image-zoom" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8" />
+                <path d="m21 21-4.3-4.3" />
+                <path d="M11 8v6" />
+                <path d="M8 11h6" />
+              </svg>
+            </span>
+          </button>
           <figcaption>新林里新鄰別社區對照表</figcaption>
         </figure>
       </div>
@@ -876,6 +896,23 @@
       <polyline points="18 15 12 9 6 15"></polyline>
     </svg>
   </button>
+
+  <!-- ══════════════════════════════════════
+       LIGHTBOX（里界圖／鄰別對照表放大檢視）
+  ══════════════════════════════════════ -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-labelledby="lightboxCaption" hidden>
+    <button type="button" class="lightbox-close" id="lightboxClose" aria-label="關閉放大檢視">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M18 6 6 18" />
+        <path d="m6 6 12 12" />
+      </svg>
+    </button>
+    <div class="lightbox-stage" id="lightboxStage">
+      <img class="lightbox-img" id="lightboxImg" src="" alt="" />
+    </div>
+    <p class="lightbox-caption" id="lightboxCaption"></p>
+    <p class="lightbox-hint">點圖片可再放大，拖曳或滑動可平移<span class="lightbox-hint-key">　·　按 Esc 關閉</span></p>
+  </div>
 
   <script src="js/address-lookup-data.js"></script>
   <script src="js/address-lookup.js"></script>
