@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- 日夜主題：盡早套用已儲存/系統偏好設定，避免切換閃爍 -->
+  <script>
+    (function () {
+      var saved = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (saved === 'dark' || (!saved && prefersDark)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
+
+  <!-- SEO -->
+  <title>新林里選戰政策白皮書 | 謝誌謙 新林里首屆里長候選人</title>
+  <meta name="description" content="謝誌謙新林里選戰政策白皮書全文：六大核心政見（親子共好、韌性社區、噪音防制、綠化環境、傾聽民眾、新住民友善服務）、任期內三大長遠願景，以及新林里首屆里長從零建立里政基礎制度的五項優先工作。" />
+  <meta name="keywords" content="謝誌謙, 新林里, 政策白皮書, 政見, 新林里里長, 首屆里長, 林口, 里長選舉, 2026" />
+  <meta name="author" content="謝誌謙競選團隊" />
+
+  <link rel="canonical" href="https://newlinkou.com/whitepaper/" />
+
+  <!-- Open Graph -->
+  <meta property="og:url" content="https://newlinkou.com/whitepaper/" />
+  <meta property="og:title" content="新林里選戰政策白皮書 | 謝誌謙" />
+  <meta property="og:description" content="六大核心政見、任期內三大長遠願景，以及首屆里長從零建立里政制度的五項優先工作。" />
+  <meta property="og:type" content="article" />
+  <meta property="og:locale" content="zh_TW" />
+  <meta property="og:site_name" content="謝誌謙 新林里里長候選人" />
+  <meta property="og:image" content="https://newlinkou.com/assets/images/001.jpg" />
+
+  <!-- Twitter / X Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="新林里選戰政策白皮書 | 謝誌謙" />
+  <meta name="twitter:description" content="六大核心政見、任期內三大長遠願景，以及首屆里長從零建立里政制度的五項優先工作。" />
+  <meta name="twitter:image" content="https://newlinkou.com/assets/images/001.jpg" />
+
+  <!-- Schema.org 結構化資料 -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "@id": "https://newlinkou.com/whitepaper/#article",
+        "headline": "謝誌謙 新林里選戰政策白皮書",
+        "description": "謝誌謙參選新北市林口區新林里首屆里長的完整政策白皮書，涵蓋六大核心政見、三大長遠願景與新里基礎制度建置計畫。",
+        "inLanguage": "zh-TW",
+        "datePublished": "2026-07-26",
+        "dateModified": "2026-07-29",
+        "url": "https://newlinkou.com/whitepaper/",
+        "mainEntityOfPage": "https://newlinkou.com/whitepaper/",
+        "author": {
+          "@type": "Person",
+          "@id": "https://newlinkou.com/#person",
+          "name": "謝誌謙"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "謝誌謙競選團隊",
+          "url": "https://newlinkou.com/"
+        },
+        "about": {
+          "@type": "Place",
+          "name": "新北市林口區新林里"
+        },
+        "keywords": "新林里, 里長選舉, 政策白皮書, 公共托育, 韌性社區, 噪音防制, 社區綠化, 新住民服務"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "首頁", "item": "https://newlinkou.com/" },
+          { "@type": "ListItem", "position": 2, "name": "政策白皮書", "item": "https://newlinkou.com/whitepaper/" }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <!-- Google Fonts：僅請求實際使用的字重，並以非阻塞方式載入 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Inter:wght@900&display=optional"
+    media="print" onload="this.media='all'" />
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Inter:wght@900&display=optional" />
+  </noscript>
+
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg" />
+
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/subpage.css" />
+</head>
+
+<body>
+
+  <!-- ══════════════════════════════════════
+       NAVBAR
+  ══════════════════════════════════════ -->
+  <nav id="navbar" class="navbar" role="navigation" aria-label="主要導覽">
+    <div class="nav-container">
+      <a href="../index.html" class="nav-logo" aria-label="回到首頁">
+        <svg class="nav-logo-mark" viewBox="0 0 90.7 90.7" aria-hidden="true">
+          <rect x="0" y="85.7" width="90.7" height="5" fill="#4f8ef7" opacity="0.75" />
+          <polygon points="5,56.1 15.1,50.4 15.1,85.7 5,85.7" fill="#5a6478" />
+          <polygon points="22.7,33.4 32.8,27.7 32.8,85.7 22.7,85.7" fill="#5a6478" />
+          <polygon points="40.3,5.7 50.4,0 50.4,85.7 40.3,85.7" fill="#f5c842" />
+          <polygon points="58,37.8 68,43.5 68,85.7 58,85.7" fill="#5a6478" />
+          <polygon points="75.6,58 85.7,63.6 85.7,85.7 75.6,85.7" fill="#5a6478" />
+        </svg>
+        <span class="nav-logo-text">
+          <span class="nav-logo-name">謝誌謙</span>
+          <span class="nav-logo-sub">新林里里長候選人</span>
+        </span>
+      </a>
+      <div class="nav-right">
+        <ul class="nav-links" id="navLinks" role="list">
+          <li><a href="../xinlin-address/" class="nav-link">門牌對照表</a></li>
+          <li><a href="../index.html#about" class="nav-link">關於誌謙</a></li>
+          <li><a href="../index.html#policy" class="nav-link">核心政見</a></li>
+          <li><a href="./" class="nav-link active">政策白皮書</a></li>
+          <li><a href="../index.html#community" class="nav-link">社群與聯絡</a></li>
+        </ul>
+        <button class="theme-toggle" id="themeToggle" aria-label="切換深色／淺色模式" aria-pressed="false">
+          <svg class="icon theme-toggle-icon icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401" />
+          </svg>
+          <svg class="icon theme-toggle-icon icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4" />
+            <path d="M12 2v2" />
+            <path d="M12 20v2" />
+            <path d="m4.93 4.93 1.41 1.41" />
+            <path d="m17.66 17.66 1.41 1.41" />
+            <path d="M2 12h2" />
+            <path d="M20 12h2" />
+            <path d="m6.34 17.66-1.41 1.41" />
+            <path d="m19.07 4.93-1.41 1.41" />
+          </svg>
+        </button>
+        <button class="nav-toggle" id="navToggle" aria-label="開啟選單" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ══════════════════════════════════════
+       頁首
+  ══════════════════════════════════════ -->
+  <header class="page-head">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="麵包屑導覽">
+        <a href="../index.html">首頁</a> ／ <span aria-current="page">政策白皮書</span>
+      </nav>
+      <div class="section-label">政策白皮書</div>
+      <h1 class="section-title">新林里選戰<em>政策白皮書</em></h1>
+      <p class="page-head-lead">
+        謝誌謙參選新北市林口區新林里首屆里長的完整政策說明，
+        包含六大核心政見、任期內三大長遠願景，
+        以及一個全新的里該如何從零建立基礎制度。
+      </p>
+      <p class="page-meta">最後更新：<time datetime="2026-07-29">2026 年 7 月 29 日</time></p>
+    </div>
+  </header>
+
+  <!-- ══════════════════════════════════════
+       白皮書全文
+  ══════════════════════════════════════ -->
+  <main class="article">
+
+    <p class="article-kicker">【全力服務新林　堅持不懈．勇往直前】</p>
+    <p class="article-kicker">社群參與 × 務實福利 × 設計美學 —— 讓有經驗的青年，為新林里帶來真正有感的服務</p>
+
+    <h2 id="about">壹、關於謝誌謙</h2>
+
+    <p>
+      謝誌謙現居新林里，現任麗江清久第十二屆管理委員會主任委員，親身參與社區公設維護、住戶大會決議等管委會日常治理，深知大樓型社區與里政溝通的實際痛點。2025 年起投入地方公共事務，擔任新北市小飛俠之友會設計總監，參與在地志工組織的創辦與運作，累積林口近百名活躍志工的動員網絡，熟悉基層組織與社區工作的實際操作。同年九月起擔任新北市議員李宇翔辦公室設計總監，實際參與選民服務、工程會勘與跨局處協調，累積豐富的第一線公共事務實務經驗。
+    </p>
+
+    <p>
+      謝誌謙為實踐大學媒體傳達設計學系畢業，過去長期投入文化藝術與科技領域的專案製作工作；如今，他選擇將這份對細節的敏銳度與跨界協調能力，全數投入地方公共事務。
+    </p>
+
+    <p>
+      對謝誌謙而言，里長不是一份副業。他沒有需要兼顧的公司或事業，參選新林里里長，就是要成為一位全職投入的里長——把所有時間與資源，都用在新林里的公共事務上。
+    </p>
+
+    <hr />
+
+    <h2 id="why">貳、為什麼新林里需要全新的改變？</h2>
+
+    <p>
+      新林里於 2026 年 7 月自南勢里劃分獨立，全里共 23 鄰，是林口發展最快速、最具活力的重劃區。過去南勢里幅員廣大、人口快速成長，單一里長要同時照顧範圍內差異極大的新舊聚落，客觀上難以兼顧；獨立設里，正是為了讓里政服務能真正貼近在地需求。
+    </p>
+
+    <p>
+      新林里以新建社區大樓為主，緊鄰三井 Outlet Park 林口與機場捷運 A9 林口站，居民多為年輕雙薪家庭，作息緊湊、資訊接收也以數位管道為主。里政服務要真正有感，方式就必須貼合這樣的生活型態。
+    </p>
+
+    <p>
+      因此，我們把里政服務放在三個支柱上：<strong>社群參與</strong>——讓意見用最低摩擦的方式被聽見；<strong>務實福利</strong>——把有限的里經費用在真正被需要的地方；<strong>設計美學</strong>——用設計專業讓資訊易讀、流程易用、社區更好看。謝誌謙將以設計師對細節的敏銳、議員辦公室歷練對制度的熟稔，以及組織者對社群的掌握，為新林里打造現代化的里政服務。
+    </p>
+
+    <hr />
+
+    <h2 id="policy">參、六大核心政見</h2>
+
+    <h3 id="policy-1">核心政見一：【親子共好】爭取公托，終結學前資源荒</h3>
+    <p>
+      新林里人口結構以年輕雙薪家庭為主，但全里至今無一所公立托嬰中心或社區公共托育家園，家長只能等待市府公托釋出名額，或負擔較高的私立托育費用。
+    </p>
+    <ol>
+      <li><strong>積極爭取新林里公托設點</strong>：持續向新北市社會局及衛生局提案，爭取在里內人口密集大樓社區旁或閒置公設，設立社區公共托育家園（類公托），銜接學前照顧缺口，並監督開辦時程。</li>
+      <li><strong>組織社區共學團體</strong>：以社群組織者的角色，召集新林里有意願的家長共組自主共學團體，引進雙語繪本導讀、兒童美術與創客課程師資，以互助方式彌補公托缺口，作為公托正式設立前的過渡方案。</li>
+      <li><strong>全里路口與通學廊道安全體檢</strong>：系統性盤點新林里主要路口的無號誌人行穿越線與視覺死角，優先納入新林國小與各幼兒園周邊通學步道，數據化提報區公所並公開處理進度，確保孩子與長者都能安全通行。</li>
+    </ol>
+
+    <h3 id="policy-2">核心政見二：【韌性社區】建立高樓社區的防災安全網</h3>
+    <p>
+      新林里以高密度住宅大樓為主，一旦遇上地震、颱風、火災或長時間停電停水，垂直疏散與物資調度的難度都遠高於一般平房聚落。新北市已推動「韌性社區」認證機制，新林里應及早建立實質可用的自助互助能力。
+    </p>
+    <ol>
+      <li><strong>設計數位防災地圖</strong>：以設計師視角，為新林里各大樓繪製手機易讀的數位防災地圖，清晰標示避難集合點、AED 位置、緊急取水點與疏散動線。</li>
+      <li><strong>開辦實用防災工作坊</strong>：邀請專業講師為里民舉辦「家庭緊急避難包（Go-Bag）實作」與「基礎急救與止血訓練」課程，拒絕流於形式的宣導。</li>
+      <li><strong>建立「新林里管委會聯繫平台」</strong>：串聯各大樓管委會與物業保全，整合緊急通報、治安與防詐提醒、物資互助等溝通管道，並讓里政公告能直接進駐社區電梯佈告欄與住戶群組——這是門禁大樓型社區里政能真正落地的關鍵基礎設施。</li>
+    </ol>
+
+    <h3 id="policy-3">核心政見三：【噪音防制】找回夜晚的安寧</h3>
+    <p>
+      林口重劃區夜間飆車問題嚴重，每逢深夜，呼嘯引擎聲與輪胎摩擦聲侵擾整棟大樓，嚴重影響里民睡眠品質與孩童作息。
+    </p>
+    <ol>
+      <li><strong>建立噪音熱點通報機制</strong>：與各大樓志工網絡建立即時通報群組，精確蒐集飆車路線、時段與頻率數據，作為向警察局與交通局陳情的實證依據。</li>
+      <li><strong>爭取深夜巡邏與科技執法到位</strong>：依據蒐集之數據，向新北市警察局林口分局提出具體申請，爭取深夜飆車熱點路段定點執勤巡邏，並設置測速照相、聲音照相等科技執法設備。</li>
+      <li><strong>推動道路環境改善</strong>：與議員辦公室合作，研議於飆車熱點路段增設減速標線、凸起緩衝設施或路面紋理，從物理環境上降低飆車誘因。國道 1 號林口交流道改善工程預計完工通車後，里內道路車流將重新分配，我們將持續監測評估並適時提出改善需求。</li>
+    </ol>
+
+    <h3 id="policy-4">核心政見四：【綠化環境】讓新林里成為會呼吸的社區</h3>
+    <p>
+      新林里重劃區道路雖寬，但行道樹稀疏、公園綠地分配不均，夏日高溫令人難以在社區戶外活動。
+    </p>
+    <ol>
+      <li><strong>爭取行道樹增植與長期養護</strong>：向新北市工務局及林口區公所積極申請新林里主要道路行道樹增植計畫，並建立定期修剪養護機制，種下去之後長期有人照顧。</li>
+      <li><strong>爭取公園設施擴充與停車改善</strong>：新林里目前僅有兩座公園，其中一座為幼兒滑步車主題公園，缺乏一般遊具，且配套停車位不足，難以滿足本里高親子密度的使用需求。我們將積極向市府爭取增設多元親子遊具、遮陰設施與停車空間，並研議與鄰近學校合作，於課後與假日開放校園運動與活動場地，有效補足公共空間的缺口。</li>
+      <li><strong>推動大樓社區陽台與屋頂綠化諮詢</strong>：連結農業局資源，提供對社區綠化有興趣的管委會免費的綠化諮詢與小額補助媒合服務，讓補助資訊觸手可及。</li>
+    </ol>
+
+    <h3 id="policy-5">核心政見五：【傾聽民眾‧活化空間】讓社區真正動起來，意見真正被聽見</h3>
+    <p>
+      新林里許多大樓公設長期閒置，里民的需求也還沒有穩定的反映管道。我們要補起這兩個缺口。
+    </p>
+    <ol>
+      <li><strong>多元管道蒐集里民意見</strong>：新林里以年輕住戶為主，意見蒐集以數位平台及各大樓區權人會議為核心管道，讓里民以最低摩擦的方式隨時反映需求，里長定期出席各社區區權人會議與住戶大會，直接傾聽第一線聲音。服務對象不限設籍里民，租屋族與實際居住者同享同等資訊與服務，不因戶籍而被排除在里政之外。</li>
+      <li><strong>「空間媒合平台」盤點閒置公設</strong>：協助有意願的大樓管委會，媒合使用率偏低的公設（如閒置會議室、宴會廳），對外開放作為共學空間、社區診療站或親子活動室，創造使用價值。</li>
+      <li><strong>接軌「智慧里長 2.0」，建立「里民需求提案制度」</strong>：第一天就導入新北市官方智慧里長 LINE 平台的線上陳情系統，並以設計專業優化里民端的操作體驗與進度視覺化呈現，讓每一條里民建議都不石沉大海，確保從提案到處理的全程透明可查。</li>
+    </ol>
+
+    <h3 id="policy-6">核心政見六：【新住民友善服務】讓每個家庭都是新林里的一份子</h3>
+    <p>
+      新林里有相當比例的新住民家庭，來自不同國家與地區。語言、文字與行政程序的落差，常讓他們在辦理生活事務、了解社區規範時遇到困難。
+    </p>
+    <ol>
+      <li><strong>提供新住民行政服務協助</strong>：製作多語版本的在地生活資訊（如垃圾分類、社區規範、學區入學說明），語言依里內新住民的實際需求調整，定期送達每個社區，並在社區說明會與里民活動中安排多語協助時段。</li>
+      <li><strong>舉辦新住民歡迎活動</strong>：定期舉辦輕鬆的社區認識會，協助新住民家庭建立在地人際網絡，同時促進長期定居里民與新住民之間的相互認識。</li>
+      <li><strong>連結新北市新住民行動服務</strong>：協助新住民家庭連結新北市政府的新住民服務資源，包括語言課程、工作媒合與子女教育諮詢，讓里長辦公室成為新住民進入在地生活的友善入口。</li>
+    </ol>
+
+    <hr />
+
+    <h2 id="vision">肆、堅持不懈．勇往直前：任期內的長遠願景</h2>
+
+    <p>
+      除了紮實的核心政見，我們對新林里還有更高的期許。這不僅是願景，更是我們持續叩關市府、爭取資源的長期奮鬥目標，帶領新林里真正「堅持不懈．勇往直前」。
+    </p>
+
+    <h3 id="vision-1">願景一：【地方品牌】讓大家以「新林人」為榮</h3>
+    <p>
+      新林里是全新的里，還沒有屬於自己的樣子。我們將以設計專業，打造新林里專屬的視覺識別與地方品牌，並辦理里慶、社區市集等在地活動，讓「新林里」從行政區名稱，變成居民願意掛在嘴邊的身分認同。
+    </p>
+
+    <h3 id="vision-2">願景二：【跨世代情感連結】讓「鄰居」成為「夥伴」</h3>
+    <p>
+      高樓社區最大的問題不是距離，而是陌生。我們將透過共學、共餐、節慶與志工活動，讓年輕家庭、銀髮長輩與新住民家庭真正相識，把同一棟樓、同一條街的「鄰居」，變成遇到事情願意互相幫忙的「夥伴」。
+    </p>
+
+    <h3 id="vision-3">願景三：【AI 智慧園區】讓在地青年接軌新產業</h3>
+    <p>
+      新林里緊鄰三井 Outlet 商圈的「第六種產業專用區」，即將迎來東森集團規劃的新總部「恩典大樓」，預計 2026 年底啟用，並定位轉型為「東森林口 AI 智慧園區」。我們將主動與進駐業者建立溝通管道，倡議優先媒合新林里在地青年參與 AI 相關實習與就業機會，讓這座新科技聚落成為新林里居民也能共享榮景的資產，而非企業進駐的孤島。
+    </p>
+
+    <hr />
+
+    <h2 id="foundation">伍、新林里的第一件事：把一個里從零蓋起來</h2>
+
+    <p>
+      新林里是 2026 年 7 月才劃分出的全新行政區，這代表首屆里長要做的不只是「服務」，更是「從無到有建立一個里的基礎制度」——這是新林里美好未來的起點。以下五項，是上任後優先推動的工作：
+    </p>
+
+    <ol>
+      <li><strong>設立里辦公處</strong>：依新北市 116 年新制，為目前尚無活動中心的新林里申請每月最高 3 萬元租金補助，先覓得固定服務空間作為過渡，讓新林里從第一天起就有里辦公室、找得到人辦事；長期則整合進第 5 項「市場用地」開發案，爭取一次到位的永久基地。</li>
+      <li><strong>依規遴聘各鄰鄰長，建立志工編組</strong>：完成 23 鄰鄰長遴聘，並建立守望相助隊、環保志工隊等基層編組，補齊新里從零開始的人力網絡，讓守望相助與環境維護不再是空白。</li>
+      <li><strong>協助發起籌組新林里社區發展協會</strong>：補齊申請公部門資源、辦理在地活動的法定管道，讓社區發展真正站穩腳步。</li>
+      <li><strong>數位透明里政</strong>：里基層工作經費（新北市現制每里每年最低 60 萬元，116 年起調升至最低 70 萬元）逐筆公開運用項目，陳情與會勘案件全程可查詢處理進度，並固定公開服務時段、導入「線上公民提案」，讓里民共同決定社區重大方向。這件事我們已經開始做——選前即已上線<a href="../xinlin-address/">「新林里全 23 鄰門牌鄰別對照表」</a>與線上地址快速查詢，讓里民自己就能查清楚門牌歸屬，不必再問來問去。</li>
+      <li><strong>爭取新林國小旁「市場用地」整合開發</strong>：新林里目前沒有傳統市場，日常採買仰賴 Outlet 商場或外送，生活機能有明顯缺口。里內緊鄰新林國小、都市計畫已劃定為「市場用地」的公有土地，是解決里辦公室與活動中心長期無處落腳的關鍵解方——我們將積極向市場處、工務局爭取加速開發時程，倡議樓下規劃公有市場補足民生機能，樓上結合里民活動中心與里辦公室，一次補齊生活需求與里政基礎建設兩大缺口。</li>
+    </ol>
+
+    <p>
+      用設計師的專業，把新林里的第一套治理制度，設計成日後所有重劃區新里可以參考的範本。
+    </p>
+
+    <hr />
+
+    <h2 id="contact">陸、聯絡我們</h2>
+
+    <ul>
+      <li>電子信箱：<a href="mailto:xinlinno1@gmail.com">xinlinno1@gmail.com</a></li>
+      <li>服務電話：<a href="tel:0968013131">0968-013-131</a></li>
+      <li><a href="https://www.facebook.com/profile.php?id=61592284322183" target="_blank" rel="noopener noreferrer">Facebook 粉絲專頁</a>　‧　<a href="https://lin.ee/Yxr8Nk2" target="_blank" rel="noopener noreferrer">LINE 官方帳號</a></li>
+    </ul>
+
+    <div class="article-closing">
+      <p>堅持不懈．勇往直前。</p>
+      <p>讓有經驗的青年，為新林里帶來真正有感的服務 —— 謝誌謙</p>
+    </div>
+
+  </main>
+
+  <!-- ══════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+          <div class="footer-brand-name">謝誌謙</div>
+          <div class="footer-brand-slogan">堅持不懈．勇往直前 · 新林里里長候選人</div>
+          <p class="footer-brand-desc">
+            以設計美學、社群參與、務實福利為核心，<br />
+            為新林里帶來真正有感的里政服務。
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>快速導覽</h4>
+          <ul>
+            <li><a href="../index.html#lookup">地址查詢</a></li>
+            <li><a href="../xinlin-address/">門牌對照表</a></li>
+            <li><a href="../index.html#about">關於誌謙</a></li>
+            <li><a href="../index.html#policy">核心政見</a></li>
+            <li><a href="./">政策白皮書</a></li>
+            <li><a href="../index.html#community">社群與聯絡</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>關注我們</h4>
+          <ul>
+            <li><a href="https://www.facebook.com/profile.php?id=61592284322183" target="_blank" rel="noopener noreferrer">Facebook 粉絲專頁</a></li>
+            <li><a href="https://lin.ee/Yxr8Nk2" target="_blank" rel="noopener noreferrer">LINE 官方帳號</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>
+          © <span id="currentYear"></span> <strong>新林里里長參選人謝誌謙競選團隊</strong> · 新北市林口區新林里
+        </p>
+        <p style="color:var(--color-text-dim);font-size:0.75rem;">
+          本網站為競選用途，所有政見以實際公告為準
+        </p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- 回到頂端按鈕 -->
+  <button class="scroll-top" id="scrollTopBtn" aria-label="回到頁面頂端">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <script src="../js/subpage.js"></script>
+</body>
+
+</html>

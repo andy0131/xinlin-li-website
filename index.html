@@ -42,19 +42,140 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "謝誌謙",
-    "jobTitle": "新林里首屆里長候選人",
-    "description": "全職投入公共事務的在地青年，參選新林里首屆里長",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "林口區新林里",
-      "addressRegion": "新北市",
-      "addressCountry": "TW"
-    },
-    "sameAs": [
-      "https://www.facebook.com/profile.php?id=61592284322183",
-      "https://lin.ee/Yxr8Nk2"
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://newlinkou.com/#person",
+        "name": "謝誌謙",
+        "jobTitle": "新林里首屆里長候選人",
+        "description": "全職投入公共事務的在地青年，參選新北市林口區新林里首屆里長。現任新北市議員李宇翔辦公室設計總監，並擔任新林里內大樓社區管理委員會第十二屆主任委員，實踐大學媒體傳達設計學系畢業。",
+        "url": "https://newlinkou.com/",
+        "image": "https://newlinkou.com/assets/images/about-portrait.webp",
+        "email": "xinlinno1@gmail.com",
+        "telephone": "+886-968-013-131",
+        "nationality": "TW",
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "實踐大學媒體傳達設計學系"
+        },
+        "knowsAbout": [
+          "里政服務",
+          "社區公共托育",
+          "社區防災與韌性社區",
+          "噪音防制",
+          "社區綠化",
+          "新住民服務",
+          "社區管理委員會治理",
+          "設計與視覺傳達"
+        ],
+        "knowsLanguage": ["zh-Hant", "zh-Hans"],
+        "homeLocation": { "@id": "https://newlinkou.com/#place" },
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "林口區新林里",
+          "addressRegion": "新北市",
+          "addressCountry": "TW"
+        },
+        "sameAs": [
+          "https://www.facebook.com/profile.php?id=61592284322183",
+          "https://lin.ee/Yxr8Nk2"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://newlinkou.com/#website",
+        "name": "謝誌謙 新林里里長候選人官方網站",
+        "alternateName": "新林里里長候選人 謝誌謙",
+        "url": "https://newlinkou.com/",
+        "inLanguage": "zh-TW",
+        "dateModified": "2026-07-26",
+        "publisher": {
+          "@type": "Organization",
+          "name": "謝誌謙競選團隊",
+          "url": "https://newlinkou.com/"
+        },
+        "about": { "@id": "https://newlinkou.com/#place" },
+        "mainEntity": { "@id": "https://newlinkou.com/#person" }
+      },
+      {
+        "@type": "Place",
+        "@id": "https://newlinkou.com/#place",
+        "name": "新北市林口區新林里",
+        "alternateName": "新林里",
+        "description": "新林里是新北市林口區的行政區，於 2026 年 7 月自南勢里劃分獨立設立，共 23 鄰，位於林口新市鎮重劃區內，緊鄰三井 Outlet Park 林口與機場捷運 A9 林口站。2026 年地方選舉為新林里首屆里長選舉。",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "林口區新林里",
+          "addressRegion": "新北市",
+          "addressCountry": "TW"
+        },
+        "containedInPlace": {
+          "@type": "AdministrativeArea",
+          "name": "新北市林口區"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://newlinkou.com/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "新林里在哪裡？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "新林里位於新北市林口區，是林口新市鎮重劃區內的行政區，於 2026 年 7 月自南勢里劃分獨立設立，共 23 鄰，緊鄰三井 Outlet Park 林口與機場捷運 A9 林口站。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "新林里是從哪個里分出來的？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "新林里於 2026 年 7 月自新北市林口區南勢里劃分獨立。因南勢里幅員過大、人口激增，市府將其部分區域劃出成立新林里，因此 2026 年的里長選舉為新林里首屆里長選舉。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "我家的地址屬於新林里嗎？屬於第幾鄰？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "可在 newlinkou.com 首頁的「新林里地址快速查詢」輸入完整門牌地址自動判定，或查閱 https://newlinkou.com/xinlin-address/ 的完整門牌鄰別對照表。資料依新北市「新林里轄鄰調整明細表」整理，共收錄 23 鄰、102 段門牌範圍。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "新林里首屆里長選舉什麼時候投票？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "新林里首屆里長選舉隨 2026 年地方公職人員選舉辦理，投票日為 2026 年 11 月 28 日（星期六）。實際投票時間與投票所地點以中央選舉委員會及新北市選舉委員會公告為準。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "謝誌謙是誰？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "謝誌謙是新北市林口區新林里首屆里長候選人，現居新林里。實踐大學媒體傳達設計學系畢業，現任新北市議員李宇翔辦公室設計總監，並擔任新林里內一處大樓社區管理委員會第十二屆主任委員。他以全職里長為訴求，沒有需要兼顧的公司或事業。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "謝誌謙的政見是什麼？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "謝誌謙提出六大核心政見：一、親子共好——爭取新林里公托設點並組織社區共學；二、韌性社區——建立高樓社區防災地圖與防災工作坊；三、噪音防制——蒐證並爭取取締深夜飆車；四、綠化環境——增植行道樹、擴充公園設施與停車空間；五、傾聽民眾與閒置空間活化——導入智慧里長線上陳情與空間媒合平台；六、新住民友善服務——提供多語生活資訊與資源連結。完整內容見政策白皮書 https://newlinkou.com/whitepaper/。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "新林里首屆里長要優先做哪些事？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "新林里是全新設立的里，首屆里長須從零建立基礎制度，包含五項優先工作：設立里辦公處（申請每月最高 3 萬元租金補助）、依規遴聘各鄰鄰長並建立志工編組、協助籌組新林里社區發展協會、申請並逐筆公開里基層工作經費、爭取新林國小旁「市場用地」整合開發以一次補齊公有市場與里民活動中心。"
+            }
+          }
+        ]
+      }
     ]
   }
   </script>
@@ -101,7 +222,7 @@
           <li><a href="#lookup" class="nav-link">地址查詢</a></li>
           <li><a href="#about" class="nav-link">關於誌謙</a></li>
           <li><a href="#policy" class="nav-link">核心政見</a></li>
-          <li><a href="#foundation" class="nav-link">第一件事</a></li>
+          <li><a href="whitepaper/" class="nav-link">政策白皮書</a></li>
           <li><a href="#community" class="nav-link">社群與聯絡</a></li>
         </ul>
         <button class="theme-toggle" id="themeToggle" aria-label="切換深色／淺色模式" aria-pressed="false">
@@ -223,6 +344,11 @@
 
       <p class="lookup-disclaimer">
         * 本查詢僅供初步參考，正式門牌歸屬請以新北市政府公告或林口區戶政事務所資料為準。
+      </p>
+
+      <p class="lookup-disclaimer">
+        想一次看完整份對照表？
+        <a href="xinlin-address/">新林里全 23 鄰門牌鄰別對照表 →</a>
       </p>
 
       <div class="lookup-images">
@@ -360,11 +486,11 @@
           </svg>
           <div class="policy-card-title-bar" aria-hidden="true"></div>
           <h3 class="policy-card-title">韌性社區</h3>
-          <p class="policy-card-sub">建立全民防災安全網</p>
+          <p class="policy-card-sub">建立高樓社區的防災安全網</p>
           <div class="policy-card-body">
             <ul>
-              <li>易讀避難地圖，防空、AED、取水點一目了然</li>
-              <li>民防工作坊定期開課，急救與避難技能人人會</li>
+              <li>易讀防災地圖，避難點、AED、取水點一目了然</li>
+              <li>防災工作坊定期開課，急救與避難技能人人會</li>
               <li>管委會聯繫平台成形，緊急通報不再各自為政</li>
             </ul>
           </div>
@@ -530,7 +656,7 @@
           </div>
           <div class="vision-content">
             <h3>數位透明里政</h3>
-            <p>里經費逐筆公開、會勘進度全程可查，讓新林里成為全新北最透明的里。</p>
+            <p>里經費逐筆公開、會勘進度全程可查，讓新林里的里政從第一天起就完全公開透明。</p>
           </div>
         </div>
 
@@ -711,8 +837,10 @@
           <h4>快速導覽</h4>
           <ul>
             <li><a href="#lookup">地址查詢</a></li>
+            <li><a href="xinlin-address/">門牌鄰別對照表</a></li>
             <li><a href="#about">關於誌謙</a></li>
             <li><a href="#policy">核心政見</a></li>
+            <li><a href="whitepaper/">政策白皮書</a></li>
             <li><a href="#foundation">第一件事</a></li>
             <li><a href="#community">社群與聯絡</a></li>
           </ul>
