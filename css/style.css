@@ -261,7 +261,6 @@ img { max-width: 100%; display: block; }
      字級與顏色由 .nav-link 負責，此處不可用 inherit 覆蓋。 */
   font-family: inherit;
   line-height: inherit;
-  text-align: left;
   /* iOS Safari 即使清掉 background/border 仍會套原生按鈕外觀 */
   -webkit-appearance: none;
   appearance: none;
@@ -1748,40 +1747,39 @@ body.lightbox-open { overflow: hidden; }
     display: block;
   }
   /* 手機選單面板固定為淺色底，連結文字一律使用深色（不受未捲動/已捲動狀態影響） */
-  #navLinks.open .nav-link { color: var(--color-text-dim); }
-  #navLinks.open .nav-link:hover, #navLinks.open .nav-link.active {
+  #navLinks.open .nav-link,
+  #navLinks.open .nav-sub-link { color: var(--color-text-dim); }
+  #navLinks.open .nav-link.active,
+  #navLinks.open .nav-sub-link.active {
     color: var(--color-text);
     background: color-mix(in srgb, var(--color-accent) 10%, transparent);
   }
   .nav-toggle { display: flex; }
 
-  /* 子選單在手機改為就地展開的摺疊清單，不再浮出面板 */
-  .nav-item-has-sub { width: 100%; }
+  /* 子選單在手機改為就地展開的摺疊清單，不再浮出面板。
+     注意 .nav-links 帶有 align-items:center，column 方向下每個 <li> 是
+     置中的窄塊；這一項若撐滿整列就會獨自靠左、底色也變成整條，
+     因此寬度與對齊都必須跟其他選單項一致。 */
   .nav-item-has-sub::after { display: none; }
   .nav-sub-toggle {
-    display: flex;
-    justify-content: space-between;
-    text-align: left;
+    display: inline-flex;
+    justify-content: center;
   }
   .nav-sub {
     position: static;
     display: none;
     min-width: 0;
-    padding: 0 0 6px 14px;
+    padding: 0 0 6px;
     border: none;
     background: none;
     box-shadow: none;
     opacity: 1;
     visibility: visible;
     transform: none;
+    text-align: center;
   }
   .nav-sub.open { display: block; }
   .nav-sub-link { padding: 12px 16px; font-size: 0.95rem; }
-  #navLinks.open .nav-sub-link { color: var(--color-text-dim); }
-  #navLinks.open .nav-sub-link:hover, #navLinks.open .nav-sub-link.active {
-    color: var(--color-text);
-    background: color-mix(in srgb, var(--color-accent) 10%, transparent);
-  }
 
   .hero-actions { flex-direction: column; align-items: center; }
   .lookup-form-row { flex-direction: column; }
@@ -1847,6 +1845,17 @@ body.lightbox-open { overflow: hidden; }
     max-width: 340px;
     scroll-snap-align: center;
     scroll-snap-stop: always;
+  }
+}
+
+/* 觸控裝置點擊後 :hover 會殘留。「地址查詢」是手機選單裡唯一點了不跳頁的
+   項目，殘留的底色會一直掛在那裡，看起來像被選中。無滑鼠的裝置直接關掉
+   選單項的 hover 外觀，但保留 .active（當前所在區塊）的標示。 */
+@media (max-width: 768px) and (hover: none) {
+  #navLinks.open .nav-link:hover:not(.active),
+  #navLinks.open .nav-sub-link:hover:not(.active) {
+    color: var(--color-text-dim);
+    background: none;
   }
 }
 
