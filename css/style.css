@@ -256,7 +256,15 @@ img { max-width: 100%; display: block; }
   border: none;
   background: none;
   cursor: pointer;
+  /* button 不繼承 body 的字體與行高（UA 給 line-height:normal），
+     不補這兩項，這一列會比相鄰的 <a> 連結矮一截。
+     字級與顏色由 .nav-link 負責，此處不可用 inherit 覆蓋。 */
   font-family: inherit;
+  line-height: inherit;
+  text-align: left;
+  /* iOS Safari 即使清掉 background/border 仍會套原生按鈕外觀 */
+  -webkit-appearance: none;
+  appearance: none;
 }
 .nav-sub-caret {
   width: 11px;
