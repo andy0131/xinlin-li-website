@@ -8,7 +8,7 @@
 const navbar = document.getElementById('navbar');
 const navToggle = document.getElementById('navToggle');
 const navLinks  = document.getElementById('navLinks');
-const navLinkItems = document.querySelectorAll('.nav-link');
+const navLinkItems = document.querySelectorAll('.nav-link, .nav-sub-link');
 
 window.addEventListener('scroll', () => {
   if (window.scrollY > 40) {
@@ -25,13 +25,61 @@ navToggle.addEventListener('click', () => {
   navLinks.classList.toggle('open');
 });
 
-// 點選連結後關閉手機選單
+// 點選連結後關閉手機選單（子選單的開合鈕除外，它要負責展開下層）
 navLinkItems.forEach(link => {
   link.addEventListener('click', () => {
+    if (link.classList.contains('nav-sub-toggle')) return;
     navToggle.classList.remove('open');
     navLinks.classList.remove('open');
   });
 });
+
+// ─── 主選單子選單（地址查詢）─────────────────────────────────
+// 桌面靠 hover 展開（CSS 負責），這裡處理點擊、觸控與鍵盤操作。
+const navSubToggle = document.querySelector('.nav-sub-toggle');
+const navSubMenu   = navSubToggle && document.getElementById(navSubToggle.getAttribute('aria-controls'));
+
+if (navSubToggle && navSubMenu) {
+  const navSubWrap = navSubToggle.closest('.nav-item-has-sub');
+
+  function setNavSubOpen(open) {
+    navSubMenu.classList.toggle('open', open);
+    navSubToggle.setAttribute('aria-expanded', String(open));
+  }
+
+  navSubToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    setNavSubOpen(!navSubMenu.classList.contains('open'));
+  });
+
+  // 點擊子選單以外的地方就收合
+  document.addEventListener('click', (e) => {
+    if (!navSubWrap.contains(e.target)) setNavSubOpen(false);
+  });
+
+  // 點了子選單內的連結也要收合（首頁的「快速查詢」只捲動不換頁，面板會賴著不走）
+  navSubMenu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => setNavSubOpen(false));
+  });
+
+  // Esc 收合並把焦點還給開合鈕
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && navSubMenu.classList.contains('open')) {
+      setNavSubOpen(false);
+      navSubToggle.focus();
+    }
+  });
+
+  // 鍵盤 Tab 離開整個子選單區塊時收合
+  navSubWrap.addEventListener('focusout', (e) => {
+    if (!navSubWrap.contains(e.relatedTarget)) setNavSubOpen(false);
+  });
+
+  // 收起手機選單時一併收合子選單，避免下次展開時停在半開狀態
+  navToggle.addEventListener('click', () => {
+    if (!navLinks.classList.contains('open')) setNavSubOpen(false);
+  });
+}
 
 // ─── 日夜主題切換 ────────────────────────────────────────────
 const themeToggle = document.getElementById('themeToggle');
@@ -66,11 +114,14 @@ function updateActiveNav() {
       current = section.getAttribute('id');
     }
   });
+  // 先全部清掉再標記，避免子選單項目與其父層開合鈕互相蓋掉
+  navLinkItems.forEach(link => link.classList.remove('active'));
   navLinkItems.forEach(link => {
-    link.classList.remove('active');
-    if (link.getAttribute('href') === `#${current}`) {
-      link.classList.add('active');
-    }
+    if (link.getAttribute('href') !== `#${current}`) return;
+    link.classList.add('active');
+    // 子選單項目命中時，父層的「地址查詢」也要跟著亮起
+    const wrap = link.closest('.nav-item-has-sub');
+    if (wrap) wrap.querySelector('.nav-sub-toggle').classList.add('active');
   });
 }
 

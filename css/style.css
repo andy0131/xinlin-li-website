@@ -239,6 +239,80 @@ img { max-width: 100%; display: block; }
   background: color-mix(in srgb, var(--color-accent) 10%, transparent);
 }
 
+/* ── 主選單子選單：地址查詢 → 快速查詢／門牌對照表 ── */
+.nav-item-has-sub { position: relative; }
+/* 補上按鈕與面板之間的空隙，避免滑鼠移動途中 hover 中斷 */
+.nav-item-has-sub::after {
+  content: '';
+  position: absolute;
+  top: 100%; left: 0; right: 0;
+  height: 12px;
+}
+
+.nav-sub-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+.nav-sub-caret {
+  width: 11px;
+  height: 11px;
+  flex-shrink: 0;
+  transition: transform var(--transition);
+}
+.nav-sub-toggle[aria-expanded="true"] .nav-sub-caret { transform: rotate(180deg); }
+
+.nav-sub {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 0;
+  z-index: 10;
+  min-width: 176px;
+  padding: 6px;
+  list-style: none;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  box-shadow: 0 14px 34px rgba(15, 21, 46, 0.16);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+  transition: opacity var(--transition), transform var(--transition), visibility var(--transition);
+}
+.nav-sub.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.nav-sub-link {
+  display: block;
+  padding: 10px 12px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  color: var(--color-text-dim);
+  border-radius: var(--radius-sm);
+  transition: color var(--transition), background var(--transition);
+}
+.nav-sub-link:hover, .nav-sub-link.active {
+  color: var(--color-text);
+  background: color-mix(in srgb, var(--color-accent) 10%, transparent);
+}
+
+/* 有滑鼠的桌面環境才用 hover 展開；觸控與手機一律靠點擊 */
+@media (hover: hover) and (min-width: 769px) {
+  .nav-item-has-sub:hover .nav-sub {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+}
+
 .nav-toggle {
   display: none;
   flex-direction: column;
@@ -1672,6 +1746,34 @@ body.lightbox-open { overflow: hidden; }
     background: color-mix(in srgb, var(--color-accent) 10%, transparent);
   }
   .nav-toggle { display: flex; }
+
+  /* 子選單在手機改為就地展開的摺疊清單，不再浮出面板 */
+  .nav-item-has-sub { width: 100%; }
+  .nav-item-has-sub::after { display: none; }
+  .nav-sub-toggle {
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+  }
+  .nav-sub {
+    position: static;
+    display: none;
+    min-width: 0;
+    padding: 0 0 6px 14px;
+    border: none;
+    background: none;
+    box-shadow: none;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+  .nav-sub.open { display: block; }
+  .nav-sub-link { padding: 12px 16px; font-size: 0.95rem; }
+  #navLinks.open .nav-sub-link { color: var(--color-text-dim); }
+  #navLinks.open .nav-sub-link:hover, #navLinks.open .nav-sub-link.active {
+    color: var(--color-text);
+    background: color-mix(in srgb, var(--color-accent) 10%, transparent);
+  }
 
   .hero-actions { flex-direction: column; align-items: center; }
   .lookup-form-row { flex-direction: column; }

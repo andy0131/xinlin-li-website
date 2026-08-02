@@ -5,12 +5,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- 日夜主題：盡早套用已儲存/系統偏好設定，避免切換閃爍 -->
+  <!-- 日夜主題：預設一律淺色（白天版），不跟隨系統偏好；僅在使用者主動切換成深色後才套用，並盡早執行避免閃爍 -->
   <script>
     (function () {
-      var saved = localStorage.getItem('theme');
-      var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-      if (saved === 'dark' || (!saved && prefersDark)) {
+      if (localStorage.getItem('theme') === 'dark') {
         document.documentElement.setAttribute('data-theme', 'dark');
       }
     })();
@@ -18,7 +16,7 @@
 
   <!-- SEO -->
   <title>謝誌謙 | 新林里首屆里長候選人 — 堅持不懈‧勇往直前</title>
-  <meta name="description" content="謝誌謙，新林里首屆里長候選人。以親子共好（公托）、韌性社區、噪音防制、綠化環境、傾聽民眾、新住民友善服務六大政見，從零打造新林里，為里民帶來真正有感的改變。" />
+  <meta name="description" content="謝誌謙，新林里首屆里長候選人。以親子共好（爭取更多公托）、韌性社區、噪音防制、綠化環境、傾聽民眾、新住民友善服務六大政見，從零打造新林里，為里民帶來真正有感的改變。" />
   <meta name="keywords" content="謝誌謙, 新林里, 新林里里長, 首屆里長, 里長, 林口, 里長選舉, 2026, 南勢里" />
   <meta name="author" content="謝誌謙競選團隊" />
 
@@ -163,7 +161,7 @@
             "name": "謝誌謙的政見是什麼？",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "謝誌謙提出六大核心政見：一、親子共好——爭取新林里公托設點並組織社區共學；二、韌性社區——建立高樓社區防災地圖與防災工作坊；三、噪音防制——蒐證並爭取取締深夜飆車；四、綠化環境——增植行道樹、擴充公園設施與停車空間；五、傾聽民眾與閒置空間活化——導入智慧里長線上陳情與空間媒合平台；六、新住民友善服務——提供多語生活資訊與資源連結。完整內容見政策白皮書 https://newlinkou.com/whitepaper/。"
+              "text": "謝誌謙提出六大核心政見：一、親子共好——在里內既有的林口忠孝公共托育中心之外爭取增設公托據點與定點臨托，並組織社區共學；二、韌性社區——將官方防災圖資轉譯為易讀的社區防災地圖、逐棟盤點防災設備並培訓管委會幹部成為防災士；三、噪音防制——蒐證並爭取深夜巡邏與增設聲音照相點位；四、綠化環境——增植行道樹、爭取兩座滯洪池公園增設遊具與停車空間、媒合社區綠化補助；五、傾聽民眾與閒置空間活化——導入智慧里長系統、活化閒置公設並把里民需求送進參與式預算；六、新住民友善服務——提供多語生活資訊與在地資源轉介。完整內容見政策白皮書 https://newlinkou.com/whitepaper/。"
             }
           },
           {
@@ -171,7 +169,7 @@
             "name": "新林里首屆里長要優先做哪些事？",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "新林里是全新設立的里，首屆里長須從零建立基礎制度，包含五項優先工作：設立里辦公處（申請每月最高 3 萬元租金補助）、依規遴聘各鄰鄰長並建立志工編組、協助籌組新林里社區發展協會、申請並逐筆公開里基層工作經費、爭取新林國小旁「市場用地」整合開發以一次補齊公有市場與里民活動中心。"
+              "text": "新林里是全新設立的里，首屆里長須從零建立基礎制度，包含五項優先工作：設立里辦公處（新北市已規劃自 116 年起為無活動中心的里提供每月 3 萬元租金補助，尚待市議會審議）、依規遴聘各鄰鄰長並建立志工編組、協助籌組新林里社區發展協會、申請並逐筆公開里基層工作經費、爭取新林國小旁「市場用地」整合開發以一次補齊公有市場與里民活動中心。"
             }
           }
         ]
@@ -219,7 +217,18 @@
       </a>
       <div class="nav-right">
         <ul class="nav-links" id="navLinks" role="list">
-          <li><a href="#lookup" class="nav-link">地址查詢</a></li>
+          <li class="nav-item-has-sub">
+            <button type="button" class="nav-link nav-sub-toggle" id="navLookupToggle" aria-expanded="false" aria-controls="navLookupSub">
+              地址查詢
+              <svg class="nav-sub-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="m6 9 6 6 6-6" />
+              </svg>
+            </button>
+            <ul class="nav-sub" id="navLookupSub" role="list">
+              <li><a href="#lookup" class="nav-sub-link">快速查詢</a></li>
+              <li><a href="xinlin-address/" class="nav-sub-link">門牌對照表</a></li>
+            </ul>
+          </li>
           <li><a href="#about" class="nav-link">關於誌謙</a></li>
           <li><a href="#policy" class="nav-link">核心政見</a></li>
           <li><a href="whitepaper/" class="nav-link">政策白皮書</a></li>
@@ -348,7 +357,7 @@
 
       <p class="lookup-disclaimer">
         想一次看完整份對照表？
-        <a href="xinlin-address/">新林里全 23 鄰門牌鄰別對照表 →</a>
+        <a href="xinlin-address/">新林里全 23 鄰門牌對照表 →</a>
       </p>
 
       <div class="lookup-images">
@@ -487,10 +496,10 @@
           </svg>
           <div class="policy-card-title-bar" aria-hidden="true"></div>
           <h3 class="policy-card-title">親子共好</h3>
-          <p class="policy-card-sub">終結學前資源荒</p>
+          <p class="policy-card-sub">補齊學前照顧缺口</p>
           <div class="policy-card-body">
             <ul>
-              <li>爭取增加區域公托，銜接學前照顧缺口</li>
+              <li>里內已有忠孝公托，爭取增設據點與定點臨托</li>
               <li>媒合共學課程開課，雙語與美術資源不缺席</li>
               <li>通學路口危險點全面改善，上下學更安心</li>
             </ul>
@@ -509,8 +518,8 @@
           <p class="policy-card-sub">建立高樓社區的防災安全網</p>
           <div class="policy-card-body">
             <ul>
-              <li>易讀防災地圖，避難點、AED、取水點一目了然</li>
-              <li>防災工作坊定期開課，急救與避難技能人人會</li>
+              <li>官方圖資轉譯成易讀地圖，逐棟盤點防災設備</li>
+              <li>防災工作坊開課，管委會幹部培訓在地防災士</li>
               <li>管委會聯繫平台成形，緊急通報不再各自為政</li>
             </ul>
           </div>
@@ -530,7 +539,7 @@
           <div class="policy-card-body">
             <ul>
               <li>設計飆車熱點即時通報機制，陳情有數據佐證</li>
-              <li>爭取深夜巡邏與科技執法到位，安寧夜晚不缺席</li>
+              <li>文化二路已有聲音照相，爭取增設第二處點位</li>
               <li>防飆車減速設施與交流道車流改善逐步落實</li>
             </ul>
           </div>
@@ -548,9 +557,9 @@
           <p class="policy-card-sub">讓新林里成為會呼吸的社區</p>
           <div class="policy-card-body">
             <ul>
-              <li>爭取主要道路行道樹增植，長期有人養護</li>
-              <li>公園親子遊具、遮陰設施與停車空間同步增設</li>
-              <li>推動社區綠化補助資訊觸手可及</li>
+              <li>爭取行道樹增植，並媒合認養讓長期有人養護</li>
+              <li>兩座滯洪池公園爭取增設遊具、遮陰與停車空間</li>
+              <li>帶著管委會申請社區綠美化與屋頂農場補助</li>
             </ul>
           </div>
         </li>
@@ -568,8 +577,8 @@
           <div class="policy-card-body">
             <ul>
               <li>定期出席區權會，租屋族與居民權益兼顧</li>
-              <li>推動閒置空間變身共學、診療與親子場域</li>
-              <li>線上陳情系統上線，每條建議都有回音</li>
+              <li>推動閒置公設變身共學、關懷據點與親子場域</li>
+              <li>需求整理成正式提案，送進參與式預算爭資源</li>
             </ul>
           </div>
         </li>
@@ -587,9 +596,9 @@
           <p class="policy-card-sub">讓每個家庭都是新林里的一份子</p>
           <div class="policy-card-body">
             <ul>
-              <li>推動多語系生活資訊定期送達每個社區</li>
+              <li>取得市府多語素材，在地化後定期送達每個社區</li>
               <li>新住民歡迎會定期舉辦，人際網絡不孤單</li>
-              <li>語言課程、工作媒合與子女教育資源一次到位</li>
+              <li>串連里內關懷服務站，資源轉介一個窗口到底</li>
             </ul>
           </div>
         </li>
@@ -857,7 +866,7 @@
           <h4>快速導覽</h4>
           <ul>
             <li><a href="#lookup">地址查詢</a></li>
-            <li><a href="xinlin-address/">門牌鄰別對照表</a></li>
+            <li><a href="xinlin-address/">門牌對照表</a></li>
             <li><a href="#about">關於誌謙</a></li>
             <li><a href="#policy">核心政見</a></li>
             <li><a href="whitepaper/">政策白皮書</a></li>
