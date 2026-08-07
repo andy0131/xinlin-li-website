@@ -763,9 +763,16 @@
   .pf-done { padding: 40px 20px; }
   .pf-case { font-size: 1.25rem; padding: 12px 18px; }
   .case-lookup { margin-top: 56px; padding-top: 40px; }
-  .case-lookup-row { flex-direction: column; align-items: stretch; }
-  .case-lookup-code { flex: 1 1 auto !important; }
-  .case-lookup-submit { width: 100%; justify-content: center; }
+  .case-lookup-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+  /* 改為直向後 flex-basis 會作用在「高度」上：桌面版用來分配寬度的
+     220px 會把欄位撐成一大塊，這裡必須改回依內容決定高度。 */
+  .case-lookup-row .pf-field { flex: 0 0 auto; }
+  .case-lookup-code { flex: 0 0 auto !important; }
+  .case-lookup-submit { width: 100%; justify-content: center; margin-top: 4px; }
   .case-field { grid-template-columns: 1fr; gap: 2px; }
   .case-fields { padding: 16px 18px; }
   .case-result-head { padding: 16px 18px; }
