@@ -3,6 +3,28 @@
    沿用 style.css 的設計 Token，只補長文與表格排版。
    ============================================================ */
 
+/* --- 內頁導覽列配色 --- */
+/* 首頁的導覽列疊在深色主視覺照片上，所以未捲動時一律用白字，捲動後才換深色。
+   內頁沒有那張照片，最上方就是淺色的 .page-head —— 沿用白字等於隱形。
+   這裡讓內頁的導覽列從一開始就用深色文字，與 .scrolled 狀態一致。 */
+.navbar .nav-logo-name { color: var(--color-gold-ink); }
+.navbar .nav-logo-sub  { color: var(--color-text-dim); }
+.navbar .nav-link      { color: var(--color-text-dim); }
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+  color: var(--color-text);
+  background: color-mix(in srgb, var(--color-accent) 10%, transparent);
+}
+.navbar .theme-toggle {
+  border-color: var(--color-border);
+  background: var(--color-surface-2);
+}
+.navbar .theme-toggle:hover {
+  background: color-mix(in srgb, var(--color-accent) 12%, var(--color-surface-2));
+}
+.navbar .theme-toggle-icon { color: var(--color-text-dim); }
+.navbar .nav-toggle span   { background: var(--color-text); }
+
 /* --- 僅供螢幕閱讀器 --- */
 .sr-only {
   position: absolute;

@@ -52,7 +52,7 @@
         "description": "新北市林口區新林里全 23 鄰的完整門牌範圍與社區對照。",
         "inLanguage": "zh-TW",
         "url": "https://newlinkou.com/xinlin-address/",
-        "dateModified": "2026-08-02",
+        "dateModified": "2026-08-07",
         "isPartOf": { "@id": "https://newlinkou.com/#website" },
         "about": {
           "@type": "Place",
@@ -319,8 +319,32 @@
             </ul>
           </li>
           <li><a href="../index.html#about" class="nav-link">關於誌謙</a></li>
-          <li><a href="../index.html#policy" class="nav-link">核心政見</a></li>
-          <li><a href="../whitepaper/" class="nav-link">政策白皮書</a></li>
+          <li class="nav-item-has-sub">
+            <button type="button" class="nav-link nav-sub-toggle" id="navPolicyToggle" aria-expanded="false" aria-controls="navPolicySub">
+              政見主張
+              <svg class="nav-sub-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="m6 9 6 6 6-6" />
+              </svg>
+            </button>
+            <ul class="nav-sub" id="navPolicySub" role="list">
+              <li><a href="../index.html#policy" class="nav-sub-link">核心政見</a></li>
+              <li><a href="../index.html#foundation" class="nav-sub-link">第一件事</a></li>
+              <li><a href="../whitepaper/" class="nav-sub-link">政策白皮書</a></li>
+            </ul>
+          </li>
+          <li class="nav-item-has-sub">
+            <button type="button" class="nav-link nav-sub-toggle" id="navPetitionToggle" aria-expanded="false" aria-controls="navPetitionSub">
+              里民陳情
+              <svg class="nav-sub-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="m6 9 6 6 6-6" />
+              </svg>
+            </button>
+            <ul class="nav-sub" id="navPetitionSub" role="list">
+              <li><a href="../petition/" class="nav-sub-link">我要陳情</a></li>
+              <li><a href="../petition/#caseLookup" class="nav-sub-link">進度查詢</a></li>
+              <li><a href="../petition-board/" class="nav-sub-link">公開進度</a></li>
+            </ul>
+          </li>
           <li><a href="../index.html#community" class="nav-link">社群與聯絡</a></li>
         </ul>
         <button class="theme-toggle" id="themeToggle" aria-label="切換深色／淺色模式" aria-pressed="false">
@@ -364,7 +388,7 @@
       <p class="page-head-lead" style="margin-top:20px;">
         <a href="../index.html#lookup" class="btn btn-primary">改用地址自動查詢 →</a>
       </p>
-      <p class="page-meta">最後更新：<time datetime="2026-08-02">2026-08-02</time></p>
+      <p class="page-meta">最後更新：<time datetime="2026-08-07">2026-08-07</time></p>
     </div>
   </header>
 
@@ -1343,6 +1367,8 @@
             <li><a href="../index.html#about">關於誌謙</a></li>
             <li><a href="../index.html#policy">核心政見</a></li>
             <li><a href="../whitepaper/">政策白皮書</a></li>
+            <li><a href="../petition/">里民陳情</a></li>
+            <li><a href="../petition-board/">陳情處理進度</a></li>
             <li><a href="../index.html#foundation">第一件事</a></li>
             <li><a href="../index.html#community">社群與聯絡</a></li>
           </ul>

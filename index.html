@@ -230,8 +230,32 @@
             </ul>
           </li>
           <li><a href="#about" class="nav-link">關於誌謙</a></li>
-          <li><a href="#policy" class="nav-link">核心政見</a></li>
-          <li><a href="whitepaper/" class="nav-link">政策白皮書</a></li>
+          <li class="nav-item-has-sub">
+            <button type="button" class="nav-link nav-sub-toggle" id="navPolicyToggle" aria-expanded="false" aria-controls="navPolicySub">
+              政見主張
+              <svg class="nav-sub-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="m6 9 6 6 6-6" />
+              </svg>
+            </button>
+            <ul class="nav-sub" id="navPolicySub" role="list">
+              <li><a href="#policy" class="nav-sub-link">核心政見</a></li>
+              <li><a href="#foundation" class="nav-sub-link">第一件事</a></li>
+              <li><a href="whitepaper/" class="nav-sub-link">政策白皮書</a></li>
+            </ul>
+          </li>
+          <li class="nav-item-has-sub">
+            <button type="button" class="nav-link nav-sub-toggle" id="navPetitionToggle" aria-expanded="false" aria-controls="navPetitionSub">
+              里民陳情
+              <svg class="nav-sub-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="m6 9 6 6 6-6" />
+              </svg>
+            </button>
+            <ul class="nav-sub" id="navPetitionSub" role="list">
+              <li><a href="petition/" class="nav-sub-link">我要陳情</a></li>
+              <li><a href="petition/#caseLookup" class="nav-sub-link">進度查詢</a></li>
+              <li><a href="petition-board/" class="nav-sub-link">公開進度</a></li>
+            </ul>
+          </li>
           <li><a href="#community" class="nav-link">社群與聯絡</a></li>
         </ul>
         <button class="theme-toggle" id="themeToggle" aria-label="切換深色／淺色模式" aria-pressed="false">
@@ -315,6 +339,14 @@
         />
       </div>
     </div>
+
+    <!-- 陳情成績條：由 js/hero-ticker.js 決定是否顯示（公開案件不足時整條不出現） -->
+    <a class="hero-ticker" id="heroTicker" href="petition-board/" aria-label="陳情處理進度看板" hidden>
+      <span class="hero-ticker-label">陳情進度</span>
+      <span class="hero-ticker-stats" id="heroTickerStats"></span>
+      <span class="hero-ticker-feed" id="heroTickerFeed"></span>
+      <span class="hero-ticker-more" aria-hidden="true">看全部</span>
+    </a>
   </section>
 
   <!-- ══════════════════════════════════════
@@ -467,6 +499,30 @@
           <a href="#policy" class="btn btn-outline about-cta" id="about-cta-policy">看看我為新林里準備的政見 →</a>
         </div>
 
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       ORIGIN（新林里的由來）
+       白皮書「貳、為什麼新林里需要全新的改變？」的濃縮版。
+       首頁原本從「關於誌謙」直接接到政見，少了這一拍，
+       六大政見讀起來會像任何地方都能開的支票。
+       刻意不給 id：沒有導覽列連結指向這裡，
+       給了反而會讓 updateActiveNav() 在捲過時清掉「關於誌謙」的高亮。
+  ══════════════════════════════════════ -->
+  <section class="origin" aria-label="新林里的由來">
+    <div class="container">
+      <div class="origin-inner reveal">
+        <div class="origin-label">2026 年 7 月成立</div>
+        <h2 class="origin-title">這是一個<em>全新的里</em>，沒有前任</h2>
+        <p class="origin-text">
+          新林里於 2026 年 7 月自南勢里劃分獨立，全里共 23 鄰。
+          首屆里長面對的不是接手一套既有制度，而是把一個里從零建立起來。
+        </p>
+        <p class="origin-bridge">
+          下面這六件事，是我要為新林里做的；<strong>再往下，是讓它們真正成立的地基。</strong>
+        </p>
       </div>
     </div>
   </section>
@@ -870,6 +926,8 @@
             <li><a href="#about">關於誌謙</a></li>
             <li><a href="#policy">核心政見</a></li>
             <li><a href="whitepaper/">政策白皮書</a></li>
+            <li><a href="petition/">里民陳情</a></li>
+            <li><a href="petition-board/">陳情處理進度</a></li>
             <li><a href="#foundation">第一件事</a></li>
             <li><a href="#community">社群與聯絡</a></li>
           </ul>
@@ -926,6 +984,7 @@
   <script src="js/address-lookup-data.js"></script>
   <script src="js/address-lookup.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/hero-ticker.js" defer></script>
 </body>
 
 </html>

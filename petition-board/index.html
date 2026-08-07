@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- 日夜主題：預設一律淺色（白天版），不跟隨系統偏好；僅在使用者主動切換成深色後才套用，並盡早執行避免閃爍 -->
+  <script>
+    (function () {
+      if (localStorage.getItem('theme') === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
+
+  <!-- SEO -->
+  <title>陳情處理進度 | 謝誌謙 新林里首屆里長候選人</title>
+  <meta name="description" content="新林里陳情案件處理進度公開看板：里民陳情的每一件案子，從收件、轉報區公所到完成，處理狀態公開可查。" />
+  <meta name="keywords" content="新林里, 陳情進度, 里民服務, 謝誌謙, 林口, 里長, 公開透明" />
+  <meta name="author" content="謝誌謙競選團隊" />
+
+  <link rel="canonical" href="https://newlinkou.com/petition-board/" />
+
+  <!-- Open Graph -->
+  <meta property="og:url" content="https://newlinkou.com/petition-board/" />
+  <meta property="og:title" content="陳情處理進度 | 謝誌謙 新林里里長候選人" />
+  <meta property="og:description" content="你陳情，我公開進度。每一件里民陳情從收件到完成，處理狀態公開可查。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="zh_TW" />
+  <meta property="og:site_name" content="謝誌謙 新林里里長候選人" />
+  <meta property="og:image" content="https://newlinkou.com/assets/images/001.jpg" />
+
+  <!-- Twitter / X Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="陳情處理進度 | 謝誌謙 新林里里長候選人" />
+  <meta name="twitter:description" content="你陳情，我公開進度。每一件里民陳情從收件到完成，處理狀態公開可查。" />
+  <meta name="twitter:image" content="https://newlinkou.com/assets/images/001.jpg" />
+
+  <!-- Schema.org 結構化資料 -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://newlinkou.com/petition-board/#webpage",
+        "name": "陳情處理進度",
+        "description": "新林里陳情案件處理進度公開看板。",
+        "inLanguage": "zh-TW",
+        "url": "https://newlinkou.com/petition-board/",
+        "about": { "@type": "Place", "name": "新北市林口區新林里" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "首頁", "item": "https://newlinkou.com/" },
+          { "@type": "ListItem", "position": 2, "name": "里民陳情", "item": "https://newlinkou.com/petition/" },
+          { "@type": "ListItem", "position": 3, "name": "陳情處理進度", "item": "https://newlinkou.com/petition-board/" }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <!-- Google Fonts：僅請求實際使用的字重，並以非阻塞方式載入 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Inter:wght@900&display=optional"
+    media="print" onload="this.media='all'" />
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Inter:wght@900&display=optional" />
+  </noscript>
+
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg" />
+
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/subpage.css" />
+  <link rel="stylesheet" href="../css/petition.css" />
+</head>
+
+<body>
+
+  <!-- ══════════════════════════════════════
+       NAVBAR
+  ══════════════════════════════════════ -->
+  <nav id="navbar" class="navbar" role="navigation" aria-label="主要導覽">
+    <div class="nav-container">
+      <a href="../index.html" class="nav-logo" aria-label="回到首頁">
+        <svg class="nav-logo-mark" viewBox="0 0 90.7 90.7" aria-hidden="true">
+          <rect x="0" y="85.7" width="90.7" height="5" fill="#4f8ef7" opacity="0.75" />
+          <polygon points="5,56.1 15.1,50.4 15.1,85.7 5,85.7" fill="#5a6478" />
+          <polygon points="22.7,33.4 32.8,27.7 32.8,85.7 22.7,85.7" fill="#5a6478" />
+          <polygon points="40.3,5.7 50.4,0 50.4,85.7 40.3,85.7" fill="#f5c842" />
+          <polygon points="58,37.8 68,43.5 68,85.7 58,85.7" fill="#5a6478" />
+          <polygon points="75.6,58 85.7,63.6 85.7,85.7 75.6,85.7" fill="#5a6478" />
+        </svg>
+        <span class="nav-logo-text">
+          <span class="nav-logo-name">謝誌謙</span>
+          <span class="nav-logo-sub">新林里里長候選人</span>
+        </span>
+      </a>
+      <div class="nav-right">
+        <ul class="nav-links" id="navLinks" role="list">
+          <li class="nav-item-has-sub">
+            <button type="button" class="nav-link nav-sub-toggle" id="navLookupToggle" aria-expanded="false" aria-controls="navLookupSub">
+              地址查詢
+              <svg class="nav-sub-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="m6 9 6 6 6-6" />
+              </svg>
+            </button>
+            <ul class="nav-sub" id="navLookupSub" role="list">
+              <li><a href="../index.html#lookup" class="nav-sub-link">快速查詢</a></li>
+              <li><a href="../xinlin-address/" class="nav-sub-link">門牌對照表</a></li>
+            </ul>
+          </li>
+          <li><a href="../index.html#about" class="nav-link">關於誌謙</a></li>
+          <li class="nav-item-has-sub">
+            <button type="button" class="nav-link nav-sub-toggle" id="navPolicyToggle" aria-expanded="false" aria-controls="navPolicySub">
+              政見主張
+              <svg class="nav-sub-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="m6 9 6 6 6-6" />
+              </svg>
+            </button>
+            <ul class="nav-sub" id="navPolicySub" role="list">
+              <li><a href="../index.html#policy" class="nav-sub-link">核心政見</a></li>
+              <li><a href="../index.html#foundation" class="nav-sub-link">第一件事</a></li>
+              <li><a href="../whitepaper/" class="nav-sub-link">政策白皮書</a></li>
+            </ul>
+          </li>
+          <li class="nav-item-has-sub">
+            <button type="button" class="nav-link nav-sub-toggle active" id="navPetitionToggle" aria-expanded="false" aria-controls="navPetitionSub">
+              里民陳情
+              <svg class="nav-sub-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="m6 9 6 6 6-6" />
+              </svg>
+            </button>
+            <ul class="nav-sub" id="navPetitionSub" role="list">
+              <li><a href="../petition/" class="nav-sub-link">我要陳情</a></li>
+              <li><a href="../petition/#caseLookup" class="nav-sub-link">進度查詢</a></li>
+              <li><a href="./" class="nav-sub-link active">公開進度</a></li>
+            </ul>
+          </li>
+          <li><a href="../index.html#community" class="nav-link">社群與聯絡</a></li>
+        </ul>
+        <button class="theme-toggle" id="themeToggle" aria-label="切換深色／淺色模式" aria-pressed="false">
+          <svg class="icon theme-toggle-icon icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401" />
+          </svg>
+          <svg class="icon theme-toggle-icon icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4" />
+            <path d="M12 2v2" />
+            <path d="M12 20v2" />
+            <path d="m4.93 4.93 1.41 1.41" />
+            <path d="m17.66 17.66 1.41 1.41" />
+            <path d="M2 12h2" />
+            <path d="M20 12h2" />
+            <path d="m6.34 17.66-1.41 1.41" />
+            <path d="m19.07 4.93-1.41 1.41" />
+          </svg>
+        </button>
+        <button class="nav-toggle" id="navToggle" aria-label="開啟選單" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ══════════════════════════════════════
+       頁首
+  ══════════════════════════════════════ -->
+  <header class="page-head">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="麵包屑導覽">
+        <a href="../index.html">首頁</a> ／
+        <a href="../petition/">里民陳情</a> ／
+        <span aria-current="page">處理進度</span>
+      </nav>
+      <div class="section-label">陳情處理進度</div>
+      <h1 class="section-title">你陳情，<em>我公開進度</em></h1>
+      <p class="page-head-lead">
+        每一件里民陳情從收件、轉報權責單位到完成，處理到哪一步都攤在這裡。
+        辦得到的說明什麼時候辦好，辦不到的說明為什麼辦不到。
+      </p>
+    </div>
+  </header>
+
+  <!-- ══════════════════════════════════════
+       看板
+  ══════════════════════════════════════ -->
+  <main class="board">
+
+    <div class="notice">
+      <strong>這裡只顯示去識別化的摘要。</strong>
+      門牌地址、陳情人姓名與聯絡方式、照片與陳情原文都不會出現在這一頁。
+      要查自己那一件的完整內容，請到<a href="../petition/#caseLookup">陳情頁的查詢區</a>，
+      輸入案件編號與查詢碼。
+    </div>
+
+    <div class="board-stats" id="boardStats" hidden></div>
+
+    <div class="board-filters" id="boardFilters" role="group" aria-label="依處理狀態篩選" hidden></div>
+
+    <p class="board-state" id="boardState">載入中…</p>
+
+    <ul class="board-list" id="boardList" role="list"></ul>
+
+    <p class="board-updated" id="boardUpdated"></p>
+
+    <div class="board-cta">
+      <p>發現里內有需要處理的狀況？拍張照、填三個欄位，一分鐘就能送出。</p>
+      <a href="../petition/" class="btn btn-primary">我要陳情</a>
+    </div>
+
+  </main>
+
+  <!-- ══════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+          <div class="footer-brand-name">謝誌謙</div>
+          <div class="footer-brand-slogan">堅持不懈．勇往直前 · 新林里里長候選人</div>
+          <p class="footer-brand-desc">
+            以設計美學、社群參與、務實福利為核心，<br />
+            為新林里帶來真正有感的里政服務。
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>快速導覽</h4>
+          <ul>
+            <li><a href="../index.html#lookup">地址查詢</a></li>
+            <li><a href="../xinlin-address/">門牌對照表</a></li>
+            <li><a href="../index.html#about">關於誌謙</a></li>
+            <li><a href="../index.html#policy">核心政見</a></li>
+            <li><a href="../whitepaper/">政策白皮書</a></li>
+            <li><a href="../petition/">里民陳情</a></li>
+            <li><a href="./">陳情處理進度</a></li>
+            <li><a href="../index.html#community">社群與聯絡</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>關注我們</h4>
+          <ul>
+            <li><a href="https://www.facebook.com/profile.php?id=61592284322183" target="_blank" rel="noopener noreferrer">Facebook 粉絲專頁</a></li>
+            <li><a href="https://lin.ee/Yxr8Nk2" target="_blank" rel="noopener noreferrer">LINE 官方帳號</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>
+          © <span id="currentYear"></span> <strong>新林里里長參選人謝誌謙競選團隊</strong> · 新北市林口區新林里
+        </p>
+        <p style="color:var(--color-text-dim);font-size:0.75rem;">
+          本網站為競選用途，所有政見以實際公告為準
+        </p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- 回到頂端按鈕 -->
+  <button class="scroll-top" id="scrollTopBtn" aria-label="回到頁面頂端">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <script src="../js/subpage.js"></script>
+  <script src="../js/petition-board.js"></script>
+</body>
+
+</html>

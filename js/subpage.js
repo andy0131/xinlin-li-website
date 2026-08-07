@@ -23,52 +23,68 @@ navToggle.addEventListener('click', () => {
   navToggle.setAttribute('aria-expanded', String(isOpen));
 });
 
-// ─── 主選單子選單（地址查詢）─────────────────────────────────
+// ─── 主選單子選單（地址查詢、里民陳情）───────────────────────
 // 桌面靠 hover 展開（CSS 負責），這裡處理點擊、觸控與鍵盤操作。
-const navSubToggle = document.querySelector('.nav-sub-toggle');
-const navSubMenu   = navSubToggle && document.getElementById(navSubToggle.getAttribute('aria-controls'));
+// 頁面上可以有多組子選單，同一時間只允許展開一組。
+const navSubs = [];
 
-if (navSubToggle && navSubMenu) {
-  const navSubWrap = navSubToggle.closest('.nav-item-has-sub');
+document.querySelectorAll('.nav-sub-toggle').forEach(toggle => {
+  const menu = document.getElementById(toggle.getAttribute('aria-controls'));
+  const wrap = toggle.closest('.nav-item-has-sub');
+  if (!menu || !wrap) return;
 
-  const setNavSubOpen = (open) => {
-    navSubMenu.classList.toggle('open', open);
-    navSubToggle.setAttribute('aria-expanded', String(open));
+  const sub = {
+    toggle, menu, wrap,
+    isOpen: () => menu.classList.contains('open'),
+    set(open) {
+      menu.classList.toggle('open', open);
+      toggle.setAttribute('aria-expanded', String(open));
+    },
   };
+  navSubs.push(sub);
 
-  navSubToggle.addEventListener('click', (e) => {
+  toggle.addEventListener('click', (e) => {
     e.stopPropagation();
-    setNavSubOpen(!navSubMenu.classList.contains('open'));
-  });
-
-  // 點擊子選單以外的地方就收合
-  document.addEventListener('click', (e) => {
-    if (!navSubWrap.contains(e.target)) setNavSubOpen(false);
+    const willOpen = !sub.isOpen();
+    closeAllNavSubs();
+    sub.set(willOpen);
   });
 
   // 點了子選單內的連結也要收合
-  navSubMenu.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', () => setNavSubOpen(false));
-  });
-
-  // Esc 收合並把焦點還給開合鈕
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && navSubMenu.classList.contains('open')) {
-      setNavSubOpen(false);
-      navSubToggle.focus();
-    }
+  menu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => sub.set(false));
   });
 
   // 鍵盤 Tab 離開整個子選單區塊時收合
-  navSubWrap.addEventListener('focusout', (e) => {
-    if (!navSubWrap.contains(e.relatedTarget)) setNavSubOpen(false);
+  wrap.addEventListener('focusout', (e) => {
+    if (!wrap.contains(e.relatedTarget)) sub.set(false);
   });
+});
 
-  // 收起手機選單時一併收合子選單
-  navToggle.addEventListener('click', () => {
-    if (!navLinks.classList.contains('open')) setNavSubOpen(false);
-  });
+function closeAllNavSubs() {
+  navSubs.forEach(sub => sub.set(false));
 }
+
+// 點擊子選單以外的地方就收合
+document.addEventListener('click', (e) => {
+  navSubs.forEach(sub => {
+    if (!sub.wrap.contains(e.target)) sub.set(false);
+  });
+});
+
+// Esc 收合並把焦點還給開合鈕
+document.addEventListener('keydown', (e) => {
+  if (e.key !== 'Escape') return;
+  const open = navSubs.find(sub => sub.isOpen());
+  if (!open) return;
+  open.set(false);
+  open.toggle.focus();
+});
+
+// 收起手機選單時一併收合子選單
+navToggle.addEventListener('click', () => {
+  if (!navLinks.classList.contains('open')) closeAllNavSubs();
+});
 
 // 點選連結後關閉手機選單（子選單開合鈕除外）
 document.querySelectorAll('#navLinks a').forEach(link => {
