@@ -181,12 +181,12 @@
   <!-- Google Fonts：僅請求實際使用的字重，並以非阻塞方式載入 -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    rel="stylesheet"
+  <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Inter:wght@900&display=optional"
     media="print" onload="this.media='all'" />
   <noscript>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Inter:wght@900&display=optional" />
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Inter:wght@900&display=optional" />
   </noscript>
 
   <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
@@ -218,9 +218,11 @@
       <div class="nav-right">
         <ul class="nav-links" id="navLinks" role="list">
           <li class="nav-item-has-sub">
-            <button type="button" class="nav-link nav-sub-toggle" id="navLookupToggle" aria-expanded="false" aria-controls="navLookupSub">
+            <button type="button" class="nav-link nav-sub-toggle" id="navLookupToggle" aria-expanded="false"
+              aria-controls="navLookupSub">
               地址查詢
-              <svg class="nav-sub-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <svg class="nav-sub-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="m6 9 6 6 6-6" />
               </svg>
             </button>
@@ -231,9 +233,11 @@
           </li>
           <li><a href="#about" class="nav-link">關於誌謙</a></li>
           <li class="nav-item-has-sub">
-            <button type="button" class="nav-link nav-sub-toggle" id="navPolicyToggle" aria-expanded="false" aria-controls="navPolicySub">
+            <button type="button" class="nav-link nav-sub-toggle" id="navPolicyToggle" aria-expanded="false"
+              aria-controls="navPolicySub">
               政見主張
-              <svg class="nav-sub-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <svg class="nav-sub-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="m6 9 6 6 6-6" />
               </svg>
             </button>
@@ -244,9 +248,11 @@
             </ul>
           </li>
           <li class="nav-item-has-sub">
-            <button type="button" class="nav-link nav-sub-toggle" id="navPetitionToggle" aria-expanded="false" aria-controls="navPetitionSub">
+            <button type="button" class="nav-link nav-sub-toggle" id="navPetitionToggle" aria-expanded="false"
+              aria-controls="navPetitionSub">
               里民陳情
-              <svg class="nav-sub-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <svg class="nav-sub-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="m6 9 6 6 6-6" />
               </svg>
             </button>
@@ -259,10 +265,13 @@
           <li><a href="#community" class="nav-link">社群與聯絡</a></li>
         </ul>
         <button class="theme-toggle" id="themeToggle" aria-label="切換深色／淺色模式" aria-pressed="false">
-          <svg class="icon theme-toggle-icon icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401" />
+          <svg class="icon theme-toggle-icon icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path
+              d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401" />
           </svg>
-          <svg class="icon theme-toggle-icon icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <svg class="icon theme-toggle-icon icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <circle cx="12" cy="12" r="4" />
             <path d="M12 2v2" />
             <path d="M12 20v2" />
@@ -327,16 +336,8 @@
 
       <!-- 候選人照片：柔邊淡出 WebP，右側／底部對齊 -->
       <div class="hero-photo">
-        <img
-          src="assets/images/hero-portrait.webp"
-          alt=""
-          class="hero-photo-img"
-          width="1450"
-          height="1840"
-          loading="eager"
-          fetchpriority="high"
-          decoding="async"
-        />
+        <img src="assets/images/hero-portrait.webp" alt="" class="hero-photo-img" width="1450" height="1840"
+          loading="eager" fetchpriority="high" decoding="async" />
       </div>
     </div>
 
@@ -368,15 +369,8 @@
       <form class="lookup-form reveal" id="lookupForm" role="search" aria-label="新林里地址查詢表單">
         <label for="lookupInput" class="lookup-label">請輸入完整門牌地址</label>
         <div class="lookup-form-row">
-          <input
-            type="text"
-            id="lookupInput"
-            name="lookupInput"
-            class="lookup-input"
-            placeholder="例如：文化三路一段225巷10號"
-            autocomplete="off"
-            inputmode="text"
-          />
+          <input type="text" id="lookupInput" name="lookupInput" class="lookup-input" placeholder="例如：文化三路一段225巷10號"
+            autocomplete="off" inputmode="text" />
           <button type="submit" class="btn btn-primary lookup-submit">查詢</button>
         </div>
       </form>
@@ -397,7 +391,8 @@
           <button type="button" class="lookup-image-trigger" data-lightbox aria-label="放大檢視：南勢里分出新林里、力行里 里界圖">
             <img src="assets/images/xinlin-boundary-map.png" alt="林口區南勢里分出新林里、力行里調整後里界圖" loading="lazy" />
             <span class="lookup-image-zoom" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
                 <circle cx="11" cy="11" r="8" />
                 <path d="m21 21-4.3-4.3" />
                 <path d="M11 8v6" />
@@ -411,7 +406,8 @@
           <button type="button" class="lookup-image-trigger" data-lightbox aria-label="放大檢視：新林里新鄰別社區對照表">
             <img src="assets/images/xinlin-neighborhood-guide.png" alt="新林里新鄰別社區對照表" loading="lazy" />
             <span class="lookup-image-zoom" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
                 <circle cx="11" cy="11" r="8" />
                 <path d="m21 21-4.3-4.3" />
                 <path d="M11 8v6" />
@@ -439,14 +435,17 @@
           </div>
           <div class="about-stats" role="list" aria-label="候選人信任感標章">
             <div class="stat" role="listitem">
-              <svg class="icon stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526" />
+              <svg class="icon stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path
+                  d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526" />
                 <circle cx="12" cy="8" r="6" />
               </svg>
               <span class="stat-label">社區主委<br />實績</span>
             </div>
             <div class="stat" role="listitem">
-              <svg class="icon stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <svg class="icon stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="m16 11 2 2 4-4" />
                 <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
                 <circle cx="9" cy="7" r="4" />
@@ -454,9 +453,11 @@
               <span class="stat-label">服務經驗<br />選民優先</span>
             </div>
             <div class="stat" role="listitem">
-              <svg class="icon stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <svg class="icon stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="m11 17 2 2a1 1 0 1 0 3-3" />
-                <path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4" />
+                <path
+                  d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4" />
                 <path d="m21 3 1 11h-2" />
                 <path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3" />
                 <path d="M3 4h8" />
@@ -550,10 +551,12 @@
         <!-- 政見 01 -->
         <li class="policy-card" id="policy-1">
           <div class="policy-card-num" aria-hidden="true">01</div>
-          <svg class="icon policy-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <svg class="icon policy-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M10 16c.5.3 1.2.5 2 .5s1.5-.2 2-.5" />
             <path d="M15 12h.01" />
-            <path d="M19.38 6.813A9 9 0 0 1 20.8 10.2a2 2 0 0 1 0 3.6 9 9 0 0 1-17.6 0 2 2 0 0 1 0-3.6A9 9 0 0 1 12 3c2 0 3.5 1.1 3.5 2.5s-.9 2.5-2 2.5c-.8 0-1.5-.4-1.5-1" />
+            <path
+              d="M19.38 6.813A9 9 0 0 1 20.8 10.2a2 2 0 0 1 0 3.6 9 9 0 0 1-17.6 0 2 2 0 0 1 0-3.6A9 9 0 0 1 12 3c2 0 3.5 1.1 3.5 2.5s-.9 2.5-2 2.5c-.8 0-1.5-.4-1.5-1" />
             <path d="M9 12h.01" />
           </svg>
           <div class="policy-card-title-bar" aria-hidden="true"></div>
@@ -571,8 +574,10 @@
         <!-- 政見 02 -->
         <li class="policy-card" id="policy-2">
           <div class="policy-card-num" aria-hidden="true">02</div>
-          <svg class="icon policy-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
+          <svg class="icon policy-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path
+              d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
             <path d="m9 12 2 2 4-4" />
           </svg>
           <div class="policy-card-title-bar" aria-hidden="true"></div>
@@ -590,8 +595,10 @@
         <!-- 政見 03 -->
         <li class="policy-card" id="policy-3">
           <div class="policy-card-num" aria-hidden="true">03</div>
-          <svg class="icon policy-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z" />
+          <svg class="icon policy-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path
+              d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z" />
             <line x1="22" x2="16" y1="9" y2="15" />
             <line x1="16" x2="22" y1="9" y2="15" />
           </svg>
@@ -610,7 +617,8 @@
         <!-- 政見 04 -->
         <li class="policy-card" id="policy-4">
           <div class="policy-card-num" aria-hidden="true">04</div>
-          <svg class="icon policy-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <svg class="icon policy-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z" />
             <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" />
           </svg>
@@ -629,7 +637,8 @@
         <!-- 政見 05 -->
         <li class="policy-card" id="policy-5">
           <div class="policy-card-num" aria-hidden="true">05</div>
-          <svg class="icon policy-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <svg class="icon policy-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M6 8.5a6.5 6.5 0 1 1 13 0c0 6-6 6-6 10a3.5 3.5 0 1 1-7 0" />
             <path d="M15 8.5a2.5 2.5 0 0 0-5 0v1a2 2 0 1 1 0 4" />
           </svg>
@@ -645,11 +654,12 @@
           </div>
         </li>
 
-                <!-- 政見 06 -->
+        <!-- 政見 06 -->
         <li class="policy-card" id="policy-6">
           <div class="policy-card-num" aria-hidden="true">06</div>
           <svg class="icon policy-card-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="m20.726,18.629c.283.486.39,1.062.3,1.623l-.197,1.225c-.235,1.462-1.48,2.524-2.962,2.524h-4.867c-.552,0-1-.448-1-1s.448-1,1-1h4.867c.494,0,.909-.354.987-.841l.197-1.224c.017-.106-.002-.209-.054-.3-1.015-1.745-1.069-2.172-1.095-2.377-.14-1.106-.662-1.792-1.747-2.295-.059-.027-1.905-.963-2.604-.963-.798,0-1.256.22-1.261.222-3.025,1.781-5.918,4.108-6.257,8.849-.038.527-.477.929-.997.929-.024,0-.048,0-.072-.002-.551-.04-.966-.518-.926-1.069.409-5.711,4.11-8.589,7.29-10.458.061-.033.292-.152.673-.262v-.209c0-1.256.772-2.495,1.867-2.942.543-.222,1.133.221,1.133.807v2.405c.726.237,1.996.878,1.996.878,1.693.784,2.666,2.083,2.891,3.858h0s.107.364.839,1.622Zm.774-12.629h-.227c-.829,0-1.609-.365-2.14-1.002l-.229-.275c-.912-1.094-2.251-1.722-3.676-1.722h-1.227V.865c0-.586-.59-1.029-1.133-.807-1.095.447-1.867,1.686-1.867,2.942v.706l-2.57,3.998c-.924,1.438-2.497,2.296-4.206,2.296H1c-.552,0-1,.448-1,1s.448,1,1,1h3.224c2.393,0,4.595-1.202,5.889-3.215l2.433-3.785h2.681c.829,0,1.609.365,2.14,1.002l.229.275c.912,1.094,2.251,1.722,3.676,1.722h.227c.276,0,.5.224.5.5v.5c0,1.068-.575,2.064-1.5,2.599-.478.276-.642.888-.365,1.366.186.321.521.5.867.5.17,0,.342-.043.5-.134,1.542-.892,2.5-2.551,2.5-4.331v-.5c0-1.378-1.122-2.5-2.5-2.5Z"/>
+            <path
+              d="m20.726,18.629c.283.486.39,1.062.3,1.623l-.197,1.225c-.235,1.462-1.48,2.524-2.962,2.524h-4.867c-.552,0-1-.448-1-1s.448-1,1-1h4.867c.494,0,.909-.354.987-.841l.197-1.224c.017-.106-.002-.209-.054-.3-1.015-1.745-1.069-2.172-1.095-2.377-.14-1.106-.662-1.792-1.747-2.295-.059-.027-1.905-.963-2.604-.963-.798,0-1.256.22-1.261.222-3.025,1.781-5.918,4.108-6.257,8.849-.038.527-.477.929-.997.929-.024,0-.048,0-.072-.002-.551-.04-.966-.518-.926-1.069.409-5.711,4.11-8.589,7.29-10.458.061-.033.292-.152.673-.262v-.209c0-1.256.772-2.495,1.867-2.942.543-.222,1.133.221,1.133.807v2.405c.726.237,1.996.878,1.996.878,1.693.784,2.666,2.083,2.891,3.858h0s.107.364.839,1.622Zm.774-12.629h-.227c-.829,0-1.609-.365-2.14-1.002l-.229-.275c-.912-1.094-2.251-1.722-3.676-1.722h-1.227V.865c0-.586-.59-1.029-1.133-.807-1.095.447-1.867,1.686-1.867,2.942v.706l-2.57,3.998c-.924,1.438-2.497,2.296-4.206,2.296H1c-.552,0-1,.448-1,1s.448,1,1,1h3.224c2.393,0,4.595-1.202,5.889-3.215l2.433-3.785h2.681c.829,0,1.609.365,2.14,1.002l.229.275c.912,1.094,2.251,1.722,3.676,1.722h.227c.276,0,.5.224.5.5v.5c0,1.068-.575,2.064-1.5,2.599-.478.276-.642.888-.365,1.366.186.321.521.5.867.5.17,0,.342-.043.5-.134,1.542-.892,2.5-2.551,2.5-4.331v-.5c0-1.378-1.122-2.5-2.5-2.5Z" />
           </svg>
           <div class="policy-card-title-bar" aria-hidden="true"></div>
           <h3 class="policy-card-title">毛孩共好</h3>
@@ -688,7 +698,8 @@
 
         <div class="vision-item reveal" role="listitem">
           <div class="vision-icon" aria-hidden="true">
-            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
               <path d="M10 12h4" />
               <path d="M10 8h4" />
               <path d="M14 21v-3a2 2 0 0 0-4 0v3" />
@@ -704,7 +715,8 @@
 
         <div class="vision-item reveal" role="listitem">
           <div class="vision-icon" aria-hidden="true">
-            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
               <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
               <path d="M16 3.128a4 4 0 0 1 0 7.744" />
               <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
@@ -719,9 +731,11 @@
 
         <div class="vision-item reveal" role="listitem">
           <div class="vision-icon" aria-hidden="true">
-            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
               <path d="m11 17 2 2a1 1 0 1 0 3-3" />
-              <path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4" />
+              <path
+                d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4" />
               <path d="m21 3 1 11h-2" />
               <path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3" />
               <path d="M3 4h8" />
@@ -735,7 +749,8 @@
 
         <div class="vision-item reveal" role="listitem">
           <div class="vision-icon" aria-hidden="true">
-            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
               <path d="M13.744 17.736a6 6 0 1 1-7.48-7.48" />
               <path d="M15 6h1v4" />
               <path d="m6.134 14.768.866-.5 2 3.464" />
@@ -750,9 +765,11 @@
 
         <div class="vision-item reveal" role="listitem">
           <div class="vision-icon" aria-hidden="true">
-            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
               <path d="M15 21v-5a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v5" />
-              <path d="M17.774 10.31a1.12 1.12 0 0 0-1.549 0 2.5 2.5 0 0 1-3.451 0 1.12 1.12 0 0 0-1.548 0 2.5 2.5 0 0 1-3.452 0 1.12 1.12 0 0 0-1.549 0 2.5 2.5 0 0 1-3.77-3.248l2.889-4.184A2 2 0 0 1 7 2h10a2 2 0 0 1 1.653.873l2.895 4.192a2.5 2.5 0 0 1-3.774 3.244" />
+              <path
+                d="M17.774 10.31a1.12 1.12 0 0 0-1.549 0 2.5 2.5 0 0 1-3.451 0 1.12 1.12 0 0 0-1.548 0 2.5 2.5 0 0 1-3.452 0 1.12 1.12 0 0 0-1.549 0 2.5 2.5 0 0 1-3.77-3.248l2.889-4.184A2 2 0 0 1 7 2h10a2 2 0 0 1 1.653.873l2.895 4.192a2.5 2.5 0 0 1-3.774 3.244" />
               <path d="M4 10.95V19a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8.05" />
             </svg>
           </div>
@@ -770,7 +787,8 @@
 
         <div class="vision-item reveal" role="listitem">
           <div class="vision-icon" aria-hidden="true">
-            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
               <path d="M10 18v-7" />
               <path d="M11.119 2.205a2 2 0 0 1 1.762 0l7.84 3.846A.5.5 0 0 1 20.5 7h-17a.5.5 0 0 1-.22-.949z" />
               <path d="M14 18v-7" />
@@ -787,8 +805,10 @@
 
         <div class="vision-item reveal" role="listitem">
           <div class="vision-icon" aria-hidden="true">
-            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5" />
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path
+                d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5" />
             </svg>
           </div>
           <div class="vision-content">
@@ -799,7 +819,8 @@
 
         <div class="vision-item reveal" role="listitem">
           <div class="vision-icon" aria-hidden="true">
-            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
               <path d="m12.296 3.464 3.02 3.956" />
               <path d="M20.2 6 3 11l-.9-2.4c-.3-1.1.3-2.2 1.3-2.5l13.5-4c1.1-.3 2.2.3 2.5 1.3z" />
               <path d="M3 11h18v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
@@ -828,30 +849,33 @@
 
       <ul class="community-grid" aria-label="社群管道">
 
-        <li><a href="https://www.facebook.com/profile.php?id=61592284322183" class="community-card reveal" target="_blank" rel="noopener noreferrer"
-          aria-label="謝誌謙 Facebook 粉絲專頁">
-          <svg class="icon community-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M15 18h-5" />
-            <path d="M18 14h-8" />
-            <path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-4 0v-9a2 2 0 0 1 2-2h2" />
-            <rect width="8" height="4" x="10" y="6" rx="1" />
-          </svg>
-          <h3>Facebook 粉絲專頁</h3>
-          <p>服務相關圖文與各項動態，隨時掌握第一手消息</p>
-          <span class="community-card-cta">前往按讚 →</span>
-        </a></li>
+        <li><a href="https://www.facebook.com/profile.php?id=61592284322183" class="community-card reveal"
+            target="_blank" rel="noopener noreferrer" aria-label="謝誌謙 Facebook 粉絲專頁">
+            <svg class="icon community-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M15 18h-5" />
+              <path d="M18 14h-8" />
+              <path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-4 0v-9a2 2 0 0 1 2-2h2" />
+              <rect width="8" height="4" x="10" y="6" rx="1" />
+            </svg>
+            <h3>Facebook 粉絲專頁</h3>
+            <p>服務相關圖文與各項動態，隨時掌握第一手消息</p>
+            <span class="community-card-cta">前往按讚 →</span>
+          </a></li>
 
-        <li><a href="https://lin.ee/Yxr8Nk2" class="community-card reveal" target="_blank"
-          rel="noopener noreferrer" aria-label="加入謝誌謙 LINE 官方帳號">
-          <svg class="icon community-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" />
-          </svg>
-          <h3>加我 LINE官方帳號好友</h3>
-          <p>加入好友即時掌握競選動態，也能隨時溝通反映您的意見</p>
-          <span class="community-card-cta">加入好友 →</span>
-        </a></li>
+        <li><a href="https://lin.ee/Yxr8Nk2" class="community-card reveal" target="_blank" rel="noopener noreferrer"
+            aria-label="加入謝誌謙 LINE 官方帳號">
+            <svg class="icon community-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path
+                d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" />
+            </svg>
+            <h3>加我 LINE官方帳號好友</h3>
+            <p>加入好友即時掌握競選動態，也能隨時溝通反映您的意見</p>
+            <span class="community-card-cta">加入好友 →</span>
+          </a></li>
 
-        <li><a href="https://line.me/ti/g2/knwlDdK2_4xCMzDT8OH-Smn_2Ma4bDt9DffU7g?utm_source=invitation&amp;utm_medium=link_copy&amp;utm_campaign=default"
+        <!-- <li><a href="https://line.me/ti/g2/knwlDdK2_4xCMzDT8OH-Smn_2Ma4bDt9DffU7g?utm_source=invitation&amp;utm_medium=link_copy&amp;utm_campaign=default"
           class="community-card reveal" target="_blank" rel="noopener noreferrer"
           aria-label="加入「林口/新林里+力行里大小事」LINE 社群">
           <svg class="icon community-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -862,7 +886,7 @@
           <h3>加入新林里 LINE 社群</h3>
           <p>加入「林口/新林里＋力行里大小事」，跟鄰居一起關心社區大小事</p>
           <span class="community-card-cta">加入社群 →</span>
-        </a></li>
+        </a></li> -->
 
       </ul>
 
@@ -872,7 +896,8 @@
 
           <div class="contact-item">
             <div class="contact-item-icon email" aria-hidden="true">
-              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
                 <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" />
                 <rect x="2" y="4" width="20" height="16" rx="2" />
               </svg>
@@ -887,8 +912,10 @@
 
           <div class="contact-item">
             <div class="contact-item-icon phone" aria-hidden="true">
-              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" />
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" />
               </svg>
             </div>
             <div>
@@ -939,10 +966,12 @@
         <div class="footer-col">
           <h4>關注我們</h4>
           <ul>
-            <li><a href="https://www.facebook.com/profile.php?id=61592284322183" id="footer-fb" target="_blank" rel="noopener noreferrer">Facebook 粉絲專頁</a></li>
+            <li><a href="https://www.facebook.com/profile.php?id=61592284322183" id="footer-fb" target="_blank"
+                rel="noopener noreferrer">Facebook 粉絲專頁</a></li>
             <!-- <li><a href="#" id="footer-ig">Instagram</a></li>
             <li><a href="#" id="footer-threads">Threads</a></li> -->
-            <li><a href="https://lin.ee/Yxr8Nk2" id="footer-line" target="_blank" rel="noopener noreferrer">LINE 官方帳號</a></li>
+            <li><a href="https://lin.ee/Yxr8Nk2" id="footer-line" target="_blank" rel="noopener noreferrer">LINE
+                官方帳號</a></li>
           </ul>
         </div>
 
@@ -972,7 +1001,8 @@
   ══════════════════════════════════════ -->
   <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-labelledby="lightboxCaption" hidden>
     <button type="button" class="lightbox-close" id="lightboxClose" aria-label="關閉放大檢視">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+        stroke-linejoin="round" aria-hidden="true">
         <path d="M18 6 6 18" />
         <path d="m6 6 12 12" />
       </svg>
