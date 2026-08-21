@@ -640,10 +640,13 @@ img { max-width: 100%; display: block; }
   outline-offset: 3px;
 }
 
+/* 圖示在文字流內（inline），不是 flex 子項 —— 這樣換行時它跟著第一行走 */
 .hero-notice-icon {
-  flex: 0 0 auto;
-  width: 17px;
-  height: 17px;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-right: 7px;
+  vertical-align: -3px;
   color: var(--color-gold);
 }
 
@@ -2030,16 +2033,24 @@ body.lightbox-open { overflow: hidden; }
 
   .hero-actions { flex-direction: column; align-items: center; }
 
-  /* 窄螢幕：「了解詳情 →」換到第二行，避免把說明文字擠成一行一兩個字 */
+  /* 窄螢幕：桌機版是「圖示＋文字＋箭頭」一行的膠囊，換行後不能沿用。
+     40px 圓角在 38px 高的徽章上是膠囊，套到三行高的方塊會變成臃腫的橢圓；
+     手機版 Hero 又是置中收窄的節奏，靠左又橫貫的區塊會破壞整體。
+     所以這裡改成「置中的告示卡」：圓角收斂、內容置中、寬度跟著其他元素收窄。 */
   .hero-notice {
-    flex-wrap: wrap;
-    max-width: calc(100% - 24px);
-    padding: 12px 16px;
-    font-size: 0.78rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 7px;
+    max-width: 330px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 15px 20px;
+    border-radius: var(--radius-md);
+    text-align: center;
+    font-size: 0.79rem;
   }
-  .hero-notice-text { flex: 1 1 100%; }
-  .hero-notice-icon { margin-top: 1px; }
-  .hero-notice-more { margin-left: 28px; }
+  .hero-notice-text { flex: 0 1 auto; }
+  .hero-notice-more { margin-left: 0; }
 
   .lookup-form-row { flex-direction: column; }
   .lookup-result   { flex-direction: column; }
