@@ -120,6 +120,20 @@ themeToggle.addEventListener('click', () => {
   applyThemeToggleUI();
 });
 
+// 使用者尚未手動選過的話，系統日夜設定改變時網頁也即時跟著變
+const prefersDarkQuery = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
+if (prefersDarkQuery) {
+  prefersDarkQuery.addEventListener('change', (e) => {
+    if (localStorage.getItem('theme')) return;
+    if (e.matches) {
+      htmlEl.setAttribute('data-theme', 'dark');
+    } else {
+      htmlEl.removeAttribute('data-theme');
+    }
+    applyThemeToggleUI();
+  });
+}
+
 // ─── 高亮當前 Section 導覽連結 ───────────────────────────────
 function updateActiveNav() {
   const sections = document.querySelectorAll('section[id]');

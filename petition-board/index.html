@@ -5,10 +5,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- 日夜主題：預設一律淺色（白天版），不跟隨系統偏好；僅在使用者主動切換成深色後才套用，並盡早執行避免閃爍 -->
+  <!-- 日夜主題：預設跟隨系統偏好（prefers-color-scheme）；使用者手動切換過後改以其選擇為準，並盡早執行避免閃爍 -->
   <script>
     (function () {
-      if (localStorage.getItem('theme') === 'dark') {
+      var storedTheme = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (storedTheme === 'dark' || (storedTheme !== 'light' && prefersDark)) {
         document.documentElement.setAttribute('data-theme', 'dark');
       }
     })();
@@ -143,6 +145,7 @@
               <li><a href="./" class="nav-sub-link active">公開進度</a></li>
             </ul>
           </li>
+          <li><a href="../donate/" class="nav-link">政治獻金</a></li>
           <li><a href="../index.html#community" class="nav-link">社群與聯絡</a></li>
         </ul>
         <button class="theme-toggle" id="themeToggle" aria-label="切換深色／淺色模式" aria-pressed="false">
@@ -242,6 +245,7 @@
             <li><a href="../whitepaper/">政策白皮書</a></li>
             <li><a href="../petition/">里民陳情</a></li>
             <li><a href="./">陳情處理進度</a></li>
+            <li><a href="../donate/">政治獻金</a></li>
             <li><a href="../index.html#community">社群與聯絡</a></li>
           </ul>
         </div>

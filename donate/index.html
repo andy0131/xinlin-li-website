@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- 日夜主題：預設跟隨系統偏好（prefers-color-scheme）；使用者手動切換過後改以其選擇為準，並盡早執行避免閃爍 -->
+  <script>
+    (function () {
+      var storedTheme = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (storedTheme === 'dark' || (storedTheme !== 'light' && prefersDark)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
+
+  <!-- SEO -->
+  <title>政治獻金捐款回報 | 謝誌謙 新林里首屆里長候選人</title>
+  <meta name="description" content="支持謝誌謙參選新林里首屆里長。政治獻金專戶捐款說明與捐款回報表單：匯款後回報姓名與聯絡資料，我們才能依法開立受贈收據供您報稅列舉扣除。" />
+  <meta name="keywords" content="謝誌謙, 新林里, 政治獻金, 捐款, 里長選舉, 政治獻金專戶, 受贈收據, 林口" />
+  <meta name="author" content="謝誌謙競選團隊" />
+
+  <link rel="canonical" href="https://newlinkou.com/donate/" />
+
+  <!-- Open Graph -->
+  <meta property="og:url" content="https://newlinkou.com/donate/" />
+  <meta property="og:title" content="政治獻金捐款回報 | 謝誌謙 新林里里長候選人" />
+  <meta property="og:description" content="每一分錢都會依法開立收據、逐筆申報。匯款後請回報您的資料，我們才能把受贈收據寄給您。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="zh_TW" />
+  <meta property="og:site_name" content="謝誌謙 新林里里長候選人" />
+  <meta property="og:image" content="https://newlinkou.com/assets/images/001.jpg" />
+
+  <!-- Twitter / X Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="政治獻金捐款回報 | 謝誌謙 新林里里長候選人" />
+  <meta name="twitter:description" content="每一分錢都會依法開立收據、逐筆申報。匯款後請回報您的資料，我們才能把受贈收據寄給您。" />
+  <meta name="twitter:image" content="https://newlinkou.com/assets/images/001.jpg" />
+
+  <!-- Schema.org 結構化資料 -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://newlinkou.com/donate/#webpage",
+        "name": "政治獻金捐款回報",
+        "description": "謝誌謙新林里里長擬參選人政治獻金專戶捐款說明與捐款人資料回報表單。",
+        "inLanguage": "zh-TW",
+        "url": "https://newlinkou.com/donate/",
+        "isPartOf": { "@id": "https://newlinkou.com/#website" },
+        "about": { "@id": "https://newlinkou.com/#person" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "首頁", "item": "https://newlinkou.com/" },
+          { "@type": "ListItem", "position": 2, "name": "政治獻金", "item": "https://newlinkou.com/donate/" }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <!-- Google Fonts：僅請求實際使用的字重，並以非阻塞方式載入 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Inter:wght@900&display=optional"
+    media="print" onload="this.media='all'" />
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Inter:wght@900&display=optional" />
+  </noscript>
+
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg" />
+
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/subpage.css" />
+  <link rel="stylesheet" href="../css/petition.css" />
+  <link rel="stylesheet" href="../css/donate.css" />
+</head>
+
+<body>
+
+  <!-- ══════════════════════════════════════
+       NAVBAR
+  ══════════════════════════════════════ -->
+  <nav id="navbar" class="navbar" role="navigation" aria-label="主要導覽">
+    <div class="nav-container">
+      <a href="../index.html" class="nav-logo" aria-label="回到首頁">
+        <svg class="nav-logo-mark" viewBox="0 0 90.7 90.7" aria-hidden="true">
+          <rect x="0" y="85.7" width="90.7" height="5" fill="#4f8ef7" opacity="0.75" />
+          <polygon points="5,56.1 15.1,50.4 15.1,85.7 5,85.7" fill="#5a6478" />
+          <polygon points="22.7,33.4 32.8,27.7 32.8,85.7 22.7,85.7" fill="#5a6478" />
+          <polygon points="40.3,5.7 50.4,0 50.4,85.7 40.3,85.7" fill="#f5c842" />
+          <polygon points="58,37.8 68,43.5 68,85.7 58,85.7" fill="#5a6478" />
+          <polygon points="75.6,58 85.7,63.6 85.7,85.7 75.6,85.7" fill="#5a6478" />
+        </svg>
+        <span class="nav-logo-text">
+          <span class="nav-logo-name">謝誌謙</span>
+          <span class="nav-logo-sub">新林里里長候選人</span>
+        </span>
+      </a>
+      <div class="nav-right">
+        <ul class="nav-links" id="navLinks" role="list">
+          <li class="nav-item-has-sub">
+            <button type="button" class="nav-link nav-sub-toggle" id="navLookupToggle" aria-expanded="false" aria-controls="navLookupSub">
+              地址查詢
+              <svg class="nav-sub-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="m6 9 6 6 6-6" />
+              </svg>
+            </button>
+            <ul class="nav-sub" id="navLookupSub" role="list">
+              <li><a href="../index.html#lookup" class="nav-sub-link">快速查詢</a></li>
+              <li><a href="../xinlin-address/" class="nav-sub-link">門牌對照表</a></li>
+            </ul>
+          </li>
+          <li><a href="../index.html#about" class="nav-link">關於誌謙</a></li>
+          <li class="nav-item-has-sub">
+            <button type="button" class="nav-link nav-sub-toggle" id="navPolicyToggle" aria-expanded="false" aria-controls="navPolicySub">
+              政見主張
+              <svg class="nav-sub-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="m6 9 6 6 6-6" />
+              </svg>
+            </button>
+            <ul class="nav-sub" id="navPolicySub" role="list">
+              <li><a href="../index.html#policy" class="nav-sub-link">核心政見</a></li>
+              <li><a href="../index.html#foundation" class="nav-sub-link">第一件事</a></li>
+              <li><a href="../whitepaper/" class="nav-sub-link">政策白皮書</a></li>
+            </ul>
+          </li>
+          <li class="nav-item-has-sub">
+            <button type="button" class="nav-link nav-sub-toggle" id="navPetitionToggle" aria-expanded="false" aria-controls="navPetitionSub">
+              里民陳情
+              <svg class="nav-sub-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="m6 9 6 6 6-6" />
+              </svg>
+            </button>
+            <ul class="nav-sub" id="navPetitionSub" role="list">
+              <li><a href="../petition/" class="nav-sub-link">我要陳情</a></li>
+              <li><a href="../petition/#caseLookup" class="nav-sub-link">進度查詢</a></li>
+              <li><a href="../petition-board/" class="nav-sub-link">公開進度</a></li>
+            </ul>
+          </li>
+          <li><a href="./" class="nav-link active">政治獻金</a></li>
+          <li><a href="../index.html#community" class="nav-link">社群與聯絡</a></li>
+        </ul>
+        <button class="theme-toggle" id="themeToggle" aria-label="切換深色／淺色模式" aria-pressed="false">
+          <svg class="icon theme-toggle-icon icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401" />
+          </svg>
+          <svg class="icon theme-toggle-icon icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4" />
+            <path d="M12 2v2" />
+            <path d="M12 20v2" />
+            <path d="m4.93 4.93 1.41 1.41" />
+            <path d="m17.66 17.66 1.41 1.41" />
+            <path d="M2 12h2" />
+            <path d="M20 12h2" />
+            <path d="m6.34 17.66-1.41 1.41" />
+            <path d="m19.07 4.93-1.41 1.41" />
+          </svg>
+        </button>
+        <button class="nav-toggle" id="navToggle" aria-label="開啟選單" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ══════════════════════════════════════
+       頁首
+  ══════════════════════════════════════ -->
+  <header class="page-head">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="麵包屑導覽">
+        <a href="../index.html">首頁</a> ／ <span aria-current="page">政治獻金</span>
+      </nav>
+      <div class="section-label">政治獻金</div>
+      <h1 class="section-title">你的支持，<em>每一筆都攤在陽光下</em></h1>
+      <p class="page-head-lead">
+        新林里是全新的里，首屆里長要從零把制度建起來，這需要文宣、活動與實地走訪的成本。
+        政治獻金受《政治獻金法》嚴格規範 —— 專戶、收據、帳簿與申報缺一不可，
+        所有捐款明細選後都會由監察院公開上網。
+        我們把規則寫在下面，您看清楚了再決定。
+      </p>
+    </div>
+  </header>
+
+  <main class="petition">
+
+    <!-- ══════════════════════════════════════
+         尚未開放收受（等待監察院許可函）
+    ══════════════════════════════════════ -->
+    <section class="donate-pending" id="pendingNotice">
+      <h2>政治獻金專戶申請中，還不能收受捐款</h2>
+      <p>
+        政治獻金專戶已在金融機構開立，目前正等待<strong>監察院核發許可函</strong>。
+        依《政治獻金法》第 10 條，專戶必須報經監察院許可<strong>之後</strong>才能開始收受政治獻金；
+        在許可函送達前收受任何一筆款項，依同法第 26 條可處三年以下有期徒刑。
+      </p>
+      <p>
+        所以在許可下來之前，我們<strong>不會公開專戶帳號，也不會接受任何捐款</strong>。
+        這不是客套，是法律的硬性規定，也是我們對支持者最基本的負責。
+      </p>
+      <p>
+        許可函核發後，這個頁面就會開放捐款說明與回報表單，
+        我們也會在
+        <a href="https://www.facebook.com/profile.php?id=61592284322183" target="_blank" rel="noopener noreferrer">Facebook 粉絲專頁</a>
+        與
+        <a href="https://lin.ee/Yxr8Nk2" target="_blank" rel="noopener noreferrer">LINE 官方帳號</a>
+        同步公告。感謝您願意支持。
+      </p>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         已開放收受（許可函到達後由 donate.js 顯示）
+    ══════════════════════════════════════ -->
+    <div id="liveContent" hidden>
+
+      <!-- 專戶資訊 -->
+      <section class="acct-card">
+        <h2 class="acct-card-title">政治獻金專戶</h2>
+        <p class="acct-card-lead">
+          請以匯款、ATM 轉帳或臨櫃方式匯入以下專戶。
+          <strong>匯款完成後請務必填寫下方的回報表單</strong> ——
+          匯款單上只有金額與帳號，沒有您的姓名與地址，我們無法憑它開立受贈收據。
+        </p>
+        <div id="accountBlock"></div>
+      </section>
+
+      <!-- 捐款須知 -->
+      <section class="legal-note">
+        <strong>捐款前請先確認這幾件事（依《政治獻金法》）：</strong>
+        <ul>
+          <li><strong>誰可以捐：</strong>具有選舉權的中華民國國民。</li>
+          <li><strong>誰不能捐（第 7 條）：</strong>外國、大陸地區、香港澳門的人民與法人團體；公營事業或政府持股達 20% 的民營企業；與政府有巨額採購或重大公共建設契約且在履約期間的廠商；有累積虧損尚未彌補的營利事業；宗教團體；同一種選舉的其他擬參選人；未具選舉權之人（含未成年人）；政黨經營或投資的事業。</li>
+          <li><strong>金額上限（第 18 條）：</strong>個人對同一擬參選人<strong>每年最多 10 萬元</strong>；對不同擬參選人合計每年 30 萬元。</li>
+          <li><strong>不得以他人名義捐贈（第 14 條）</strong>，超過 10 萬元的現金捐贈須以支票或金融機構匯款辦理。</li>
+          <li><strong>資料會被公開：</strong>選後申報的會計報告書，監察院會將<strong>捐贈者姓名、金額、日期</strong>公開於<a href="https://ardata.cy.gov.tw/" target="_blank" rel="noopener noreferrer">政治獻金公開查閱平臺</a>，任何人都可查詢下載。身分證字號與地址依規定隱匿不公開。</li>
+          <li><strong>可以抵稅（第 19 條）：</strong>個人憑受贈收據可列舉扣除，每一申報戶上限為綜合所得總額 20% 且不超過 20 萬元。</li>
+        </ul>
+      </section>
+
+      <!-- ══════════════════════════════════════
+           回報表單
+      ══════════════════════════════════════ -->
+      <form id="donateForm" novalidate>
+
+        <!-- ① 捐款方式 -->
+        <section class="pf-step" id="stepMethod">
+          <h2 class="pf-label">
+            <span class="pf-num" aria-hidden="true">1</span>
+            您是怎麼捐的？
+            <span class="pf-tag pf-tag-required">必填</span>
+          </h2>
+          <p class="pf-hint">選項會決定我們用什麼方式跟您的匯款對上號。</p>
+          <div class="pf-body">
+            <div class="cat-grid" id="methodGrid" role="group" aria-label="捐款方式"></div>
+
+            <div class="pf-field" id="last5Field" hidden>
+              <label class="pf-field-label" for="last5Input">匯款帳號後五碼</label>
+              <input type="text" class="pf-input" id="last5Input" name="last5"
+                     placeholder="5 位數字" maxlength="5" inputmode="numeric" autocomplete="off" />
+              <p class="pf-hint" style="margin-top:6px;">
+                您匯出帳戶的末五碼。銀行明細上只看得到這組號碼，這是我們把款項對到您身上的唯一依據。
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ② 金額與日期 -->
+        <section class="pf-step" id="stepAmount">
+          <h2 class="pf-label">
+            <span class="pf-num" aria-hidden="true">2</span>
+            金額與日期
+            <span class="pf-tag pf-tag-required">必填</span>
+          </h2>
+          <p class="pf-hint">請填實際匯出的金額；日期以您匯款的當天為準。</p>
+          <div class="pf-body">
+            <div class="amount-grid" id="amountGrid" role="group" aria-label="常用金額"></div>
+
+            <div class="pf-field">
+              <label class="pf-field-label" for="amountInput">捐款金額</label>
+              <div class="amount-input-wrap">
+                <input type="number" class="pf-input" id="amountInput" name="amount"
+                       placeholder="0" min="1" max="100000" step="1" inputmode="numeric" autocomplete="off" />
+                <span class="amount-unit">元</span>
+              </div>
+              <p class="addr-note" id="amountNote" hidden></p>
+            </div>
+
+            <div class="pf-field">
+              <label class="pf-field-label" for="dateInput">捐款日期</label>
+              <input type="date" class="pf-input" id="dateInput" name="donatedAt" />
+            </div>
+          </div>
+        </section>
+
+        <!-- ③ 捐款人資料 -->
+        <section class="pf-step" id="stepDonor">
+          <h2 class="pf-label">
+            <span class="pf-num" aria-hidden="true">3</span>
+            開立收據需要的資料
+            <span class="pf-tag pf-tag-required">必填</span>
+          </h2>
+          <p class="pf-hint">
+            這些欄位是受贈收據上的法定記載事項。收據由監察院的政治獻金網路申報系統開立，我們沒有自行印製收據的權限。
+          </p>
+          <div class="pf-body">
+
+            <div class="pf-field">
+              <label class="pf-field-label" for="nameInput">姓名</label>
+              <input type="text" class="pf-input" id="nameInput" name="name"
+                     placeholder="請填身分證上的本名" autocomplete="name" />
+            </div>
+
+            <div class="pf-field">
+              <label class="pf-field-label" for="phoneInput">聯絡電話</label>
+              <input type="text" class="pf-input" id="phoneInput" name="phone"
+                     placeholder="例：0912-345-678" inputmode="tel" autocomplete="tel" />
+            </div>
+
+            <div class="pf-field">
+              <label class="pf-field-label" for="idInput">
+                身分證字號
+                <span class="pf-tag pf-tag-optional" id="idTag">選填</span>
+              </label>
+              <input type="text" class="pf-input" id="idInput" name="idNumber"
+                     placeholder="例：A123456789" maxlength="10" autocomplete="off" />
+              <p class="addr-note" id="idNote" hidden></p>
+              <p class="pf-hint" style="margin-top:6px;">
+                報稅列舉扣除時需要，建議填寫。捐款超過 3 萬元時依規定為必填。
+              </p>
+            </div>
+
+            <div class="pf-field">
+              <label class="pf-field-label" for="addressInput">
+                戶籍地址
+                <span class="pf-tag pf-tag-optional" id="addressTag">選填</span>
+              </label>
+              <input type="text" class="pf-input" id="addressInput" name="address"
+                     placeholder="收據與掛號寄送用" autocomplete="street-address" />
+            </div>
+
+            <div class="pf-field">
+              <label class="pf-field-label" for="emailInput">Email（選填）</label>
+              <input type="email" class="pf-input" id="emailInput" name="email"
+                     placeholder="用於通知收據寄出" autocomplete="email" />
+            </div>
+
+            <div class="pf-field">
+              <label class="pf-field-label" for="noteInput">備註（選填）</label>
+              <input type="text" class="pf-input" id="noteInput" name="note"
+                     placeholder="例：收據請寄公司地址、想匿名等" maxlength="500" autocomplete="off" />
+            </div>
+
+            <p class="tax-note">
+              <strong>關於抵稅：</strong>依政治獻金法第 19 條，個人捐贈可於申報綜合所得稅時列舉扣除，
+              每一申報戶上限為當年度綜合所得總額的 20%，且總額不得超過 20 萬元，
+              並<strong>須憑受贈收據</strong>辦理。
+              須注意：若擬參選人最終未完成候選人登記，依同條第 3 項規定，該筆捐贈<strong>不得列舉扣除</strong>。
+            </p>
+
+          </div>
+        </section>
+
+        <!-- ④ 聲明 -->
+        <section class="pf-step" id="stepDeclare">
+          <h2 class="pf-label">
+            <span class="pf-num" aria-hidden="true">4</span>
+            捐款人聲明
+            <span class="pf-tag pf-tag-required">必填</span>
+          </h2>
+          <p class="pf-hint">
+            捐贈資格是《政治獻金法》第 7 條的硬性規定。誤收的獻金依法必須辦理返還或繳庫，
+            捐贈者也可能被處以捐贈金額 2 倍以下的罰鍰，所以要先請您確認。
+          </p>
+          <div class="pf-body">
+            <div class="declare-box">
+              <ol class="declare-list">
+                <li>本人為<strong>具有選舉權的中華民國國民</strong>。</li>
+                <li>本人<strong>非</strong>外國、大陸地區或香港澳門之人民、法人、團體，亦非其主要成員之法人團體。</li>
+                <li>本人<strong>非</strong>以他人名義捐贈，本筆捐款確為本人自有資金。</li>
+                <li>本人本年度對謝誌謙之捐贈總額<strong>未超過新臺幣 10 萬元</strong>。</li>
+                <li>本人並非公營事業、政府持股達 20% 之民營企業、履約中之政府巨額採購廠商、有累積虧損尚未彌補之營利事業、宗教團體，或同一種選舉之其他擬參選人。</li>
+                <li>本人已知悉：<strong>捐贈者姓名、金額與日期將依法隨會計報告書公開於監察院政治獻金公開查閱平臺</strong>，任何人得查詢與下載。</li>
+              </ol>
+              <label class="declare-check">
+                <input type="checkbox" id="declareCheck" name="declare" />
+                <span>我已閱讀並確認以上各點屬實</span>
+              </label>
+            </div>
+          </div>
+        </section>
+
+        <!-- 蜜罐：真人看不到這格 -->
+        <div class="pf-hp" aria-hidden="true">
+          <label for="dfWebsite">Website</label>
+          <input type="text" id="dfWebsite" name="website" tabindex="-1" autocomplete="off" />
+        </div>
+
+        <!-- 個資告知 -->
+        <details class="pf-consent">
+          <summary>個人資料蒐集告知事項（送出前請閱讀）</summary>
+          <div class="pf-consent-body">
+            <ol>
+              <li><strong>蒐集者：</strong>新林里里長擬參選人謝誌謙（競選團隊）。</li>
+              <li><strong>蒐集目的：</strong>依《政治獻金法》開立受贈收據、辦理專戶入帳對帳、設置收支帳簿，以及向監察院申報政治獻金會計報告書。法定義務，非行銷用途。</li>
+              <li><strong>蒐集項目：</strong>姓名、國民身分證統一編號、戶籍地址、聯絡電話、電子郵件、捐款金額、捐款日期、捐款方式與匯款帳號後五碼。</li>
+              <li><strong>法令依據：</strong>《政治獻金法》第 11 條（開立收據）、第 20 條（設置帳簿逐筆記載）、第 21 條（申報會計報告書），以及《個人資料保護法》第 8 條、第 19 條、第 20 條。</li>
+              <li><strong>利用對象與方式：</strong>由本團隊用於前述目的，並依法提供監察院查核與申報之用。除法定申報外，不提供任何第三方，不作為競選文宣名冊，不進行目的外利用。</li>
+              <li><strong>公開範圍（請特別注意）：</strong>依《政治獻金法》第 21 條，監察院應於申報截止後 6 個月內將會計報告書公開於電腦網路。<strong>您的姓名、捐贈金額與日期將被公開於監察院政治獻金公開查閱平臺（ardata.cy.gov.tw），任何人可檢索、下載與列印，且長期留存。</strong>依《政治獻金會計報告書公開及查閱辦法》第 6 條，國民身分證統一編號、戶籍與通訊地址等隱私資訊於對外公開時應予隱匿。</li>
+              <li><strong>保存期間：</strong>依《政治獻金法》第 22 條第 2 項，政治獻金收支憑證與證明文件應於申報後保管 5 年；發生訴訟時保管至裁判確定後 3 個月。<strong>此為法定保存義務，於保存期間內恕無法應要求刪除。</strong></li>
+              <li><strong>您的權利：</strong>依個人資料保護法第 3 條，您得請求查詢、閱覽、補充或更正您的資料。惟因前述法定申報與保存義務，停止利用與刪除之請求於法定期間內受限制。請透過本站聯絡方式提出並提供回報編號。</li>
+              <li><strong>不提供之影響：</strong>未提供姓名與聯絡方式將無法對帳與開立收據；未提供身分證字號將無法據以辦理所得稅列舉扣除。</li>
+            </ol>
+          </div>
+        </details>
+
+        <p class="pf-error" id="formError" role="alert" hidden></p>
+
+        <button type="submit" class="btn btn-primary pf-submit" id="submitBtn">送出回報</button>
+
+        <p class="pf-fallback">
+          不方便使用網路的長輩，可以直接來電
+          <a href="tel:0968013131">0968-013-131</a>
+          由我們協助登記。
+        </p>
+
+      </form>
+
+      <!-- 送出成功 -->
+      <div class="pf-done" id="donateDone" hidden>
+        <div class="pf-done-icon" aria-hidden="true">✓</div>
+        <h2>收到了，謝謝您的支持</h2>
+        <p>這兩組號碼是您查詢處理狀態的憑證，<strong>請截圖或抄下來</strong>：</p>
+
+        <div class="pf-cred">
+          <div class="pf-cred-item">
+            <span class="pf-cred-label">回報編號</span>
+            <span class="pf-case" id="reportId"></span>
+          </div>
+          <div class="pf-cred-item">
+            <span class="pf-cred-label">查詢碼</span>
+            <span class="pf-case pf-case-code" id="reportCode"></span>
+          </div>
+        </div>
+
+        <div class="receipt-next">
+          <h3>接下來會發生什麼事</h3>
+          <ol>
+            <li>我們核對銀行入帳明細，把您的匯款與這筆回報對上。</li>
+            <li>於<strong>監察院政治獻金網路申報系統</strong>查證捐贈資格並開立受贈收據 —— 依政治獻金查核準則第 14 條，收據只能由該系統產製或向監察院領取，我們無權自行印製。</li>
+            <li>受贈收據的收執聯（可供報稅列舉扣除）連同感謝函寄給您。</li>
+            <li>這筆捐款會逐筆記入收支帳簿，並於投票日後 3 個月內隨會計報告書向監察院申報。</li>
+          </ol>
+        </div>
+
+        <p>
+          若三週內沒有收到收據，請來電 <a href="tel:0968013131">0968-013-131</a> 告訴我們，我們會立刻查。
+        </p>
+
+        <div class="pf-done-actions">
+          <button type="button" class="btn btn-outline" id="againBtn">再回報一筆</button>
+          <a href="../index.html" class="btn btn-primary">回到首頁</a>
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════
+           查詢處理狀態
+      ══════════════════════════════════════ -->
+      <section class="case-lookup" id="statusLookup">
+        <h2 class="case-lookup-title">查詢處理狀態</h2>
+        <p class="case-lookup-lead">
+          輸入回報時拿到的編號與查詢碼，可以看到我們對帳與開立收據的進度。
+          為保護您的個資，這裡不會回顯身分證字號與地址。
+        </p>
+
+        <form id="statusForm" novalidate>
+          <div class="case-lookup-row">
+            <div class="pf-field">
+              <label class="pf-field-label" for="statusIdInput">回報編號</label>
+              <input type="text" class="pf-input" id="statusIdInput" placeholder="DR-20260901-001" autocomplete="off" />
+            </div>
+            <div class="pf-field case-lookup-code">
+              <label class="pf-field-label" for="statusCodeInput">查詢碼</label>
+              <input type="text" class="pf-input" id="statusCodeInput" placeholder="4 碼" maxlength="4" autocomplete="off" />
+            </div>
+            <button type="submit" class="btn btn-outline case-lookup-submit" id="statusSubmit">查詢</button>
+          </div>
+        </form>
+
+        <p class="pf-error" id="statusError" role="alert" hidden></p>
+        <div class="case-result" id="statusResult" hidden></div>
+      </section>
+
+    </div>
+
+  </main>
+
+  <!-- ══════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+          <div class="footer-brand-name">謝誌謙</div>
+          <div class="footer-brand-slogan">堅持不懈．勇往直前 · 新林里里長候選人</div>
+          <p class="footer-brand-desc">
+            以設計美學、社群參與、務實福利為核心，<br />
+            為新林里帶來真正有感的里政服務。
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>快速導覽</h4>
+          <ul>
+            <li><a href="../index.html#lookup">地址查詢</a></li>
+            <li><a href="../xinlin-address/">門牌對照表</a></li>
+            <li><a href="../index.html#about">關於誌謙</a></li>
+            <li><a href="../index.html#policy">核心政見</a></li>
+            <li><a href="../whitepaper/">政策白皮書</a></li>
+            <li><a href="../petition/">里民陳情</a></li>
+            <li><a href="../petition-board/">陳情處理進度</a></li>
+            <li><a href="./">政治獻金</a></li>
+            <li><a href="../index.html#community">社群與聯絡</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>關注我們</h4>
+          <ul>
+            <li><a href="https://www.facebook.com/profile.php?id=61592284322183" target="_blank" rel="noopener noreferrer">Facebook 粉絲專頁</a></li>
+            <li><a href="https://lin.ee/Yxr8Nk2" target="_blank" rel="noopener noreferrer">LINE 官方帳號</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>
+          © <span id="currentYear"></span> <strong>新林里里長參選人謝誌謙競選團隊</strong> · 新北市林口區新林里
+        </p>
+        <p style="color:var(--color-text-dim);font-size:0.75rem;">
+          本網站為競選用途，所有政見以實際公告為準
+        </p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- 回到頂端按鈕 -->
+  <button class="scroll-top" id="scrollTopBtn" aria-label="回到頁面頂端">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <script src="../js/subpage.js"></script>
+  <script src="../js/donate.js"></script>
+</body>
+
+</html>

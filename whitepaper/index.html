@@ -5,10 +5,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- 日夜主題：預設一律淺色（白天版），不跟隨系統偏好；僅在使用者主動切換成深色後才套用，並盡早執行避免閃爍 -->
+  <!-- 日夜主題：預設跟隨系統偏好（prefers-color-scheme）；使用者手動切換過後改以其選擇為準，並盡早執行避免閃爍 -->
   <script>
     (function () {
-      if (localStorage.getItem('theme') === 'dark') {
+      var storedTheme = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (storedTheme === 'dark' || (storedTheme !== 'light' && prefersDark)) {
         document.documentElement.setAttribute('data-theme', 'dark');
       }
     })();
@@ -16,7 +18,7 @@
 
   <!-- SEO -->
   <title>新林里選戰政策白皮書 | 謝誌謙 新林里首屆里長候選人</title>
-  <meta name="description" content="謝誌謙新林里選戰政策白皮書全文：六大核心政見（親子共好、韌性社區、噪音防制、綠化環境、傾聽民眾、毛孩共好）、任期內三大長遠願景，以及新林里首屆里長從零建立里政基礎制度的五項優先工作。" />
+  <meta name="description" content="謝誌謙新林里選戰政策白皮書全文：六大核心政見（親子共好、韌性社區、噪音防制、綠化環境、傾聽民眾、毛孩友善）、任期內三大長遠願景，以及新林里首屆里長從零建立里政基礎制度的五項優先工作。" />
   <meta name="keywords" content="謝誌謙, 新林里, 政策白皮書, 政見, 新林里里長, 首屆里長, 林口, 里長選舉, 2026" />
   <meta name="author" content="謝誌謙競選團隊" />
 
@@ -66,7 +68,7 @@
           "@type": "Place",
           "name": "新北市林口區新林里"
         },
-        "keywords": "新林里, 里長選舉, 政策白皮書, 公共托育, 韌性社區, 噪音防制, 社區綠化, 毛孩共好, 寵物友善"
+        "keywords": "新林里, 里長選舉, 政策白皮書, 公共托育, 韌性社區, 噪音防制, 社區綠化, 毛孩友善, 寵物友善"
       },
       {
         "@type": "BreadcrumbList",
@@ -158,6 +160,7 @@
               <li><a href="../petition-board/" class="nav-sub-link">公開進度</a></li>
             </ul>
           </li>
+          <li><a href="../donate/" class="nav-link">政治獻金</a></li>
           <li><a href="../index.html#community" class="nav-link">社群與聯絡</a></li>
         </ul>
         <button class="theme-toggle" id="themeToggle" aria-label="切換深色／淺色模式" aria-pressed="false">
@@ -301,13 +304,13 @@
       <li><strong>接軌「智慧里長」系統，建立「里民需求提案制度」</strong>：第一天就導入新北市官方智慧里長 LINE 平台，並以設計專業優化里民端的操作體驗與進度視覺化呈現，讓每一條里民建議都不石沉大海。里長本身沒有預算決定權，因此我們的作法是把里民的需求整理成正式提案，協助送進新北市既有的參與式預算與「新北 Vote」提案平台，用制度內的正式管道爭取資源，而不是開一張里長個人說了算的空頭支票。</li>
     </ol>
 
-    <h3 id="policy-6">核心政見六：【毛孩共好】打造人寵和諧的友善社區</h3>
+    <h3 id="policy-6">核心政見六：【毛孩友善】打造人寵和諧共處的社區</h3>
     <p>
       新林里以高密度住宅大樓為主，許多家庭將毛小孩視為不可或缺的家庭成員。然而，高樓密集環境也常因散步清潔、電梯動線、夜間吠叫與管委會規約模糊，產生鄰里間的摩擦與誤解。里長不開難以落地的龐大支票，而是從最接地氣、最能立即見效的日常服務與制度著手，兼顧飼主需求與非養寵住戶的居住品質：
     </p>
     <ol>
       <li><strong>動保防疫下樓辦，爭取巡迴設站進新林</strong>：主動向新北市動保處申請「狂犬病疫苗巡迴施打與免費晶片登記」定期進駐新林里（結合里民活動或公園開放空間），讓平日上班忙碌的大樓飼主下樓散步就能完成法定防疫與寵物登記，免去奔波之苦。</li>
-      <li><strong>散步清潔不落地，公園增設狗便清潔箱</strong>：運用每年里基層工作經費，並向林口區公所與景觀處爭取，於立言公園、立功公園及主要散步綠帶路段設置「寵物便袋取用箱」與友善宣導告示；定期協調清潔維護，讓飼主隨手清理無負擔，非養寵里民安心散步不踩雷。</li>
+      <li><strong>狗便袋箱建立補貨與清潔排程，讓設施真正發揮作用</strong>：立言公園、立功公園目前雖已設置「寵物便袋取用箱」，卻長期疏於補充與清潔，形同虛設。我們將運用每年里基層工作經費，並協調區公所與景觀處建立定期巡查、補貨與清潔排程，公告維護聯繫窗口，並視需要於主要散步綠帶路段增設點位，讓飼主隨手清理無負擔，非養寵里民安心散步不踩雷。</li>
       <li><strong>大樓公約友善化，提供管委會實務指引</strong>：發揮麗江清久管委會主任委員的實務經驗，提供新林里各大樓管委會「友善大樓寵物管理規約範本」與「大樓防吠叫/推車動線管理指引」，協助社區建立合理、合法的管理共識，減少住戶間動輒投訴或衝突的困擾。</li>
       <li><strong>數位社群互助網，建立走失即時協尋機制</strong>：結合新林里官方 LINE 平台與各大樓保全、志工網絡，建立「毛孩走失/拾獲即時通報協尋管道」，在黃金時間內透過社區網絡串聯協助尋回，打造安全有愛的互助鄰里。</li>
     </ol>
@@ -398,6 +401,7 @@
             <li><a href="./">政策白皮書</a></li>
             <li><a href="../petition/">里民陳情</a></li>
             <li><a href="../petition-board/">陳情處理進度</a></li>
+            <li><a href="../donate/">政治獻金</a></li>
             <li><a href="../index.html#foundation">第一件事</a></li>
             <li><a href="../index.html#community">社群與聯絡</a></li>
           </ul>

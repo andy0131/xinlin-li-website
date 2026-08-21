@@ -604,9 +604,61 @@ img { max-width: 100%; display: block; }
   gap: 16px;
   justify-content: flex-start;
   flex-wrap: wrap;
-  margin-bottom: 64px;
+  margin-bottom: 26px;
   animation: heroFadeIn 1s 0.8s both;
 }
+
+/* --- Hero 政治獻金狀態告示 ---
+   刻意做得比兩顆 CTA 安靜：這是「說明現況」而不是「請你行動」。
+   許可函還沒到，不該長得像捐款按鈕。
+   .hero-actions 原本的 64px 底距拆給這一條，總高度維持不變。 */
+.hero-notice {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  max-width: 560px;
+  margin-bottom: 38px;
+  padding: 11px 18px;
+  border: 1px solid color-mix(in srgb, var(--color-gold) 38%, transparent);
+  border-radius: var(--radius-xl);
+  background: color-mix(in srgb, var(--color-gold) 10%, transparent);
+  color: rgba(232, 238, 255, 0.88);
+  font-size: 0.82rem;
+  line-height: 1.6;
+  text-decoration: none;
+  transition: border-color var(--transition), background var(--transition);
+  animation: heroFadeIn 1s 1s both;
+}
+
+.hero-notice:hover {
+  border-color: color-mix(in srgb, var(--color-gold) 70%, transparent);
+  background: color-mix(in srgb, var(--color-gold) 18%, transparent);
+}
+
+.hero-notice:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+}
+
+.hero-notice-icon {
+  flex: 0 0 auto;
+  width: 17px;
+  height: 17px;
+  color: var(--color-gold);
+}
+
+.hero-notice-text { flex: 1 1 auto; min-width: 0; }
+.hero-notice-text strong { color: var(--color-gold); font-weight: 700; }
+
+.hero-notice-more {
+  flex: 0 0 auto;
+  color: var(--color-gold);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* Hero 底圖是深色的，淺色主題下這條也要維持亮字 —— 不能跟著主題翻成深色 */
+:root:not([data-theme="dark"]) .hero-notice { color: rgba(255, 255, 255, 0.9); }
 
 .btn {
   padding: 14px 32px;
@@ -1911,6 +1963,7 @@ body.lightbox-open { overflow: hidden; }
     max-width: 860px;
   }
   .hero-actions     { justify-content: center; }
+  .hero-notice      { text-align: left; }
   .hero-scroll-hint { display: none; }
   .hero-photo       { display: none; }
 }
@@ -1976,6 +2029,18 @@ body.lightbox-open { overflow: hidden; }
   .nav-sub-link { padding: 12px 16px; font-size: 0.95rem; }
 
   .hero-actions { flex-direction: column; align-items: center; }
+
+  /* 窄螢幕：「了解詳情 →」換到第二行，避免把說明文字擠成一行一兩個字 */
+  .hero-notice {
+    flex-wrap: wrap;
+    max-width: calc(100% - 24px);
+    padding: 12px 16px;
+    font-size: 0.78rem;
+  }
+  .hero-notice-text { flex: 1 1 100%; }
+  .hero-notice-icon { margin-top: 1px; }
+  .hero-notice-more { margin-left: 28px; }
+
   .lookup-form-row { flex-direction: column; }
   .lookup-result   { flex-direction: column; }
   .hero-badge {

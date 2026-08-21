@@ -5,10 +5,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- 日夜主題：預設一律淺色（白天版），不跟隨系統偏好；僅在使用者主動切換成深色後才套用，並盡早執行避免閃爍 -->
+  <!-- 日夜主題：預設跟隨系統偏好（prefers-color-scheme）；使用者手動切換過後改以其選擇為準，並盡早執行避免閃爍 -->
   <script>
     (function () {
-      if (localStorage.getItem('theme') === 'dark') {
+      var storedTheme = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (storedTheme === 'dark' || (storedTheme !== 'light' && prefersDark)) {
         document.documentElement.setAttribute('data-theme', 'dark');
       }
     })();
@@ -16,7 +18,7 @@
 
   <!-- SEO -->
   <title>謝誌謙 | 新林里首屆里長候選人 — 堅持不懈‧勇往直前</title>
-  <meta name="description" content="謝誌謙，新林里首屆里長候選人。以親子共好（爭取更多公托）、韌性社區、噪音防制、綠化環境、傾聽民眾、毛孩共好六大政見，從零打造新林里，為里民帶來真正有感的改變。" />
+  <meta name="description" content="謝誌謙，新林里首屆里長候選人。以親子共好（爭取更多公托）、韌性社區、噪音防制、綠化環境、傾聽民眾、毛孩友善六大政見，從零打造新林里，為里民帶來真正有感的改變。" />
   <meta name="keywords" content="謝誌謙, 新林里, 新林里里長, 首屆里長, 里長, 林口, 里長選舉, 2026, 南勢里" />
   <meta name="author" content="謝誌謙競選團隊" />
 
@@ -86,7 +88,7 @@
         "alternateName": "新林里里長候選人 謝誌謙",
         "url": "https://newlinkou.com/",
         "inLanguage": "zh-TW",
-        "dateModified": "2026-07-26",
+        "dateModified": "2026-08-22",
         "publisher": {
           "@type": "Organization",
           "name": "謝誌謙競選團隊",
@@ -161,7 +163,7 @@
             "name": "謝誌謙的政見是什麼？",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "謝誌謙提出六大核心政見：一、親子共好——在里內既有的林口忠孝公共托育中心之外爭取增設公托據點與定點臨托，並組織社區共學；二、韌性社區——將官方防災圖資轉譯為易讀的社區防災地圖、逐棟盤點防災設備並培訓管委會幹部成為防災士；三、噪音防制——蒐證並爭取深夜巡邏與增設聲音照相點位；四、綠化環境——增植行道樹、爭取兩座滯洪池公園增設遊具與停車空間、媒合社區綠化補助；五、傾聽民眾與閒置空間活化——導入智慧里長系統、活化閒置公設並把里民需求送進參與式預算；六、毛孩共好——爭取動保處巡迴設站施打疫苗、公園增設狗便清潔袋箱、提供大樓友善寵物規約指引與走失協尋網絡。完整內容見政策白皮書 https://newlinkou.com/whitepaper/。"
+              "text": "謝誌謙提出六大核心政見：一、親子共好——在里內既有的林口忠孝公共托育中心之外爭取增設公托據點與定點臨托，並組織社區共學；二、韌性社區——將官方防災圖資轉譯為易讀的社區防災地圖、逐棟盤點防災設備並培訓管委會幹部成為防災士；三、噪音防制——蒐證並爭取深夜巡邏與增設聲音照相點位；四、綠化環境——增植行道樹、爭取兩座滯洪池公園增設遊具與停車空間、媒合社區綠化補助；五、傾聽民眾與閒置空間活化——導入智慧里長系統、活化閒置公設並把里民需求送進參與式預算；六、毛孩友善——爭取動保處巡迴設站施打疫苗、建立公園狗便袋取用箱定期補貨與清潔機制、提供大樓友善寵物規約指引與走失協尋網絡。完整內容見政策白皮書 https://newlinkou.com/whitepaper/。"
             }
           },
           {
@@ -262,6 +264,7 @@
               <li><a href="petition-board/" class="nav-sub-link">公開進度</a></li>
             </ul>
           </li>
+          <li><a href="donate/" class="nav-link">政治獻金</a></li>
           <li><a href="#community" class="nav-link">社群與聯絡</a></li>
         </ul>
         <button class="theme-toggle" id="themeToggle" aria-label="切換深色／淺色模式" aria-pressed="false">
@@ -327,6 +330,20 @@
           <a href="#about" class="btn btn-primary" id="hero-cta-about">了解未來里長</a>
           <a href="#lookup" class="btn btn-outline" id="hero-cta-lookup">地址快速查詢</a>
         </div>
+
+        <!-- 政治獻金專戶狀態：許可函到達後改為正式的捐款入口文案，
+             詳見 tools/donation/README.md 的上線清單 -->
+        <a href="donate/" class="hero-notice" id="hero-donate-notice">
+          <svg class="hero-notice-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="10" />
+            <path d="M12 6v6l4 2" />
+          </svg>
+          <span class="hero-notice-text">
+            <strong>政治獻金專戶已開立</strong>，正等候監察院許可 —— 依法許可後才能收受
+          </span>
+          <span class="hero-notice-more" aria-hidden="true">了解詳情 →</span>
+        </a>
 
         <div class="hero-scroll-hint" aria-hidden="true">
           <span>向下探索</span>
@@ -647,7 +664,7 @@
           <p class="policy-card-sub">讓社區真正動起來，意見真正被聽見</p>
           <div class="policy-card-body">
             <ul>
-              <li>定期出席區權會，租屋族與居民權益兼顧</li>
+              <li>定期出席區權會，租屋族與新住民權益兼顧</li>
               <li>推動閒置公設變身共學、關懷據點與親子場域</li>
               <li>需求整理成正式提案，送進參與式預算爭資源</li>
             </ul>
@@ -662,12 +679,12 @@
               d="m20.726,18.629c.283.486.39,1.062.3,1.623l-.197,1.225c-.235,1.462-1.48,2.524-2.962,2.524h-4.867c-.552,0-1-.448-1-1s.448-1,1-1h4.867c.494,0,.909-.354.987-.841l.197-1.224c.017-.106-.002-.209-.054-.3-1.015-1.745-1.069-2.172-1.095-2.377-.14-1.106-.662-1.792-1.747-2.295-.059-.027-1.905-.963-2.604-.963-.798,0-1.256.22-1.261.222-3.025,1.781-5.918,4.108-6.257,8.849-.038.527-.477.929-.997.929-.024,0-.048,0-.072-.002-.551-.04-.966-.518-.926-1.069.409-5.711,4.11-8.589,7.29-10.458.061-.033.292-.152.673-.262v-.209c0-1.256.772-2.495,1.867-2.942.543-.222,1.133.221,1.133.807v2.405c.726.237,1.996.878,1.996.878,1.693.784,2.666,2.083,2.891,3.858h0s.107.364.839,1.622Zm.774-12.629h-.227c-.829,0-1.609-.365-2.14-1.002l-.229-.275c-.912-1.094-2.251-1.722-3.676-1.722h-1.227V.865c0-.586-.59-1.029-1.133-.807-1.095.447-1.867,1.686-1.867,2.942v.706l-2.57,3.998c-.924,1.438-2.497,2.296-4.206,2.296H1c-.552,0-1,.448-1,1s.448,1,1,1h3.224c2.393,0,4.595-1.202,5.889-3.215l2.433-3.785h2.681c.829,0,1.609.365,2.14,1.002l.229.275c.912,1.094,2.251,1.722,3.676,1.722h.227c.276,0,.5.224.5.5v.5c0,1.068-.575,2.064-1.5,2.599-.478.276-.642.888-.365,1.366.186.321.521.5.867.5.17,0,.342-.043.5-.134,1.542-.892,2.5-2.551,2.5-4.331v-.5c0-1.378-1.122-2.5-2.5-2.5Z" />
           </svg>
           <div class="policy-card-title-bar" aria-hidden="true"></div>
-          <h3 class="policy-card-title">毛孩共好</h3>
-          <p class="policy-card-sub">打造人寵和諧的友善社區</p>
+          <h3 class="policy-card-title">毛孩友善</h3>
+          <p class="policy-card-sub">打造人寵和諧共處的社區</p>
           <div class="policy-card-body">
             <ul>
               <li>爭取動保處巡迴設站，疫苗施打與晶片就近辦</li>
-              <li>公園增設狗便袋取用箱，散步環境整潔不落地</li>
+              <li>狗便袋箱建立補貨清潔機制，不再形同虛設</li>
               <li>提供大樓友善寵物規約範本，兼顧飼主與居住品質</li>
             </ul>
           </div>
@@ -958,6 +975,7 @@
             <li><a href="whitepaper/">政策白皮書</a></li>
             <li><a href="petition/">里民陳情</a></li>
             <li><a href="petition-board/">陳情處理進度</a></li>
+            <li><a href="donate/">政治獻金</a></li>
             <li><a href="#foundation">第一件事</a></li>
             <li><a href="#community">社群與聯絡</a></li>
           </ul>
