@@ -505,6 +505,13 @@ function renderCase(item) {
   });
 
   qResult.append(head, list);
+
+  const photos = renderCasePhotos(
+    item['完成照片'],
+    status === '已完成' ? '處理完成' : '現場照片'
+  );
+  if (photos) qResult.appendChild(photos);
+
   qResult.hidden = false;
 }
 

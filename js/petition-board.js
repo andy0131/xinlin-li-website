@@ -172,6 +172,13 @@ function renderList() {
     summary.className = 'board-card-summary';
     summary.textContent = item['公開摘要'] || '（尚未撰寫摘要）';
 
+    // 完成照片（只有你在試算表「完成照片」欄貼了連結才會有）。
+    // 還沒結案就只寫「現場照片」—— 那可能是施工中拍的，不能標成處理完成。
+    const photos = renderCasePhotos(
+      item['完成照片'],
+      item['狀態'] === '已完成' ? '處理完成' : '現場照片'
+    );
+
     // 頁尾：編號與收件日
     const foot = document.createElement('div');
     foot.className = 'board-card-foot';
@@ -185,7 +192,9 @@ function renderList() {
 
     foot.append(id, date);
 
-    li.append(head, summary, foot);
+    li.append(head, summary);
+    if (photos) li.appendChild(photos);
+    li.appendChild(foot);
     boardList.appendChild(li);
   });
 }

@@ -743,6 +743,100 @@
   .board-card { padding: 18px; }
 }
 
+/* ══════════════════════════════════════
+   完成照片（看板卡片與查詢結果共用）
+   ══════════════════════════════════════ */
+
+.case-photos {
+  margin: 0 0 14px;
+}
+/* 查詢結果卡是滿版無留白的容器，照片列得自己補上左右內距 */
+.case-result > .case-photos {
+  padding: 0 24px 22px;
+}
+
+.case-photos-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--color-gold-ink);
+  margin-bottom: 8px;
+}
+
+.case-photos-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 8px;
+}
+
+.case-photo {
+  display: block;
+  padding: 0;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface-2);
+  overflow: hidden;
+  cursor: zoom-in;
+  /* 固定比例的框：圖片是非同步載入的，沒有這個框每張圖到位時都會推擠版面 */
+  aspect-ratio: 4 / 3;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+.case-photo:hover { border-color: var(--color-gold); transform: translateY(-2px); }
+.case-photo:focus-visible { outline: 2px solid var(--color-gold); outline-offset: 2px; }
+
+.case-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* --- 燈箱 --- */
+
+.case-photo-box {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+  background: rgba(0, 0, 0, 0.86);
+}
+.case-photo-box[hidden] { display: none; }
+
+.case-photo-box img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: var(--radius-sm);
+}
+
+.case-photo-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+.case-photo-close:hover { background: rgba(255, 255, 255, 0.26); }
+.case-photo-close:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+
+/* 燈箱開著時鎖住背景捲動，否則在手機上滑照片會連帶捲走底下的頁面 */
+body.case-photo-open { overflow: hidden; }
+
+@media (max-width: 640px) {
+  .case-result > .case-photos { padding: 0 18px 18px; }
+  .case-photos-strip { grid-template-columns: repeat(auto-fill, minmax(92px, 1fr)); }
+  .case-photo-box { padding: 16px; }
+}
+
 /* --- 蜜罐：真人看不到，只有機器人會填 --- */
 .pf-hp {
   position: absolute;
