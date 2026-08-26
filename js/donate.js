@@ -21,15 +21,17 @@
      2. 下面 ACCOUNT 的四個欄位填上實際資料
      3. tools/donation/Code.gs 的 CONFIG.PERMIT_GRANTED 也改成 true 並重新部署
    ------------------------------------------------------------ */
-const DONATION_LIVE = false;
+const DONATION_LIVE = true;
 
 // 專戶資訊。許可函到達前刻意留空 —— 帳號一旦出現在網頁原始碼裡，
 // 就可能有人在許可生效前匯款進來，那筆錢會直接讓候選人踩到第 26 條。
 const ACCOUNT = {
-  permitNo:    '',    // 監察院許可函文號
-  bank:        '',    // 銀行與分行
-  accountName: '',    // 戶名（格式：115年新北市林口區新林里里長擬參選人○○○政治獻金專戶）
-  accountNo:   '',    // 帳號
+  // 許可函本人已收到（法定閘門成立），但文號還沒抄回來。
+  // renderAccount 對空值是整列跳過，所以這欄空著只是少一列，不影響其他資訊。
+  permitNo:    '',
+  bank:        '國泰世華銀行　東林口分行（銀行代號 013）',
+  accountName: '115年新北市林口區新林里里長擬參選人謝誌謙政治獻金專戶',
+  accountNo:   '136-50-014731-7',
 };
 
 const DONATION_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwAsXBODoIszfMj_umSpiIOCFZihk2InFYlG--XoXNIUeRtVpN8m_Hqx49Aif0iv5oGEA/exec';
@@ -52,6 +54,22 @@ const DONATION_METHODS = [
 ];
 
 const PRESET_AMOUNTS = [1000, 2000, 5000, 10000, 30000];
+
+// 收據寄送方式。電子郵件排第一並預設選取 —— 對捐款人最快、
+// 對我們省掛號費，而且不必為了寄一張紙去跟人要地址。
+// 必須與後端 Code.gs 的 RECEIPT_DELIVERY 完全一致。
+const RECEIPT_DELIVERY = [
+  {
+    key: 'email',
+    name: '電子郵件',
+    hint: '收據 PDF 會寄到您填的信箱，最快，也不會寄丟。',
+  },
+  {
+    key: 'post',
+    name: '紙本郵寄',
+    hint: '我們會把收據的收執聯與感謝函寄到您填的地址。',
+  },
+];
 
 const COOLDOWN_MS = 30 * 1000;
 const COOLDOWN_KEY = 'donation_last_submit';
@@ -76,6 +94,10 @@ const dfAddress   = document.getElementById('addressInput');
 const dfAddressTag = document.getElementById('addressTag');
 const dfPhone     = document.getElementById('phoneInput');
 const dfEmail     = document.getElementById('emailInput');
+const dfEmailTag  = document.getElementById('emailTag');
+const dfDeliveryGrid = document.getElementById('deliveryGrid');
+const dfDeliveryHint = document.getElementById('deliveryHint');
+const dfAddressNote  = document.getElementById('addressNote');
 const dfNote      = document.getElementById('noteInput');
 const dfDeclare   = document.getElementById('declareCheck');
 const dfHoneypot  = document.getElementById('dfWebsite');
@@ -94,7 +116,7 @@ const sSubmit = document.getElementById('statusSubmit');
 const sError  = document.getElementById('statusError');
 const sResult = document.getElementById('statusResult');
 
-const state = { method: null };
+const state = { method: null, delivery: RECEIPT_DELIVERY[0] };
 
 const donateSrc = new URLSearchParams(location.search).get('src') || 'web';
 
@@ -106,6 +128,7 @@ function init() {
 
   renderAccount();
   renderMethods();
+  renderDelivery();
   renderAmounts();
   bindAmount();
   bindId();
@@ -182,6 +205,71 @@ function selectMethod(m) {
   clearError();
 }
 
+/* ---------- 收據寄送方式 ---------- */
+
+function renderDelivery() {
+  RECEIPT_DELIVERY.forEach(d => {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'cat-chip';
+    btn.textContent = d.name;
+    btn.dataset.key = d.key;
+    btn.addEventListener('click', () => selectDelivery(d));
+    dfDeliveryGrid.appendChild(btn);
+  });
+  selectDelivery(state.delivery);
+}
+
+function selectDelivery(d) {
+  state.delivery = d;
+  dfDeliveryGrid.querySelectorAll('.cat-chip').forEach(btn => {
+    btn.setAttribute('aria-pressed', String(btn.dataset.key === d.key));
+  });
+  dfDeliveryHint.textContent = d.hint;
+  syncRequired();
+  clearError();
+}
+
+// Email 與地址的必填與否，由「寄送方式」與「金額級距」兩件事共同決定。
+// 兩者的理由不同，訊息也要分開講：
+//   寄送方式 → 我們得知道要寄去哪
+//   逾 3 萬  → 準則 §15 要求收據本身必須登載地址，跟怎麼寄無關
+// 地址一律必填 —— 這不是我們的規定，是監察院系統的硬性要求。
+// 網路申報系統的登帳表單把「戶籍/通訊地址」列為必填欄位，而且系統明載：
+// 未填寫姓名與身分資料（身分證號、地址）者，該筆捐款「將列入匿名捐贈」；
+// 匿名捐贈總額超過收入總額十分之三的部分，申報時要繳交監察院辦理繳庫。
+// 也就是說，少了地址不只是不方便，是這筆錢可能被沒收。
+function syncRequired() {
+  const post = state.delivery.key === 'post';
+  const full = amountValue() > TIER_FULL_DATA;
+
+  setTag(dfEmailTag, !post);
+  setTag(dfAddressTag, true);
+
+  // 三種理由都會讓地址變必填，但要講哪一個？講最強的那一個，
+  // 免得堆一整段讓人一句都讀不進去。
+  if (full) {
+    dfAddressNote.className = 'addr-note addr-note-hit';
+    dfAddressNote.textContent = '超過 ' + fmtMoney(TIER_FULL_DATA)
+      + ' 元的捐款，受贈收據依政治獻金查核準則第 15 條必須登載戶籍地址。';
+  } else {
+    dfAddressNote.className = 'addr-note';
+    dfAddressNote.textContent = '地址是監察院受贈收據的必填欄位 —— '
+      + '沒有地址，這筆捐款會被系統歸入「匿名捐贈」，我們也開不出可以報稅的收據。'
+      + (post ? '選了紙本郵寄，收據也會寄到這個地址（要寄別處請寫在備註）。' : '');
+  }
+  dfAddressNote.hidden = false;
+}
+
+function setTag(el, required) {
+  el.textContent = required ? '必填' : '選填';
+  el.className = 'pf-tag ' + (required ? 'pf-tag-required' : 'pf-tag-optional');
+}
+
+function amountValue() {
+  return Number(String(dfAmount.value).replace(/[^0-9]/g, '')) || 0;
+}
+
 /* ---------- ② 金額 ---------- */
 
 function renderAmounts() {
@@ -230,18 +318,18 @@ function syncAmountTier() {
   if (full) {
     dfAmountNote.className = 'addr-note addr-note-hit';
     dfAmountNote.textContent = '超過 ' + fmtMoney(TIER_FULL_DATA)
-      + ' 元的捐款，受贈收據依規定必須登載身分證字號與戶籍地址，下面兩欄請務必填寫。';
+      + ' 元的捐款，受贈收據依規定必須登載身分證字號與戶籍地址，下面兩欄都會變成必填。';
     dfAmountNote.hidden = false;
   } else {
     dfAmountNote.hidden = true;
   }
 }
 
+// 只負責身分證欄。地址欄的必填與否還牽涉到寄送方式，
+// 統一交給 syncRequired 決定，免得兩處各寫一半而打架。
 function setTier(full) {
-  dfIdTag.textContent = full ? '必填' : '選填';
-  dfIdTag.className = 'pf-tag ' + (full ? 'pf-tag-required' : 'pf-tag-optional');
-  dfAddressTag.textContent = full ? '必填' : '選填';
-  dfAddressTag.className = 'pf-tag ' + (full ? 'pf-tag-required' : 'pf-tag-optional');
+  setTag(dfIdTag, full);
+  syncRequired();
 }
 
 /* ---------- ③ 身分證字號 ---------- */
@@ -340,6 +428,7 @@ function bindSubmit() {
           address:   dfAddress.value.trim(),
           phone:     dfPhone.value.trim(),
           email:     dfEmail.value.trim(),
+          delivery:  state.delivery.key,
           amount:    Number(dfAmount.value),
           donatedAt: dfDate.value,
           method:    state.method.name,
@@ -423,10 +512,27 @@ function validate() {
       focus: () => dfId.focus(),
     };
   }
-  if (full && !dfAddress.value.trim()) {
+  const post = state.delivery.key === 'post';
+  const emailValue = dfEmail.value.trim();
+
+  // 電子郵件寄送時沒有信箱就等於收據寄不出去，跟紙本沒地址是同一回事
+  if (!post && !emailValue) {
     return {
-      message: '超過 ' + fmtMoney(TIER_FULL_DATA)
-        + ' 元的捐款，依政治獻金查核準則第 15 條，收據必須登載戶籍地址。',
+      message: '收據要寄到 Email，請填寫您的信箱；或把寄送方式改成紙本郵寄。',
+      focus: () => dfEmail.focus(),
+    };
+  }
+  if (emailValue && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailValue)) {
+    return { message: 'Email 的格式看起來不太對，請再確認一次。', focus: () => dfEmail.focus() };
+  }
+
+  if (!dfAddress.value.trim()) {
+    return {
+      message: full
+        ? '超過 ' + fmtMoney(TIER_FULL_DATA)
+          + ' 元的捐款，依政治獻金查核準則第 15 條，收據必須登載戶籍地址。'
+        : '請填寫地址。這是監察院受贈收據的必填欄位，沒有地址這筆捐款會被列為匿名捐贈，'
+          + '我們就開不出可以報稅的收據給您。',
       focus: () => dfAddress.focus(),
     };
   }
@@ -574,6 +680,7 @@ function resetForm() {
   dfLast5Field.hidden = true;
   dfAmountNote.hidden = true;
   dfIdNote.hidden = true;
+  selectDelivery(RECEIPT_DELIVERY[0]);   // 再捐一筆時回到預設的電子郵件
   setTier(false);
   clearError();
   setSending(false);

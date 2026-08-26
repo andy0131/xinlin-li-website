@@ -228,7 +228,7 @@
         <p class="acct-card-lead">
           請以匯款、ATM 轉帳或臨櫃方式匯入以下專戶。
           <strong>匯款完成後請務必填寫下方的回報表單</strong> ——
-          匯款單上只有金額與帳號，沒有您的姓名與地址，我們無法憑它開立受贈收據。
+          匯款單上只有金額與帳號，沒有您的姓名與聯絡方式，我們無法憑它開立受贈收據，也不知道收據該寄去哪。
         </p>
         <div id="accountBlock"></div>
       </section>
@@ -339,24 +339,37 @@
             </div>
 
             <div class="pf-field">
-              <label class="pf-field-label" for="addressInput">
-                戶籍地址
-                <span class="pf-tag pf-tag-optional" id="addressTag">選填</span>
-              </label>
-              <input type="text" class="pf-input" id="addressInput" name="address"
-                     placeholder="收據與掛號寄送用" autocomplete="street-address" />
+              <span class="pf-field-label" id="deliveryLabel">
+                收據要怎麼給您？
+                <span class="pf-tag pf-tag-required">必填</span>
+              </span>
+              <div class="cat-grid" id="deliveryGrid" role="group" aria-labelledby="deliveryLabel"></div>
+              <p class="pf-hint" style="margin-top:6px;" id="deliveryHint"></p>
             </div>
 
             <div class="pf-field">
-              <label class="pf-field-label" for="emailInput">Email（選填）</label>
+              <label class="pf-field-label" for="emailInput">
+                Email
+                <span class="pf-tag pf-tag-required" id="emailTag">必填</span>
+              </label>
               <input type="email" class="pf-input" id="emailInput" name="email"
-                     placeholder="用於通知收據寄出" autocomplete="email" />
+                     placeholder="收據會寄到這個信箱" autocomplete="email" />
+            </div>
+
+            <div class="pf-field">
+              <label class="pf-field-label" for="addressInput">
+                戶籍地址
+                <span class="pf-tag pf-tag-required" id="addressTag">必填</span>
+              </label>
+              <input type="text" class="pf-input" id="addressInput" name="address"
+                     placeholder="例：新北市林口區文化三路一段 000 號 0 樓" autocomplete="street-address" />
+              <p class="addr-note" id="addressNote" hidden></p>
             </div>
 
             <div class="pf-field">
               <label class="pf-field-label" for="noteInput">備註（選填）</label>
               <input type="text" class="pf-input" id="noteInput" name="note"
-                     placeholder="例：收據請寄公司地址、想匿名等" maxlength="500" autocomplete="off" />
+                     placeholder="例：紙本請改寄公司地址、想匿名等" maxlength="500" autocomplete="off" />
             </div>
 
             <p class="tax-note">
@@ -456,7 +469,8 @@
           <ol>
             <li>我們核對銀行入帳明細，把您的匯款與這筆回報對上。</li>
             <li>於<strong>監察院政治獻金網路申報系統</strong>查證捐贈資格並開立受贈收據 —— 依政治獻金查核準則第 14 條，收據只能由該系統產製或向監察院領取，我們無權自行印製。</li>
-            <li>受贈收據的收執聯（可供報稅列舉扣除）連同感謝函寄給您。</li>
+            <li>依您選的方式把受贈收據交給您 —— 選電子郵件就寄 PDF 到您的信箱，選紙本就連同感謝函寄到您填的地址。收據由監察院系統產製，含系統編號、防偽浮水印與擬參選人印鑑，可供報稅列舉扣除。</li>
+            <li>收到後請核對收據上的姓名、身分證字號與金額；<strong>如有錯誤請在 3 日內告訴我們</strong>，以便作廢重開。</li>
             <li>這筆捐款會逐筆記入收支帳簿，並於投票日後 3 個月內隨會計報告書向監察院申報。</li>
           </ol>
         </div>
