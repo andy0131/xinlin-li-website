@@ -84,6 +84,7 @@ const dfAmountGrid = document.getElementById('amountGrid');
 const dfAmount    = document.getElementById('amountInput');
 const dfAmountNote = document.getElementById('amountNote');
 const dfDate      = document.getElementById('dateInput');
+const dfDateGrid  = document.getElementById('dateGrid');
 const dfLast5Field = document.getElementById('last5Field');
 const dfLast5     = document.getElementById('last5Input');
 const dfName      = document.getElementById('nameInput');
@@ -384,14 +385,44 @@ function bindDate() {
   dfDate.min = PERIOD_START;
   dfDate.max = today < PERIOD_END ? today : PERIOD_END;
   dfDate.addEventListener('change', clearError);
+  renderDateChips();          // 要在 min/max 設好之後才跑，下面會用到 max
+}
+
+// 幾乎每個人回報的都是剛匯出去的那一兩天。為了選一個近期日期而展開
+// 整個月曆太重，所以把最常用的三天做成快選鈕；日期欄本身保留著，
+// 要補報更早的日期還是可以用。
+function renderDateChips() {
+  ['今天', '昨天', '前天'].forEach((label, back) => {
+    const value = shiftDate(back);
+
+    // 收受期間才剛開始的那幾天，「前天」可能還落在期間之外；
+    // 投票日前一日之後則連「今天」都不能選。這裡一律以日期欄的
+    // min/max 為準，免得快選鈕給出一個送出後才被擋下來的日期。
+    if (value < PERIOD_START || value > dfDate.max) return;
+
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'amount-chip';
+    btn.textContent = label;
+    btn.addEventListener('click', () => {
+      dfDate.value = value;
+      clearError();
+    });
+    dfDateGrid.appendChild(btn);
+  });
 }
 
 // 不能用 toISOString()：它給的是 UTC 日期，台灣是 UTC+8，
 // 凌晨 0 點到 8 點之間會算成前一天，害當天捐款的人選不到今天。
-function localDate() {
+function shiftDate(back) {
   const d = new Date();
+  d.setDate(d.getDate() - back);
   const pad = (n) => String(n).padStart(2, '0');
   return d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate());
+}
+
+function localDate() {
+  return shiftDate(0);
 }
 
 /* ---------- 送出 ---------- */
