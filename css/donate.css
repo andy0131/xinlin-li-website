@@ -102,6 +102,35 @@
   user-select: all;
 }
 
+/* 一鍵複製。帳號複製出去的是純數字（見 donate.js 的 renderAccount），
+   畫面上的橫線只給人核對用。 */
+.acct-copy {
+  flex: 0 0 auto;
+  align-self: center;
+  font-family: inherit;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text-dim);
+  white-space: nowrap;
+  cursor: pointer;
+  transition: border-color var(--transition), color var(--transition);
+}
+
+.acct-copy:hover,
+.acct-copy.is-done {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.acct-copy:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
 /* --- 金額快選 --- */
 .amount-grid {
   display: flex;
@@ -271,6 +300,8 @@
   }
 
   .acct-label { flex-basis: auto; }
+  /* 直向堆疊後按鈕不該被拉成整列寬 */
+  .acct-copy { align-self: flex-start; margin-top: 4px; }
   .donate-pending { padding: 32px 22px; }
   .acct-card { padding: 20px 18px; }
 }

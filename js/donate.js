@@ -155,15 +155,19 @@ function applyGate() {
 }
 
 function renderAccount() {
+  // 第三個元素是「複製出去的字串長什麼樣」，null = 這列不給複製鈕。
+  // 帳號刻意去掉分隔號：網銀與 ATM 的帳號欄多半只吃數字，貼上帶橫線的
+  // 字串不是被擋就是被默默截斷，那比沒有複製鈕更糟。畫面上仍保留橫線，
+  // 因為那是存摺上的樣子，人要核對的時候需要它。
   const rows = [
-    ['戶名', ACCOUNT.accountName],
-    ['銀行', ACCOUNT.bank],
-    ['帳號', ACCOUNT.accountNo],
-    ['監察院許可文號', ACCOUNT.permitNo],
+    ['戶名', ACCOUNT.accountName, (v) => v],
+    ['銀行', ACCOUNT.bank, null],
+    ['帳號', ACCOUNT.accountNo, (v) => v.replace(/[^0-9]/g, '')],
+    ['監察院許可文號', ACCOUNT.permitNo, null],
   ];
   dfAccount.innerHTML = '';
 
-  rows.forEach(([label, value]) => {
+  rows.forEach(([label, value, copyAs]) => {
     if (!value) return;
     const row = document.createElement('div');
     row.className = 'acct-row';
@@ -177,8 +181,38 @@ function renderAccount() {
     dd.textContent = value;
 
     row.append(dt, dd);
+    if (copyAs) row.appendChild(makeCopyBtn(label, copyAs(value)));
     dfAccount.appendChild(row);
   });
+}
+
+function makeCopyBtn(label, text) {
+  const btn = document.createElement('button');
+  btn.type = 'button';
+  btn.className = 'acct-copy';
+  btn.textContent = '複製';
+  btn.setAttribute('aria-label', '複製' + label);
+  if (label === '帳號') btn.title = '複製帳號（純數字，可直接貼進網銀或 ATM）';
+
+  btn.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(text);
+    } catch (err) {
+      // 舊瀏覽器、非 HTTPS、或使用者拒絕剪貼簿權限。
+      // 至少把字串攤在他面前讓他自己複製，不要只是靜靜地失敗。
+      window.prompt('請複製' + label + '：', text);
+      return;
+    }
+    btn.textContent = '已複製';
+    btn.classList.add('is-done');
+    clearTimeout(btn.resetTimer);
+    btn.resetTimer = setTimeout(() => {
+      btn.textContent = '複製';
+      btn.classList.remove('is-done');
+    }, 2000);
+  });
+
+  return btn;
 }
 
 /* ---------- ① 捐款方式 ---------- */
