@@ -5,6 +5,12 @@
 
 /* --- 設計 Token --- */
 :root {
+  /* 主題是靠 <html data-theme> 切的，瀏覽器無從得知頁面變暗了，
+     原生控制項（日期輸入的日曆圖示、日期選單本身、捲軸、下拉箭頭）
+     會一直照淺色畫 —— 深色底上就是一片看不清的深色圖示。
+     color-scheme 是唯一能把「現在是深色」這件事告訴瀏覽器的方法。 */
+  color-scheme: light;
+
   --color-bg:        #f7f9fc;
   --color-surface:   #ffffff;
   --color-surface-2: #eef1f8;
@@ -37,6 +43,8 @@
 
 /* --- 深色（夜間）主題：切換 <html data-theme="dark"> 時套用 --- */
 :root[data-theme="dark"] {
+  color-scheme: dark;
+
   --color-bg:        #0d1117;
   --color-surface:   #161b2e;
   --color-surface-2: #1e2540;
