@@ -385,7 +385,44 @@ function bindDate() {
   dfDate.min = PERIOD_START;
   dfDate.max = today < PERIOD_END ? today : PERIOD_END;
   dfDate.addEventListener('change', clearError);
+  dfDate.addEventListener('focus', openDatePicker);
   renderDateChips();          // 要在 min/max 設好之後才跑，下面會用到 max
+}
+
+/* ---------- 日期欄聚焦就展開月曆 ---------- */
+
+// 瀏覽器預設只有「點擊」會展開，用 Tab 移過來不會。showPicker() 補上這段，
+// 但它有兩個陷阱，兩個都會讓表單變難用，所以各擋一道：
+//
+// ① showPicker() 需要 transient user activation。使用者自己點或按 Tab 有，
+//    程式呼叫 .focus() 沒有 —— 但送出鈕的點擊會留下活化狀態，於是「驗證失敗
+//    → 把游標送回日期欄」就會順便把月曆彈出來蓋住剛顯示的錯誤訊息。
+//    suppressDatePicker 就是為了這個情境。
+//
+// ② 少數行動瀏覽器的日期選單是會搶走焦點的 modal：關掉時焦點回到欄位，
+//    又觸發一次 focus，變成關不掉的迴圈。捐款人被困在月曆裡等於這筆捐款
+//    直接流失，所以加一道時間閘。
+let suppressDatePicker = false;
+let lastPickerShown = 0;
+
+function openDatePicker() {
+  if (suppressDatePicker) { suppressDatePicker = false; return; }
+  if (Date.now() - lastPickerShown < 400) return;
+
+  lastPickerShown = Date.now();
+  try {
+    dfDate.showPicker();
+  } catch (err) {
+    // 沒有使用者手勢，或瀏覽器不支援 showPicker（Chrome 99 / Safari 16 / FF 101 以前）。
+    // 兩種情況都無所謂：欄位本身照樣點得開。
+  }
+}
+
+// 驗證失敗時用這個把游標送回日期欄，不要順便彈出月曆蓋住錯誤訊息
+function focusDateQuietly() {
+  suppressDatePicker = true;
+  dfDate.focus();
+  suppressDatePicker = false;   // 焦點原本就在這格時 focus 不會派送，這行負責收尾
 }
 
 // 幾乎每個人回報的都是剛匯出去的那一兩天。為了選一個近期日期而展開
@@ -510,12 +547,12 @@ function validate() {
   }
 
   if (!dfDate.value) {
-    return { message: '請選擇捐款日期。', focus: () => dfDate.focus() };
+    return { message: '請選擇捐款日期。', focus: focusDateQuietly };
   }
   if (dfDate.value < PERIOD_START || dfDate.value > PERIOD_END) {
     return {
       message: '捐款日期須在法定收受期間（' + PERIOD_START + ' 至 ' + PERIOD_END + '）內。',
-      focus: () => dfDate.focus(),
+      focus: focusDateQuietly,
     };
   }
 
