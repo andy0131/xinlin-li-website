@@ -277,6 +277,38 @@
 }
 .notice strong { color: var(--color-text); }
 
+/* --- 權責分野（我上任就能做／我要去爭取） --- */
+.mandate {
+  margin: 0 0 24px;
+  display: grid;
+  gap: 14px;
+}
+@media (min-width: 720px) {
+  .mandate { grid-template-columns: 1fr 1fr; }
+}
+.mandate > div {
+  padding: 18px 20px;
+  border: 1px solid var(--color-border);
+  border-left-width: 4px;
+  border-radius: var(--radius-sm);
+  background: var(--color-surface-2);
+  font-size: 0.9rem;
+  line-height: 1.75;
+  color: var(--color-text-dim);
+}
+.mandate > .mandate-can  { border-left-color: var(--color-accent); }
+.mandate > .mandate-push { border-left-color: var(--color-gold); }
+.mandate .mandate-label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+}
+.mandate-can  .mandate-label { color: var(--color-accent); }
+.mandate-push .mandate-label { color: var(--color-gold-ink); }
+.mandate strong { color: var(--color-text); font-weight: 700; }
+
 @media (max-width: 640px) {
   .article { padding: 48px 20px 72px; }
   .neighborhood-list { padding: 48px 16px 72px; }

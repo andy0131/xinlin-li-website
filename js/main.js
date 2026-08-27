@@ -160,9 +160,9 @@ const typewriterEl = document.getElementById('typewriter');
 const cursorEl     = document.getElementById('typewriterCursor');
 const phrases = [
   '堅持不懈‧勇往直前',
+  '有人聽 有人管 有人回',
   '設計新林里的未來',
-  '讓改變從堅持開始',
-  '務實服務 × 在地創新',
+  '你的問題，我追到底',
 ];
 let phraseIdx = 0;
 let charIdx   = 0;
