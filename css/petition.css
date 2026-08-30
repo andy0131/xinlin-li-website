@@ -676,6 +676,11 @@
   font-size: 1rem;
   line-height: 1.75;
   margin-bottom: 14px;
+  /* 摘要是從試算表直接貼過來的：裡面會有換行，也常常附一條長網址。
+     手機上一條不能斷的網址比整張卡還寬，會被 body 的 overflow-x 切掉，
+     所以跟查詢結果的 .case-field dd 一樣，保留換行並允許任意位置斷行。 */
+  white-space: pre-line;
+  overflow-wrap: anywhere;
 }
 
 .board-card-foot {
