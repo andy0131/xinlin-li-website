@@ -436,9 +436,18 @@
           </div>
         </details>
 
-        <p class="pf-error" id="formError" role="alert" hidden></p>
+        <div class="pf-error" id="formError" role="alert" hidden>
+          <span id="formErrorMsg"></span>
+          <strong class="pf-error-note">這筆回報還沒有送出成功 —— 沒有拿到回報編號就不算完成。請依上面的說明修正後再送一次，或直接來電 0968-013-131 由我們協助登記。</strong>
+        </div>
 
         <button type="submit" class="btn btn-primary pf-submit" id="submitBtn">送出回報</button>
+
+        <p class="pf-submit-note">
+          送出成功後，畫面會出現一組 <strong>DR-</strong> 開頭的<strong>回報編號</strong>與查詢碼。
+          <strong>沒有看到回報編號，就代表這筆回報沒有送出成功</strong>，我們這邊也收不到 ——
+          請再送一次，或來電由我們協助登記。
+        </p>
 
         <p class="pf-fallback">
           不方便使用網路的長輩，可以直接來電
@@ -452,7 +461,7 @@
       <div class="pf-done" id="donateDone" hidden>
         <div class="pf-done-icon" aria-hidden="true">✓</div>
         <h2>收到了，謝謝您的支持</h2>
-        <p>這兩組號碼是您查詢處理狀態的憑證，<strong>請截圖或抄下來</strong>：</p>
+        <p>看到這組號碼，就代表您的回報<strong>已經確實送到我們這裡</strong>。這也是您查詢處理狀態的憑證，<strong>請截圖或抄下來</strong>：</p>
 
         <div class="pf-cred">
           <div class="pf-cred-item">

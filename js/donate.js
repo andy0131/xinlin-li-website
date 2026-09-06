@@ -102,6 +102,7 @@ const dfNote      = document.getElementById('noteInput');
 const dfDeclare   = document.getElementById('declareCheck');
 const dfHoneypot  = document.getElementById('dfWebsite');
 const dfError     = document.getElementById('formError');
+const dfErrorMsg  = document.getElementById('formErrorMsg');
 const dfSubmit    = document.getElementById('submitBtn');
 const dfDone      = document.getElementById('donateDone');
 const dfDoneId    = document.getElementById('reportId');
@@ -660,7 +661,9 @@ function setSending(sending) {
 }
 
 function showError(message) {
-  dfError.textContent = message;
+  // 只換訊息，不動後面那句「沒有回報編號就不算完成」的固定提醒 ——
+  // 每一種送出失敗都要讓捐款人知道這筆沒有進來，否則他會以為回報完了。
+  dfErrorMsg.textContent = message;
   dfError.hidden = false;
 }
 

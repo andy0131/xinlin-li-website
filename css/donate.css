@@ -305,3 +305,26 @@
   .donate-pending { padding: 32px 22px; }
   .acct-card { padding: 20px 18px; }
 }
+
+/* --- 「有回報編號才算成功」的提醒 --- */
+/* 送出失敗時附在錯誤訊息後面，固定不換 */
+.pf-error-note {
+  display: block;
+  margin-top: 8px;
+  font-weight: 700;
+  line-height: 1.65;
+}
+
+/* 送出鈕下方的預告，讓捐款人知道該等到什麼畫面才算完成 */
+.pf-submit-note {
+  margin-top: 14px;
+  padding: 12px 16px;
+  border-left: 3px solid var(--color-accent);
+  border-radius: var(--radius-sm);
+  background: var(--color-glow);
+  font-size: 0.86rem;
+  line-height: 1.75;
+  color: var(--color-text-dim);
+}
+
+.pf-submit-note strong { color: var(--color-text); }
