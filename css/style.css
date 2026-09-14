@@ -705,14 +705,39 @@ img { max-width: 100%; display: block; }
   transform: translateY(-2px);
   box-shadow: var(--shadow-gold);
 }
-/* 疊在相片輪播上的按鈕，透明底會被照片內容干擾，需要暗底加強可讀性 */
-#hero-cta-lookup {
-  background: rgba(13, 17, 23, 0.55);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+/* Hero 主打追蹤：FB／LINE 品牌色實心按鈕，疊在相片輪播上也不會被照片吃掉 */
+.hero-follow-lead {
+  margin-bottom: 12px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: rgba(232, 238, 255, 0.9);
+  animation: heroFadeIn 1s 0.7s both;
 }
-#hero-cta-lookup:hover {
-  background: rgba(13, 17, 23, 0.7);
+.btn-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+.btn-fb {
+  background: #1877f2;
+  color: #fff;
+  box-shadow: 0 4px 24px rgba(24, 119, 242, 0.4);
+}
+.btn-fb:hover {
+  background: #166fe0;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(24, 119, 242, 0.6);
+}
+.btn-line {
+  background: #06c755;
+  color: #fff;
+  box-shadow: 0 4px 24px rgba(6, 199, 85, 0.35);
+}
+.btn-line:hover {
+  background: #05b34c;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(6, 199, 85, 0.55);
 }
 .btn-gold {
   background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-gold-dim) 100%);
@@ -737,6 +762,19 @@ img { max-width: 100%; display: block; }
 :root[data-theme="dark"] .about-cta:hover {
   background: rgba(245, 200, 66, 0.12);
   box-shadow: var(--shadow-gold);
+}
+
+/* 政見區塊末尾導向白皮書 —— 內文連結，不只放在導覽列與頁尾 */
+.policy-more {
+  margin-top: 44px;
+  text-align: center;
+}
+.policy-more-text {
+  max-width: 46em;
+  margin: 0 auto 20px;
+  font-size: 1rem;
+  line-height: 1.9;
+  color: var(--color-text-dim);
 }
 
 .hero-scroll-hint {
@@ -1918,6 +1956,7 @@ body.lightbox-open { overflow: hidden; }
 .contact-item-icon.fb     { background: rgba(24, 119, 242, 0.15); }
 .contact-item-icon.email  { background: color-mix(in srgb, var(--color-accent) 15%, transparent); color: var(--color-accent); }
 .contact-item-icon.phone  { background: color-mix(in srgb, var(--color-gold) 15%, transparent); color: var(--color-gold-ink); }
+.contact-item-icon.address { background: rgba(220, 38, 38, 0.12); color: #dc2626; }
 .contact-item-label {
   font-size: 0.7rem;
   font-weight: 700;
