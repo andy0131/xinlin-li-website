@@ -616,68 +616,6 @@ img { max-width: 100%; display: block; }
   animation: heroFadeIn 1s 0.8s both;
 }
 
-.hero-office {
-  margin-bottom: 22px;
-  animation: heroFadeIn 1s 0.9s both;
-}
-
-.hero-office-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 14px;
-  min-height: 64px;
-  max-width: 100%;
-  padding: 12px 18px;
-  border: 1px solid rgba(232, 238, 255, 0.4);
-  border-radius: var(--radius-md);
-  background: rgba(13, 17, 23, 0.65);
-  color: #fff;
-  text-align: left;
-  transition: border-color var(--transition), background var(--transition);
-}
-.hero-office-link:hover {
-  border-color: var(--color-gold);
-  background: rgba(13, 17, 23, 0.85);
-}
-.hero-office-link:focus-visible {
-  outline: 2px solid var(--color-gold);
-  outline-offset: 4px;
-}
-.hero-office-link .btn-icon { color: var(--color-gold); }
-.hero-office-copy { min-width: 0; }
-.hero-office-label {
-  display: block;
-  color: var(--color-gold);
-  font-size: 0.75rem;
-  font-weight: 700;
-  margin-bottom: 2px;
-}
-.hero-office-address {
-  display: block;
-  font-size: 0.9rem;
-  font-weight: 600;
-}
-.hero-office-cta {
-  margin-left: auto;
-  font-size: 0.8rem;
-  font-weight: 700;
-  white-space: nowrap;
-}
-
-@media (max-width: 480px) {
-  .hero-office-link {
-    width: min(100%, 330px);
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 8px 12px;
-  }
-  .hero-office-cta {
-    flex-basis: 100%;
-    margin-left: 0;
-    text-align: center;
-  }
-}
-
 /* --- Hero 政治獻金狀態告示 ---
    刻意做得比兩顆 CTA 安靜：這是「說明現況」而不是「請你行動」。
    許可函還沒到，不該長得像捐款按鈕。
@@ -767,7 +705,7 @@ img { max-width: 100%; display: block; }
   transform: translateY(-2px);
   box-shadow: var(--shadow-gold);
 }
-/* Hero 主打追蹤：FB／LINE 品牌色實心按鈕，疊在相片輪播上也不會被照片吃掉 */
+/* Hero 聯絡入口：FB／LINE／Google Maps 使用一致的實心圓角按鈕 */
 .hero-follow-lead {
   margin-bottom: 12px;
   font-size: 0.9rem;
@@ -800,6 +738,20 @@ img { max-width: 100%; display: block; }
   background: #05b34c;
   transform: translateY(-2px);
   box-shadow: 0 8px 32px rgba(6, 199, 85, 0.55);
+}
+.btn-map {
+  background: #d93025;
+  color: #fff;
+  box-shadow: 0 4px 24px rgba(217, 48, 37, 0.35);
+}
+.btn-map:hover {
+  background: #b3261e;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(217, 48, 37, 0.55);
+}
+.hero-actions .btn:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 4px;
 }
 .btn-gold {
   background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-gold-dim) 100%);
