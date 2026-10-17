@@ -616,6 +616,68 @@ img { max-width: 100%; display: block; }
   animation: heroFadeIn 1s 0.8s both;
 }
 
+.hero-office {
+  margin-bottom: 22px;
+  animation: heroFadeIn 1s 0.9s both;
+}
+
+.hero-office-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 64px;
+  max-width: 100%;
+  padding: 12px 18px;
+  border: 1px solid rgba(232, 238, 255, 0.4);
+  border-radius: var(--radius-md);
+  background: rgba(13, 17, 23, 0.65);
+  color: #fff;
+  text-align: left;
+  transition: border-color var(--transition), background var(--transition);
+}
+.hero-office-link:hover {
+  border-color: var(--color-gold);
+  background: rgba(13, 17, 23, 0.85);
+}
+.hero-office-link:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 4px;
+}
+.hero-office-link .btn-icon { color: var(--color-gold); }
+.hero-office-copy { min-width: 0; }
+.hero-office-label {
+  display: block;
+  color: var(--color-gold);
+  font-size: 0.75rem;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+.hero-office-address {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+.hero-office-cta {
+  margin-left: auto;
+  font-size: 0.8rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+@media (max-width: 480px) {
+  .hero-office-link {
+    width: min(100%, 330px);
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 12px;
+  }
+  .hero-office-cta {
+    flex-basis: 100%;
+    margin-left: 0;
+    text-align: center;
+  }
+}
+
 /* --- Hero 政治獻金狀態告示 ---
    刻意做得比兩顆 CTA 安靜：這是「說明現況」而不是「請你行動」。
    許可函還沒到，不該長得像捐款按鈕。
@@ -1974,6 +2036,21 @@ body.lightbox-open { overflow: hidden; }
   transition: color var(--transition);
 }
 .contact-item-value a:hover { color: var(--color-gold-ink); }
+.contact-map-cta {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.8rem;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+#contact-address {
+  display: inline-block;
+  min-height: 44px;
+}
+#contact-address:focus-visible {
+  outline: 2px solid var(--color-accent-2);
+  outline-offset: 4px;
+}
 
 /* ============================================================
    FOOTER
