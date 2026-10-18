@@ -705,7 +705,7 @@ img { max-width: 100%; display: block; }
   transform: translateY(-2px);
   box-shadow: var(--shadow-gold);
 }
-/* Hero 聯絡入口：FB／LINE／Google Maps 使用一致的實心圓角按鈕 */
+/* Hero 聯絡入口：FB／LINE 使用品牌色實心圓角按鈕 */
 .hero-follow-lead {
   margin-bottom: 12px;
   font-size: 0.9rem;
@@ -738,16 +738,6 @@ img { max-width: 100%; display: block; }
   background: #05b34c;
   transform: translateY(-2px);
   box-shadow: 0 8px 32px rgba(6, 199, 85, 0.55);
-}
-.btn-map {
-  background: #d93025;
-  color: #fff;
-  box-shadow: 0 4px 24px rgba(217, 48, 37, 0.35);
-}
-.btn-map:hover {
-  background: #b3261e;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 32px rgba(217, 48, 37, 0.55);
 }
 .hero-actions .btn:focus-visible {
   outline: 2px solid #fff;
